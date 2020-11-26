@@ -11,12 +11,13 @@ namespace TestWPPL {
         private MyPage dashboardPage;
         public MainWindow() {
             InitializeComponent();
-            registerPage = new RegisterPage();
+            //registerPage = new RegisterPage();
             loginPage = new LoginPage();
-            dashboardPage = new Dashboard.Dashboard();
+            mainFrame.Navigate(loginPage);
+            //dashboardPage = new Dashboard.Dashboard();
         }
 
-        private void loginButton_btn_Click(object sender, RoutedEventArgs e){
+        /*private void loginButton_btn_Click(object sender, RoutedEventArgs e){
             mainFrame.Navigate(loginPage);
         }
 
@@ -26,6 +27,6 @@ namespace TestWPPL {
 
         private void dashboardButton_btn_Click(object sender, RoutedEventArgs e){
             mainFrame.Navigate(dashboardPage);
-        }
+        }*/
     }
 }

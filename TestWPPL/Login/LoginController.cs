@@ -23,16 +23,16 @@ namespace TestWPPL.Login {
                 .addParameters("password", _password)
                 .setEndpoint("api/login/")
                 .setRequestMethod(HttpMethod.Post);
-            client.setOnSuccessRequest(setViewLoginStatus);
+            client.setOnSuccessRequest(setUserToken);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getJObject()["access_token"]);
-            client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            //Console.WriteLine(response.getJObject()["token"]);
+            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
-        private void setViewLoginStatus(HttpResponseBundle _response){
+        private void setUserToken(HttpResponseBundle _response){
             if (_response.getHttpResponseMessage().Content != null) {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                getView().callMethod("setLoginStatus", status);
+                getView().callMethod("saveToken", _response.getJObject()["token"].ToString());
             }
         }
     }
