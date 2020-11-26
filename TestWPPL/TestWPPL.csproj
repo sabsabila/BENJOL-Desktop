@@ -37,21 +37,37 @@
   <ItemGroup>
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Framework\CsvHelper.dll</HintPath>
+      <HintPath>..\CsvHelper.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Framework\LiveCharts.dll</HintPath>
+      <HintPath>..\LiveCharts.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Framework\LiveCharts.Wpf.dll</HintPath>
+      <HintPath>..\LiveCharts.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\RestSharp.dll</HintPath>
+    </Reference>
+<<<<<<< HEAD
+=======
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,9 +79,12 @@
     </Reference>
     <Reference Include="Velacro">
       <HintPath>..\Velacro.dll</HintPath>
+<<<<<<< HEAD
+=======
     </Reference>
     <Reference Include="windows">
       <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -81,6 +100,12 @@
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Pickup\PickupPage.xaml.cs">
+      <DependentUpon>PickupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Progress\ProgressPage.xaml.cs">
+      <DependentUpon>ProgressPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Register\RegisterController.cs" />
     <Compile Include="Register\RegisterPage.xaml.cs">
@@ -109,6 +134,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pickup\PickupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Progress\ProgressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Register\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,7 +174,47 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\—Pngtree—car car black tires printed_3071535.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_help-center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_inbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_Invoices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icon_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\wrench.png" />
+=======
     <Resource Include="Login\Group 1581.png" />
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
