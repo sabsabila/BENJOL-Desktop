@@ -42,9 +42,9 @@ namespace TestWPPL.Dashboard {
         public Dashboard() {
             InitializeComponent();
             
-            items.Add(new TodoItem() { Title = "Complete this WPF tutorial", Completion = 45 });
-            items.Add(new TodoItem() { Title = "Learn C#", Completion = 80 });
-            items.Add(new TodoItem() { Title = "Wash the car", Completion = 0 });
+            items.Add(new TodoItem() { Title = "Hore", Completion = 45 });
+            items.Add(new TodoItem() { Title = "Bisa", Completion = 80 });
+            items.Add(new TodoItem() { Title = "Login", Completion = 0 });
 
             lbTodoList.ItemsSource = items;
 

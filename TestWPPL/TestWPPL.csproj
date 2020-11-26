@@ -53,6 +53,12 @@
     <Reference Include="RestSharp">
       <HintPath>..\RestSharp.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+=======
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http.Formatting">
@@ -73,6 +79,12 @@
     </Reference>
     <Reference Include="Velacro">
       <HintPath>..\Velacro.dll</HintPath>
+<<<<<<< HEAD
+=======
+    </Reference>
+    <Reference Include="windows">
+      <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -83,6 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApiConstant.cs" />
     <Compile Include="Dashboard\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -161,6 +174,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\wrench.png" />
+=======
+    <Resource Include="Login\Group 1581.png" />
+>>>>>>> 334463f4fa81b03a17a348bfead7fd44695f0a74
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
