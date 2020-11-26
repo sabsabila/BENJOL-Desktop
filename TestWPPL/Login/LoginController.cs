@@ -14,7 +14,7 @@ namespace TestWPPL.Login {
         }
 
         public async void login(string _email, string _password) {
-            var client = new ApiClient("http://127.0.0.1:8000/");
+            var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
