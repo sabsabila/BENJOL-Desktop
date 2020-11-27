@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Velacro.UIElements.Basic;
 
 namespace TestWPPL.Booking
 {
     /// <summary>
     /// Interaction logic for BookingPage.xaml
     /// </summary>
-    public partial class BookingPage : Page
+    public partial class BookingPage : MyPage
     {
         public BookingPage()
         {
