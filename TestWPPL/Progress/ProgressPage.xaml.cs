@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Velacro.UIElements.Basic;
 
 namespace TestWPPL.Progress
 {
     /// <summary>
     /// Interaction logic for ProgressPage.xaml
     /// </summary>
-    public partial class ProgressPage : Page
+    public partial class ProgressPage : MyPage
     {
         public ProgressPage()
         {

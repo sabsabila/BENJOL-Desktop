@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Velacro.UIElements.Basic;
 
 namespace TestWPPL.Pickup
 {
     /// <summary>
     /// Interaction logic for PickupPage.xaml
     /// </summary>
-    public partial class PickupPage : Page
+    public partial class PickupPage : MyPage
     {
         public PickupPage()
         {
