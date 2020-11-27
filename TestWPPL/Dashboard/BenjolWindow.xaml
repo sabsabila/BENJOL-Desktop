@@ -1,0 +1,30 @@
+﻿<Window:MyWindow  xmlns:Window="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro" x:Class="TestWPPL.Dashboard.BenjolWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWPPL.Dashboard"
+        mc:Ignorable="d"
+        Title="BENJOL" Height="450" Width="800">
+    <Grid Background="#FFF0F0F7">
+        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Left" Height="55" Margin="150,0,0,0" VerticalAlignment="Top" Width="650"/>
+        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="150"/>
+        <Label Content="BENJOL" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="145" FontSize="25" Foreground="#FF636363" HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
+        <Button x:Name="dashboardButton" Content="&#x9;Dashboard" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="150" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="progressButton" Content="&#x9;Check Progress" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="progressButton_Click"  BorderBrush="{x:Null}"/>
+        <Button x:Name="sparepartButton" Content="&#x9;Products" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="paymentButton" Content="&#x9;Invoices" HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click ="paymentButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="pickupButton" Content="&#x9;Pickup" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="settingButton" Content="&#x9;Setting" HorizontalAlignment="Left" Margin="0,272,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}"/>
+        <Image HorizontalAlignment="Left" Height="149" Margin="0,301,0,0" VerticalAlignment="Top" Width="190" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="196,20,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="158" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFF0F0F7"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="175,22,0,0" VerticalAlignment="Top" Width="14" Source="/image/icon_search.png"/>
+        <Image HorizontalAlignment="Left" Height="21" Margin="20,80,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_dashboard.png"/>
+        <Image HorizontalAlignment="Left" Height="21" Margin="20,121,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_inbox.png"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="20,160,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_products.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="20,199,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_Invoices.png"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="20,237,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_help-center.png"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="20,277,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_setting.png"/>
+        <Frame x:Name="appFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="365" Margin="155,55,0,0" VerticalAlignment="Top" Width="635" FontSize="20"/>
+    </Grid>
+</Window:MyWindow>

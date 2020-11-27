@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Windows;
 using System.Windows.Controls;
 using TestWPPL.Dashboard;
 using TestWPPL.Register;
@@ -21,11 +22,13 @@ namespace TestWPPL.Login {
         private IMyTextBox emailTxtBox;
         private IMyPasswordBox passwordTxtBox;
         private MyPage dashboard;
+        private MyWindow benjolWindow;
 
         public LoginPage() {
             InitializeComponent();
             this.KeepAlive = true;
             dashboard = new Dashboard.Dashboard();
+            benjolWindow = new BenjolWindow();
             setController(new LoginController(this));
             initUIBuilders();
             initUIElements();
@@ -60,7 +63,8 @@ namespace TestWPPL.Login {
                 // Read a file  
                 string readText = File.ReadAllText(fullPath);
                 Console.WriteLine(readText);
-                this.NavigationService.Navigate(dashboard);
+                benjolWindow.Show();
+                Window.GetWindow(this).Close();
             });
         }
     }

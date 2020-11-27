@@ -90,6 +90,9 @@
     <Compile Include="Dashboard\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\BenjolWindow.xaml.cs">
+      <DependentUpon>BenjolWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
@@ -103,6 +106,10 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Dashboard\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dashboard\BenjolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +172,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-  <WCFMetadata Include="Connected Services\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\—Pngtree—car car black tires printed_3071535.png" />
