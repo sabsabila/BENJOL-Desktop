@@ -29,7 +29,6 @@ namespace TestWPPL.Pickup
     public partial class PickupPage : MyPage
     {
         private int _bookingId;
-        private MyWindow benjolWindow;
         private BuilderButton buttonBuilder;
         private BuilderRadioButton radioButtonBuilder;
         private IMyButton buttonSave;
@@ -42,7 +41,6 @@ namespace TestWPPL.Pickup
             InitializeComponent();
             this._bookingId = _bookingId;
             this.KeepAlive = true;
-            benjolWindow = new BenjolWindow();
             setController(new PickupController(this));
             initUIBuilders();
             initUIElements();
