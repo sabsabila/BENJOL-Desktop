@@ -29,6 +29,7 @@ namespace TestWPPL.Pickup
     public partial class PickupPage : MyPage
     {
         private int _bookingId;
+        private String _status;
         private BuilderButton buttonBuilder;
         private BuilderRadioButton radioButtonBuilder;
         private IMyButton buttonSave;
@@ -52,7 +53,7 @@ namespace TestWPPL.Pickup
             radioButtonBuilder = new BuilderRadioButton();
         }
 
-        private void initUIElements()
+        public void initUIElements()
         {
             buttonSave = buttonBuilder
                 .activate(this, "saveButton")

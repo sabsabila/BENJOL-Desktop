@@ -42,17 +42,17 @@ namespace TestWPPL.Pickup
             }
         }
 
-        private void onRadioButtonPickup1Checked()
+        public void onRadioButtonPickup1Checked()
         {
             _status = "Picking up your vehicle";
         }
 
-        private void onRadioButtonPickup2Checked()
+        public void onRadioButtonPickup2Checked()
         {
             _status = "Processing your service";
         }
 
-        private void onRadioButtonPickup3Checked()
+        public void onRadioButtonPickup3Checked()
         {
             _status = "Delivering back to you";
         }
