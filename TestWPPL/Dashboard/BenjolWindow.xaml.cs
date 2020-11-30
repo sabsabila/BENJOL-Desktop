@@ -33,7 +33,7 @@ namespace TestWPPL.Dashboard
         {
             InitializeComponent();
             progressPage = new ProgressPage();
-            pickupPage = new PickupPage();
+            pickupPage = new PickupPage(1);
             bookingPage = new BookingPage();
             profilePage = new ProfilePage();
 

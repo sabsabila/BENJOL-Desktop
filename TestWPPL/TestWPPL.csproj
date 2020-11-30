@@ -72,7 +72,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Velacro">
-      <HintPath>..\Velacro.dll</HintPath>
+      <HintPath>..\..\..\BENJOL-Desktop\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="windows">
       <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
@@ -98,6 +98,7 @@
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Pickup\PickupController.cs" />
     <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
