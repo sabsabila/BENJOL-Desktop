@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TestWPPL.Model
 {
-    public class ModelBooking
+    public class ModelBooking : INotifyPropertyChanged
     {
         public int booking_id { get; set; }
         public string repairment_date { get; set; }
@@ -19,6 +21,13 @@ namespace TestWPPL.Model
         public string service_name { get; set; }
         public string pickup_location { get; set; }
         public string dropoff_location { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 
     public class Root
