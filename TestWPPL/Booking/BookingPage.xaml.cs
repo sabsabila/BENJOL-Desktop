@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestWPPL.Dashboard;
 using TestWPPL.Model;
+using TestWPPL.Pickup;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.ListBox;
 
@@ -24,7 +25,8 @@ namespace TestWPPL.Booking
     public partial class BookingPage : MyPage
     {
         private String token;
-        int counter = 0;
+        private List<ModelBooking> bookings;
+        private PickupPage pickupPage;
 
         public BookingPage()
         {
@@ -34,12 +36,15 @@ namespace TestWPPL.Booking
             initUIBuilders();
             initUIElements();
             getBooking();
+            pickupPage = new PickupPage();
         }
+        int counter = 0;
 
         public void setBooking(List<ModelBooking> bookings)
         {
+            this.bookings = bookings;
             this.Dispatcher.Invoke(()=> {
-                bookingList.ItemsSource = bookings;
+                bookingList.ItemsSource = this.bookings;
             });
         }
 
@@ -56,6 +61,16 @@ namespace TestWPPL.Booking
         {
             String token = File.ReadAllText(@"userToken.txt");
             getController().callMethod("booking", token);
+        }
+
+        private void PickUpButton_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            Button button = sender as Button;
+            ModelBooking dataObject = button.DataContext as ModelBooking;
+            int index = bookings.IndexOf(dataObject);
+            Console.WriteLine(this.bookings.Count);
+            this.NavigationService.Navigate(new PickupPage());
         }
     }
 }
