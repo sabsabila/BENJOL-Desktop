@@ -24,7 +24,7 @@ namespace TestWPPL.Login {
                 .setEndpoint("api/login/")
                 .setRequestMethod(HttpMethod.Post);
             client.setOnSuccessRequest(setUserToken);
-            var response = await client.sendRequest(request.getApiRequestBundle());
+           var response = await client.sendRequest(request.getApiRequestBundle());
             //Console.WriteLine(response.getJObject()["token"]);
             //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
