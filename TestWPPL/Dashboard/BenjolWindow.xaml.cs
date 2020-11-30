@@ -31,7 +31,7 @@ namespace TestWPPL.Dashboard
         {
             InitializeComponent();
             progressPage = new ProgressPage();
-            pickupPage = new PickupPage();
+            pickupPage = new PickupPage(1);
             bookingPage = new BookingPage();
 
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
