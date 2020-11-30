@@ -21,13 +21,11 @@ namespace TestWPPL.Login {
         private IMyButton loginButton_btn;
         private IMyTextBox emailTxtBox;
         private IMyPasswordBox passwordTxtBox;
-        private MyPage dashboard;
         private MyWindow benjolWindow;
 
         public LoginPage() {
             InitializeComponent();
             this.KeepAlive = true;
-            dashboard = new Dashboard.Dashboard();
             benjolWindow = new BenjolWindow();
             setController(new LoginController(this));
             initUIBuilders();

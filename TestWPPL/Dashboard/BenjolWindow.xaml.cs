@@ -27,12 +27,13 @@ namespace TestWPPL.Dashboard
 
         public BenjolWindow()
         {
+            
             InitializeComponent();
             progressPage = new ProgressPage();
-            pickupPage = new PickupPage();
+            pickupPage = new PickupPage(1);
 
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(progressPage);
+            appFrame.Navigate(pickupPage);
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
