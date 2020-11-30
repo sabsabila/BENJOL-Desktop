@@ -36,7 +36,6 @@ namespace TestWPPL.Booking
             initUIBuilders();
             initUIElements();
             getBooking();
-            pickupPage = new PickupPage();
         }
         int counter = 0;
 
@@ -70,7 +69,7 @@ namespace TestWPPL.Booking
             ModelBooking dataObject = button.DataContext as ModelBooking;
             int index = bookings.IndexOf(dataObject);
             Console.WriteLine(this.bookings.Count);
-            this.NavigationService.Navigate(new PickupPage());
+            this.NavigationService.Navigate(new PickupPage(dataObject.booking_id));
         }
     }
 }
