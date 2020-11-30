@@ -71,8 +71,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Velacro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Velacro">
       <HintPath>..\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="windows">
@@ -88,6 +87,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiConstant.cs" />
+    <Compile Include="Booking\BookingController.cs" />
     <Compile Include="Booking\BookingPage.xaml.cs">
       <DependentUpon>BookingPage.xaml</DependentUpon>
     </Compile>
@@ -98,7 +98,7 @@
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
-    <Compile Include="Pickup\PickupController.cs" />
+    <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
     </Compile>
@@ -111,8 +111,8 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Booking\BookingPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dashboard\Dashboard.xaml">
       <SubType>Designer</SubType>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,18 +14,48 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestWPPL.Dashboard;
+using TestWPPL.Model;
 using Velacro.UIElements.Basic;
+using Velacro.UIElements.ListBox;
 
 namespace TestWPPL.Booking
 {
-    /// <summary>
-    /// Interaction logic for BookingPage.xaml
-    /// </summary>
     public partial class BookingPage : MyPage
     {
+        private String token;
+        int counter = 0;
+
         public BookingPage()
         {
             InitializeComponent();
+            this.KeepAlive = true;
+            setController(new BookingController(this));
+            initUIBuilders();
+            initUIElements();
+            getBooking();
+        }
+
+        public void setBooking(List<ModelBooking> bookings)
+        {
+            this.Dispatcher.Invoke(() => {
+                bookingList.ItemsSource = bookings;
+            });
+        }
+
+        private void initUIBuilders()
+        {
+        }
+
+        private void initUIElements()
+        {
+
+        }
+
+        private void getBooking()
+        {
+            String token = File.ReadAllText(@"userToken.txt");
+            getController().callMethod("booking", token);
         }
     }
 }

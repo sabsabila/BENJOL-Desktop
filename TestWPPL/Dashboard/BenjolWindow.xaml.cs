@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestWPPL.Booking;
 using TestWPPL.Pickup;
 using TestWPPL.Progress;
 using Velacro.UIElements.Basic;
@@ -24,6 +25,7 @@ namespace TestWPPL.Dashboard
     {
         private ProgressPage progressPage;
         private PickupPage pickupPage;
+        private BookingPage bookingPage;
 
         public BenjolWindow()
         {
@@ -34,6 +36,8 @@ namespace TestWPPL.Dashboard
 
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
             appFrame.Navigate(pickupPage);
+            bookingPage = new BookingPage();
+            appFrame.Navigate(bookingPage);
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
