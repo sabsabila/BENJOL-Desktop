@@ -73,7 +73,7 @@ namespace TestWPPL.Sparepart
         {
             int id = 1;
             this.listSparepart = spareparts;
-            Console.WriteLine("id sebelum diurut : " + listSparepart.ElementAt(4).sparepart_id);
+            actualId.Clear();
             foreach (ModelSparepart sparepart in spareparts)
             {
                 //nyimpen id asli
