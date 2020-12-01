@@ -17,6 +17,17 @@
                     <GridViewColumn DisplayMemberBinding="{Binding price}" Header="Price" Width="150"/>
                     <GridViewColumn DisplayMemberBinding="{Binding stock}" Header="Stock" Width="110"/>
                     <GridViewColumn DisplayMemberBinding="{Binding picture}" Header="Image" Width="150"/>
+                    <GridViewColumn Header="Action" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="editBtn" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
+                                    <Button x:Name="deleteBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Delete" Click="deleteBtn_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

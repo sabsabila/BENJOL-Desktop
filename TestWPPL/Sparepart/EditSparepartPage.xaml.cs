@@ -22,9 +22,10 @@ using Velacro.UIElements.TextBox;
 namespace TestWPPL.Sparepart
 {
     /// <summary>
-    /// Interaction logic for AddSparepartPage.xaml
+    /// Interaction logic for EditSparepartPage.xaml
     /// </summary>
-    public partial class AddSparepartPage : MyPage
+     
+    public partial class EditSparepartPage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton btnBuilder;
@@ -34,13 +35,17 @@ namespace TestWPPL.Sparepart
         private IMyTextBox nameTxtBox;
         private IMyTextBox priceTxtBox;
         private IMyTextBox stockTxtBox;
+        private int sparepartId;
 
-        public AddSparepartPage()
+        public EditSparepartPage(int sparepartId)
         {
             InitializeComponent();
+            this.sparepartId = sparepartId;
+            Console.WriteLine("id yang dikirim : " + sparepartId);
             setController(new SparepartController(this));
             initUIBuilders();
             initUIElements();
+            getEditedItem();
         }
 
         private void initUIBuilders()
@@ -71,7 +76,7 @@ namespace TestWPPL.Sparepart
         {
             ObjectSparepart newSparepart = new ObjectSparepart(nameTxtBox.getText(), Int32.Parse(priceTxtBox.getText()), Int16.Parse(stockTxtBox.getText()));
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("addSparepart", newSparepart, token);
+            getController().callMethod("editSparepart", newSparepart, sparepartId, token);
         }
 
         public void onUploadButtonClick()
@@ -79,10 +84,25 @@ namespace TestWPPL.Sparepart
             Console.WriteLine("ini buat upload");
         }
 
+        private void getEditedItem()
+        {
+            String token = File.ReadAllText(@"userToken.txt");
+            getController().callMethod("showSparepart", sparepartId, token);
+        }
+
+        public void setItem(ModelSparepart sparepart)
+        {
+            this.Dispatcher.Invoke(() => {
+                nameTxtBox.setText(sparepart.name);
+                priceTxtBox.setText(sparepart.price.ToString());
+                stockTxtBox.setText(sparepart.stock.ToString());
+            });
+        }
+
         public void setStatus(String _status)
         {
             this.Dispatcher.Invoke(() => {
-                MessageBoxResult result = MessageBox.Show(_status, "Add Item", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show(_status, "Edit Item", MessageBoxButton.OK, MessageBoxImage.Information);
                 switch (result)
                 {
                     case MessageBoxResult.OK:

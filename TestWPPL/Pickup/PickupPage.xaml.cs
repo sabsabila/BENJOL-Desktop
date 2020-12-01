@@ -13,12 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestWPPL.Booking;
 using TestWPPL.Dashboard;
 using TestWPPL.Login;
 using Velacro.Basic;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.RadioButton;
+using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Pickup
@@ -29,10 +31,10 @@ namespace TestWPPL.Pickup
     public partial class PickupPage : MyPage
     {
         private int _bookingId;
-        private String _status;
         private BuilderButton buttonBuilder;
         private BuilderRadioButton radioButtonBuilder;
         private IMyButton buttonSave;
+        private IMyButton buttonBack;
         private IMyRadioButton radioButtonPickup1;
         private IMyRadioButton radioButtonPickup2;
         private IMyRadioButton radioButtonPickup3;
@@ -58,6 +60,9 @@ namespace TestWPPL.Pickup
             buttonSave = buttonBuilder
                 .activate(this, "saveButton")
                 .addOnClick(this, "onSaveButtonClick");
+            buttonBack = buttonBuilder
+                .activate(this, "backButton")
+                .addOnClick(this, "onBackButtonClick");
             radioButtonPickup1 = radioButtonBuilder
                 .activate(this, "pickupStatus1")
                 .setGroupName("pickupStatusGroup")
@@ -76,6 +81,24 @@ namespace TestWPPL.Pickup
         {
             String token = File.ReadAllText(@"userToken.txt");
             getController().callMethod("pickup", _bookingId, token);
+        }
+
+        public void onBackButtonClick()
+        {
+            this.NavigationService.Navigate(new BookingPage());
+        }
+
+        public void setStatus(String _status)
+        {
+            this.Dispatcher.Invoke(() => {
+                MessageBoxResult result = MessageBox.Show(_status, "Set Pickup Status", MessageBoxButton.OK, MessageBoxImage.Information);
+                switch (result)
+                {
+                    case MessageBoxResult.OK:
+                        this.NavigationService.Navigate(new BookingPage());
+                        break;
+                }
+            });
         }
     }
 }

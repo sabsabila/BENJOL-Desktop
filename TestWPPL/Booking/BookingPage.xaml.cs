@@ -24,9 +24,8 @@ namespace TestWPPL.Booking
 {
     public partial class BookingPage : MyPage
     {
-        private String token;
         private List<ModelBooking> listBooking;
-        private PickupPage pickupPage;
+        private List<int> actualId = new List<int>();
 
         public BookingPage()
         {
@@ -38,13 +37,14 @@ namespace TestWPPL.Booking
             getBooking();
         }
 
-        public void setBooking(List<Model.ModelBooking> bookings)
+        public void setBooking(List<ModelBooking> bookings)
         {
             this.listBooking = bookings;
 
             int id = 1;
             foreach(ModelBooking booking in bookings)
             {
+                actualId.Add(booking.booking_id);
                 booking.booking_id = id;
                 id++;
             }
@@ -71,11 +71,13 @@ namespace TestWPPL.Booking
 
         private void PickUpButton_OnClick(object sender, RoutedEventArgs e)
         {
+            for (int i = 0; i < listBooking.Count; i++)
+            {
+                listBooking.ElementAt(i).booking_id = actualId.ElementAt(i);
+            }
 
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
-            int index = listBooking.IndexOf(dataObject);
-            Console.WriteLine(this.listBooking.Count);
             this.NavigationService.Navigate(new PickupPage(dataObject.booking_id));
         }
     }

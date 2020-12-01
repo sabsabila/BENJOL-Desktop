@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TestWPPL.Model
 {
-    public class ModelSparepart
+    public class ModelSparepart : INotifyPropertyChanged
     {
         public int sparepart_id { get; set; }
         public int bengkel_id { get; set; }
@@ -16,6 +18,13 @@ namespace TestWPPL.Model
         public string picture { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 
     public class Spareparts
@@ -23,4 +32,8 @@ namespace TestWPPL.Model
         public List<ModelSparepart> spareparts { get; set; }
     }
 
+    public class ItemSparepart
+    {
+        public ModelSparepart spareparts { get; set; }
+    }
 }

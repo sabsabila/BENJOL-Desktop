@@ -39,7 +39,9 @@ namespace TestWPPL.Pickup
         {
             if (_response.getHttpResponseMessage().Content != null)
             {
-                String status = _response.getHttpResponseMessage().ReasonPhrase;
+                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                Console.WriteLine(_response.getJObject()["message"]);
+                getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
 
