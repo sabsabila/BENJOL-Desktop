@@ -25,28 +25,13 @@ namespace TestWPPL.Dashboard
     /// </summary>
     public partial class BenjolWindow : MyWindow
     {
-        private ProgressPage progressPage;
-        private PickupPage pickupPage;
-        private BookingPage bookingPage;
-        private SparepartPage sparepartPage;
-        private ProfilePage profilePage;
-
+        
         public BenjolWindow()
         {
             
             InitializeComponent();
-            progressPage = new ProgressPage();
-            pickupPage = new PickupPage(1);
-            bookingPage = new BookingPage();
-            sparepartPage = new SparepartPage();
-
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(bookingPage);
-            pageTitle.Text = "Dashboard";
-            profilePage = new ProfilePage();
-
-            //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(bookingPage);
+            appFrame.Navigate(new BookingPage());
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
@@ -58,13 +43,13 @@ namespace TestWPPL.Dashboard
 
         private void bookingButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(bookingPage);
+            appFrame.Navigate(new BookingPage());
             pageTitle.Text = "Booking";
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(sparepartPage);
+            appFrame.Navigate(new SparepartPage());
             pageTitle.Text = "Spareparts";
         }
 
@@ -75,14 +60,14 @@ namespace TestWPPL.Dashboard
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(pickupPage);
+            appFrame.Navigate(new ListPickupPage());
             pageTitle.Text = "Pickups";
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
             pageTitle.Text = "Setting";
-            appFrame.Navigate(profilePage);
+            appFrame.Navigate(new ProfilePage()); ;
         }
     }
 }

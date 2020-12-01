@@ -22,7 +22,10 @@
                     <GridViewColumn Header="ACTION" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="PickUp" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Content="Pick Up" Click="PickUpButton_OnClick"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="progressBtn" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Set Progress" Click="progressBtn_Click"/>
+                                    <Button x:Name="deleteBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Cancel" Click="deleteBtn_Click"/>
+                                </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

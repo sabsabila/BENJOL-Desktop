@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
 
@@ -35,6 +36,36 @@ namespace TestWPPL.Pickup
             var response = await client.sendRequest(request.getApiRequestBundle());
         }
 
+        public async void requestPickup(String token)
+        {
+            var client = new ApiClient(ApiConstant.BASE_URL);
+            var request = new ApiRequestBuilder();
+
+            var req = request
+                .buildHttpRequest()
+                .setEndpoint("api/myPickups")
+                .setRequestMethod(HttpMethod.Get);
+
+            client.setAuthorizationToken(token);
+            client.setOnSuccessRequest(setPickup);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+        }
+
+        public async void requestUser(int _bookingId, String token)
+        {
+            var client = new ApiClient(ApiConstant.BASE_URL);
+            var request = new ApiRequestBuilder();
+
+            var req = request
+                .buildHttpRequest()
+                .setEndpoint("api/userInfo/" + _bookingId + "/")
+                .setRequestMethod(HttpMethod.Get);
+
+            client.setAuthorizationToken(token);
+            client.setOnSuccessRequest(setUser);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+        }
+
         private void setStatus(HttpResponseBundle _response)
         {
             if (_response.getHttpResponseMessage().Content != null)
@@ -42,6 +73,24 @@ namespace TestWPPL.Pickup
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
+            }
+        }
+
+        private void setUser(HttpResponseBundle _response)
+        {
+            if (_response.getHttpResponseMessage().Content != null)
+            {
+                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                Console.WriteLine(_response.getJObject()["message"]);
+                getView().callMethod("setUser", _response.getParsedObject<ItemUser>().user);
+            }
+        }
+
+        private void setPickup(HttpResponseBundle _response)
+        {
+            if (_response.getHttpResponseMessage().Content != null)
+            {
+                getView().callMethod("setPickup", _response.getParsedObject<Pickups>().pickups);
             }
         }
 
