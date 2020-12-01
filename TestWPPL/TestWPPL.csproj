@@ -72,7 +72,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Velacro">
-      <HintPath>..\Velacro.dll</HintPath>
+      <HintPath>..\..\..\BENJOL-Desktop\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="windows">
       <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
@@ -98,11 +98,13 @@
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
-    <Compile Include="Model\ModelBooking.cs" />
-    <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Pickup\PickupController.cs" />
+    <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Progress\ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
@@ -112,12 +114,8 @@
     <Compile Include="Register\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sparepart\AddSparepartPage.xaml.cs">
-      <DependentUpon>AddSparepartPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sparepart\SparepartController.cs" />
-    <Compile Include="Sparepart\SparepartPage.xaml.cs">
-      <DependentUpon>SparepartPage.xaml</DependentUpon>
+    <Compile Include="Service\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Page Include="Booking\BookingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Profile\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Progress\ProgressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,11 +164,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sparepart\AddSparepartPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sparepart\SparepartPage.xaml">
+    <Page Include="Service\ServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,12 +234,6 @@
   <ItemGroup>
     <Resource Include="Image\wrench.png" />
     <Resource Include="Login\Group 1581.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Sparepart\camera-placeholder.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Dashboard\icons8-wrench-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

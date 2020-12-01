@@ -19,7 +19,14 @@
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="PROBLEM" Width="150"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="DATE" Width="110"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="SERVICE" Width="150"/>
-                    <GridViewColumn Header="ACTION" Width="110"/>
+                    <GridViewColumn Header="ACTION" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="PickUp" Background="#FFFCCA53" Foreground="#FF636363" Content="Pick Up" Click="PickUpButton_OnClick"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
