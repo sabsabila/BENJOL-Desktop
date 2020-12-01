@@ -5,26 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestWPPL.Dashboard"
         mc:Ignorable="d"
-        Title="BENJOL" Height="450" Width="800">
-    <Grid Background="#FFF0F0F7">
-        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Left" Height="55" Margin="150,0,0,0" VerticalAlignment="Top" Width="650"/>
-        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="150"/>
-        <Label Content="BENJOL" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="145" FontSize="25" Foreground="#FF636363" HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
-        <Button x:Name="dashboardButton" Content="&#x9;Dashboard" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="150" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}"/>
-        <Button x:Name="progressButton" Content="&#x9;Check Progress" HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="progressButton_Click"  BorderBrush="{x:Null}"/>
-        <Button x:Name="sparepartButton" Content="&#x9;Products" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}"/>
-        <Button x:Name="paymentButton" Content="&#x9;Invoices" HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click ="paymentButton_Click" BorderBrush="{x:Null}"/>
-        <Button x:Name="pickupButton" Content="&#x9;Pickup" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}"/>
-        <Button x:Name="settingButton" Content="&#x9;Setting" HorizontalAlignment="Left" Margin="0,272,0,0" VerticalAlignment="Top" Width="150" Height="26" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="149" Margin="0,301,0,0" VerticalAlignment="Top" Width="190" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="196,20,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="158" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFF0F0F7"/>
-        <Image HorizontalAlignment="Left" Height="22" Margin="175,22,0,0" VerticalAlignment="Top" Width="14" Source="/image/icon_search.png"/>
-        <Image HorizontalAlignment="Left" Height="21" Margin="20,80,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_dashboard.png"/>
-        <Image HorizontalAlignment="Left" Height="21" Margin="20,121,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_inbox.png"/>
-        <Image HorizontalAlignment="Left" Height="22" Margin="20,160,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_products.png"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="20,199,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_Invoices.png"/>
-        <Image HorizontalAlignment="Left" Height="23" Margin="20,237,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_help-center.png"/>
-        <Image HorizontalAlignment="Left" Height="23" Margin="20,277,0,0" VerticalAlignment="Top" Width="18" Source="/image/icon_setting.png"/>
-        <Frame x:Name="appFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="365" Margin="155,55,0,0" VerticalAlignment="Top" Width="635" FontSize="20"/>
+        Title="BENJOL" >
+    <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Column="1" Fill="#FFFCCA53" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Rectangle Fill="#FFFCCA53" Grid.Row ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Label Content="BENJOL" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Foreground="#FF636363" HorizontalContentAlignment="Center" Margin="20,0,0,0"/>
+        <Button x:Name="dashboardButton" Grid.Row="1" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="progressButton" Grid.Row ="1" Content="&#x9;Booking" HorizontalAlignment="Stretch" Margin="0,60,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="bookingButton_Click"  BorderBrush="{x:Null}"/>
+        <Button x:Name="sparepartButton" Grid.Row ="1" Content="&#x9;Products" HorizontalAlignment="Stretch" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="paymentButton" Grid.Row ="1" Content="&#x9;Invoices" HorizontalAlignment="Stretch" Margin="0,140,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click ="paymentButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="pickupButton" Grid.Row ="1" Content="&#x9;Pickup" HorizontalAlignment="Stretch" Margin="0,180,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="servicesButton" Grid.Row ="1" Content="&#x9;Services" HorizontalAlignment="Stretch" Margin="0,220,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}"/>
+        <Button x:Name="settingButton" Grid.Row ="1" Content="&#x9;Setting" HorizontalAlignment="Stretch" Margin="0,260,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="0,250,0,0" VerticalAlignment="Bottom" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,20,115,0" VerticalAlignment="Top" Source="/image/icon_dashboard.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,65,115,0" VerticalAlignment="Top" Source="/image/icon_inbox.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,105,115,0" VerticalAlignment="Top" Source="/image/icon_products.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,145,115,0" VerticalAlignment="Top" Source="/image/icon_Invoices.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,185,115,0" VerticalAlignment="Top" Source="/image/icon_help-center.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,225,115,0" VerticalAlignment="Top" Source="icons8-wrench-50.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,265,115,0" VerticalAlignment="Top" Source="/image/icon_setting.png"/>
+        <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
+        <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#FF636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
     </Grid>
 </Window:MyWindow>

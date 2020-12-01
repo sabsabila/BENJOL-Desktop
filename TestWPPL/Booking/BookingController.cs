@@ -37,8 +37,8 @@ namespace TestWPPL.Booking
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 Console.WriteLine("BAWAH");
-                Console.WriteLine(_response.getParsedObject<Root>().booking);
-                getView().callMethod("setBooking", _response.getParsedObject<Root>().booking);
+                Console.WriteLine(_response.getParsedObject<Bookings>().booking);
+                getView().callMethod("setBooking", _response.getParsedObject<Bookings>().booking);
             }
         }
     }

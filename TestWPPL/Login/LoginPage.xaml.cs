@@ -16,15 +16,17 @@ namespace TestWPPL.Login
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
         private BuilderPasswordBox pwdBoxBuilder;
+        private BuilderTextBlock txtBlockBuilder;
         private IMyButton loginButton_btn;
         private IMyTextBox emailTxtBox;
         private IMyPasswordBox passwordTxtBox;
+        private IMyTextBlock statusTextBlock;
         private MyWindow benjolWindow;
 
         public LoginPage()
         {
             InitializeComponent();
-            this.KeepAlive = true;
+            //this.KeepAlive = true;
             benjolWindow = new BenjolWindow();
             setController(new LoginController(this));
             initUIBuilders();
@@ -36,6 +38,7 @@ namespace TestWPPL.Login
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
             pwdBoxBuilder = new BuilderPasswordBox();
+            txtBlockBuilder = new BuilderTextBlock();
         }
 
         private void initUIElements()
@@ -47,6 +50,7 @@ namespace TestWPPL.Login
             emailTxtBox.setTextVerticalAlignment(MyVerticalAlignment.CENTER);
             passwordTxtBox = pwdBoxBuilder.activate(this, "passwordBox");
             passwordTxtBox.setPasswordVerticalAlignment(MyVerticalAlignment.CENTER);
+            statusTextBlock = txtBlockBuilder.activate(this, "status");
         }
 
         public void onLoginButtonClick()
@@ -62,11 +66,16 @@ namespace TestWPPL.Login
                 string fullPath = @"userToken.txt";
                 File.WriteAllText(fullPath, token);
                 // Read a file  
-                string readText = File.ReadAllText(fullPath);
-                Console.WriteLine(readText);
+                //string readText = File.ReadAllText(fullPath);
+                //Console.WriteLine(readText);
                 benjolWindow.Show();
                 Window.GetWindow(this).Close();
             });
+        }
+
+        public void setStatus(String status)
+        {
+            statusTextBlock.setText(status);
         }
     }
 }
