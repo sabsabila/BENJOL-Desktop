@@ -31,8 +31,12 @@ namespace TestWPPL.Login {
 
         private void setUserToken(HttpResponseBundle _response){
             if (_response.getHttpResponseMessage().Content != null) {
-                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                //string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("saveToken", _response.getJObject()["token"].ToString());
+            }
+            else
+            {
+                getView().callMethod("setStatus", "Wrong e-mail or password");
             }
         }
     }

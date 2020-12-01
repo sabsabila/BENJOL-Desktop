@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using TestWPPL.Booking;
 using TestWPPL.Pickup;
 using TestWPPL.Progress;
+using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
 
@@ -24,53 +25,49 @@ namespace TestWPPL.Dashboard
     /// </summary>
     public partial class BenjolWindow : MyWindow
     {
-        private ProgressPage progressPage;
-        private PickupPage pickupPage;
-        private BookingPage bookingPage;
-        private ProfilePage profilePage;
-
+        
         public BenjolWindow()
         {
+            
             InitializeComponent();
-            progressPage = new ProgressPage();
-            pickupPage = new PickupPage(1);
-            bookingPage = new BookingPage();
-            profilePage = new ProfilePage();
-
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(bookingPage);
+            appFrame.Navigate(new BookingPage());
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
         //pake appFrame.Navigate(namaPage)
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
-
+            pageTitle.Text = "Dashboard";
         }
 
-        private void progressButton_Click(object sender, RoutedEventArgs e)
+        private void bookingButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(progressPage);
+            appFrame.Navigate(new BookingPage());
+            pageTitle.Text = "Booking";
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            appFrame.Navigate(new SparepartPage());
+            pageTitle.Text = "Spareparts";
         }
 
         private void paymentButton_Click(object sender, RoutedEventArgs e)
         {
-
+            pageTitle.Text = "Payments";
         }
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(pickupPage);
+            appFrame.Navigate(new ListPickupPage());
+            pageTitle.Text = "Pickups";
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(profilePage);
+            pageTitle.Text = "Setting";
+            appFrame.Navigate(new ProfilePage()); ;
         }
     }
 }

@@ -14,8 +14,8 @@
         <Label Background="#FFF0F0F7" Content="Account Info" HorizontalAlignment="Left" Margin="52,83,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="12"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="68,131,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="68,164,0,0" VerticalAlignment="Top"/>
-        <Label Content="Telephon Number" HorizontalAlignment="Left" Margin="68,197,0,0" VerticalAlignment="Top"/>
-        <Label Content="Street" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="Telephone Number" HorizontalAlignment="Left" Margin="68,197,0,0" VerticalAlignment="Top"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="238,131,0,0" VerticalAlignment="Top"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="238,164,0,0" VerticalAlignment="Top"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="238,197,0,0" VerticalAlignment="Top"/>
