@@ -1,0 +1,38 @@
+﻿<Page:MyPage  xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro" x:Class="TestWPPL.Sparepart.SparepartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestWPPL.Sparepart"
+      mc:Ignorable="d" 
+      Title="SparepartPage">
+
+    <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <ListView x:Name="sparepartList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding sparepart_id}" Header="#" Width="40"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding price}" Header="Price" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding stock}" Header="Stock" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding picture}" Header="Image" Width="150"/>
+                    <GridViewColumn Header="Action" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="editBtn" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
+                                    <Button x:Name="deleteBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Delete" Click="deleteBtn_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="20" Width="420" Margin="20,70,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="searchBtn" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="460,70,120,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button x:Name="addBtn" Content="Add Item" MaxWidth="90" HorizontalAlignment="Stretch" Margin="540,70,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+    </Grid>
+</Page:MyPage>

@@ -30,7 +30,7 @@ namespace TestWPPL.Model
         }
     }
 
-    public class Root
+    public class Bookings
     {
         public List<ModelBooking> booking { get; set; }
     }
