@@ -92,7 +92,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Velacro">
-      <HintPath>..\Velacro.dll</HintPath>
+      <HintPath>..\..\..\BENJOL-Desktop\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiConstant.cs" />
+    <Compile Include="Booking\BookingController.cs" />
+    <Compile Include="Booking\BookingPage.xaml.cs">
+      <DependentUpon>BookingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -111,11 +115,13 @@
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Pickup\PickupController.cs" />
+    <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Progress\ProgressController.cs">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="Profile\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Progress\ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
@@ -125,6 +131,13 @@
     <Compile Include="Register\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Booking\BookingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dashboard\Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,11 +169,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Profile\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Progress\ProgressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Register\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
