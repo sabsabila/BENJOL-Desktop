@@ -9,8 +9,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage">
-    <Grid>
-        <Image x:Name="loginImage" HorizontalAlignment="Left" Height="603" VerticalAlignment="Top" Width="500" Source="Group 1581.png" Margin="-26,-17,0,-136"/>
+    <Grid Background="#FFFFFF">
+        <Image x:Name="loginImage" HorizontalAlignment="Left" Height="521" VerticalAlignment="Top" Width="522" Source="Group 1581.png" Margin="-35,-29,0,-42"/>
         <TextBlock x:Name="loginTitle" HorizontalAlignment="Left" Margin="492,47,0,0" TextWrapping="Wrap" Text="USER LOGIN" VerticalAlignment="Top" Height="31" Width="260" FontSize="24" TextAlignment="Center" Opacity="0.8"/>
         <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="554,83,0,0" TextWrapping="Wrap" Text="Bengkel Jadi Online" VerticalAlignment="Top" Width="135" TextAlignment="Center" Opacity="0.8"/>
         <TextBox x:Name="emailTextBox"  HorizontalAlignment="Left" Height="36" Margin="492,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" Opacity="0.505" FontSize="16"/>
@@ -18,6 +18,7 @@
         <TextBlock x:Name="emailLabel" HorizontalAlignment="Left" Margin="492,126,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Opacity="0.8"/>
         <TextBlock HorizontalAlignment="Left" Margin="492,188,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Opacity="0.8"/>
         <Button x:Name="loginButton" Background="#FBB308" Content="Login" HorizontalAlignment="Left" Margin="492,277,0,0" VerticalAlignment="Top" Width="260" Height="36" FontSize="14" BorderThickness="0" />
+        <TextBlock x:Name="status" HorizontalAlignment="Left" Margin="493,336,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="29" Width="259" FontSize="16"/>
 
     </Grid>
 </basic1:MyPage>

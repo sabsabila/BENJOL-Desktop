@@ -21,7 +21,7 @@ namespace TestWPPL.Model
         public string dropoff_location { get; set; }
     }
 
-    public class Root
+    public class Bookings
     {
         public List<ModelBooking> booking { get; set; }
     }

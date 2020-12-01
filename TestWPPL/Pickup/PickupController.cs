@@ -10,7 +10,8 @@ using Velacro.Basic;
 
 namespace TestWPPL.Pickup
 {
-    class PickupController : MyController {
+    class PickupController : MyController
+    {
         String _status;
 
         public PickupController(IMyView _myView) : base(_myView)
@@ -28,7 +29,7 @@ namespace TestWPPL.Pickup
                 .addParameters("status", _status)
                 .setEndpoint("api/pickup/" + _bookingId + "/")
                 .setRequestMethod(HttpMethod.Put);
-            
+
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
@@ -42,19 +43,19 @@ namespace TestWPPL.Pickup
             }
         }
 
-        private void onRadioButtonPickup1Checked()
+        public void onRadioButtonPickup1Checked()
         {
-            _status = "Picking up your vehicle";
+            _status = "picking up";
         }
 
-        private void onRadioButtonPickup2Checked()
+        public void onRadioButtonPickup2Checked()
         {
-            _status = "Processing your service";
+            _status = "processing";
         }
 
-        private void onRadioButtonPickup3Checked()
+        public void onRadioButtonPickup3Checked()
         {
-            _status = "Delivering back to you";
+            _status = "delivering";
         }
     }
 }

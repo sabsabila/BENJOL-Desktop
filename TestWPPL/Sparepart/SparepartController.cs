@@ -4,25 +4,28 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
-using TestWPPL.Model;
 
-namespace TestWPPL.Booking
+namespace TestWPPL.Sparepart
 {
-    public class BookingController : MyController {
-        public BookingController(IMyView _myView) : base(_myView) { 
-            
+    class SparepartController : MyController
+    {
+        public SparepartController(IMyView _myView) : base(_myView)
+        {
+
         }
 
-        public async void booking(String token)
+        public async void requestSpareparts(String token)
         {
+            //Console.WriteLine("ini pas request api sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/myBooking")
+                .setEndpoint("api/mySpareparts")
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
@@ -36,9 +39,9 @@ namespace TestWPPL.Booking
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine("BAWAH");
-                Console.WriteLine(_response.getParsedObject<Bookings>().booking);
-                getView().callMethod("setBooking", _response.getParsedObject<Bookings>().booking);
+                //Console.WriteLine("ini pas get sparepart");
+                //Console.WriteLine(_response.getParsedObject<Spareparts>().spareparts.Count());
+                getView().callMethod("setSparepart", _response.getParsedObject<Spareparts>().spareparts);
             }
         }
     }

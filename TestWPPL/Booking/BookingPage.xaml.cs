@@ -23,9 +23,7 @@ namespace TestWPPL.Booking
 {
     public partial class BookingPage : MyPage
     {
-        private String token;
-        int counter = 0;
-
+        
         public BookingPage()
         {
             InitializeComponent();
@@ -36,8 +34,14 @@ namespace TestWPPL.Booking
             getBooking();
         }
 
-        public void setBooking(List<ModelBooking> bookings)
+        public void setBooking(List<Model.ModelBooking> bookings)
         {
+            int id = 1;
+            foreach(ModelBooking booking in bookings)
+            {
+                booking.booking_id = id;
+                id++;
+            }
             this.Dispatcher.Invoke(() => {
                 bookingList.ItemsSource = bookings;
             });
