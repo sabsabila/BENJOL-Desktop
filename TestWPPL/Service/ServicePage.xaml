@@ -1,26 +1,37 @@
-﻿<Page x:Class="TestWPPL.Service.ServicePage"
+﻿<Page:MyPage xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro" 
+      x:Class="TestWPPL.Service.ServicePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Service"
-      mc:Ignorable="d" 
-      d:DesignHeight="365" d:DesignWidth="635"
+      mc:Ignorable="d"
       Title="ServicePage">
 
-    <Grid Background="#FFF0F0F7">
-        <Label Content="List Service :" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="20"/>
-        <ListView x:Name="bookingList" HorizontalAlignment="Left" Height="166" Margin="35,110,0,0" VerticalAlignment="Top" Width="306">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7" >
+        <Label Content="List Service" HorizontalAlignment="Left" Margin="20,10
+               ,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="20"/>
+        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding service_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="NAME" Width="150"/>
-                    <GridViewColumn Header="ACTION" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="NAME" Width="600"/>
+                    <GridViewColumn Header="ACTION" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="deleteBtn" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Remove" Click="deleteBtn_Click"/>
+                                    <Button x:Name="editBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="399,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.515,1.987"/>
-        <Label Content="Service Name :" HorizontalAlignment="Left" Margin="393,110,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="15"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="444,218,0,0" VerticalAlignment="Top" Width="75" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.515,1.987"/>
+        <Button x:Name="addServiceButton" Content="Add" HorizontalAlignment="Stretch" Margin="683,70,41,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button x:Name="searchServiceButton" Content="Search" HorizontalAlignment="Stretch" Margin="355,70,369,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        
     </Grid>
-</Page>
+</Page:MyPage>

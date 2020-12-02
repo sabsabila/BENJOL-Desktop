@@ -33,6 +33,7 @@ namespace TestWPPL.Sparepart
         private IMyTextBox searchTextBox;
         private List<ModelSparepart> listSparepart;
         private List<int> actualId = new List<int>();
+        private CollectionView view;
 
         public SparepartPage()
         {
@@ -84,7 +85,22 @@ namespace TestWPPL.Sparepart
             
             this.Dispatcher.Invoke(() => {
                 sparepartList.ItemsSource = spareparts;
+                view = (CollectionView)CollectionViewSource.GetDefaultView(sparepartList.ItemsSource);
+                view.Filter = UserFilter;
             });
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(searchTextBox.getText()))
+                return true;
+            else
+                return ((item as ModelSparepart).name.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(this.sparepartList.ItemsSource).Refresh();
         }
 
         private void getSparepart()

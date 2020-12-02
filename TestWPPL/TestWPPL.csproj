@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -62,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,8 +73,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Velacro">
-      <HintPath>..\..\..\BENJOL-Desktop\Velacro.dll</HintPath>
+    <Reference Include="Velacro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="windows">
       <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
@@ -105,6 +108,7 @@
     <Compile Include="Pickup\ListPickupPage.xaml.cs">
       <DependentUpon>ListPickupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ModelService.cs" />
     <Compile Include="Pickup\PickupController.cs" />
     <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
@@ -120,6 +124,13 @@
     <Compile Include="Register\RegisterController.cs" />
     <Compile Include="Register\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceAddDialog.xaml.cs">
+      <DependentUpon>ServiceAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceController.cs" />
+    <Compile Include="Service\ServiceEditDialog.xaml.cs">
+      <DependentUpon>ServiceEditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
@@ -182,6 +193,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Register\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServiceAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServiceEditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
