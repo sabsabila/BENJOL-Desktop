@@ -19,8 +19,6 @@ namespace TestWPPL.Model
         public string first_name { get; set; }
         public string last_name { get; set; }
         public string service_name { get; set; }
-        public string pickup_location { get; set; }
-        public string dropoff_location { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
