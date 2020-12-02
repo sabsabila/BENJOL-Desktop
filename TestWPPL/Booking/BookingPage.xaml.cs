@@ -93,8 +93,7 @@ namespace TestWPPL.Booking
             ModelBooking dataObject = button.DataContext as ModelBooking;
 
             Console.WriteLine("id booking di progress : " + dataObject.booking_id);
-            //this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id));
-            this.NavigationService.Navigate(new ProgressPage());
+            this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id));
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
