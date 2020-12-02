@@ -18,11 +18,6 @@ namespace TestWPPL.Progress
             var request = new ApiRequestBuilder();
             var req = request
                 .buildHttpRequest()
-                .addHeaders("Authorization", "Bearer"+token)
-                .addHeaders("Content - Type", "application/x-www-form-urlencoded")
-                .addHeaders("Connection","keep-alive")
-                .addHeaders("Accept", "*/*")
-                .addHeaders("Accept-Encoding", "gzip,deflate,br")
                 .addParameters("start_time", _startTime)
                 .addParameters("end_time", _endTime)
                 .setEndpoint("api/booking/" + _bookingId)
