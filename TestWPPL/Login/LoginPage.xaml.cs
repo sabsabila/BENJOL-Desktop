@@ -1,20 +1,18 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
 using System.Windows;
-using System.Windows.Controls;
 using TestWPPL.Dashboard;
-using TestWPPL.Register;
 using Velacro.Enums;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.PasswordBox;
-using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
-namespace TestWPPL.Login {
+namespace TestWPPL.Login
+{
 
-    public partial class LoginPage : MyPage {
+    public partial class LoginPage : MyPage
+    {
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
         private BuilderPasswordBox pwdBoxBuilder;
@@ -25,7 +23,8 @@ namespace TestWPPL.Login {
         private IMyTextBlock statusTextBlock;
         private MyWindow benjolWindow;
 
-        public LoginPage() {
+        public LoginPage()
+        {
             InitializeComponent();
             //this.KeepAlive = true;
             benjolWindow = new BenjolWindow();
@@ -34,14 +33,16 @@ namespace TestWPPL.Login {
             initUIElements();
         }
 
-        private void initUIBuilders(){
+        private void initUIBuilders()
+        {
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
             pwdBoxBuilder = new BuilderPasswordBox();
             txtBlockBuilder = new BuilderTextBlock();
         }
 
-        private void initUIElements(){
+        private void initUIElements()
+        {
             loginButton_btn = buttonBuilder
                 .activate(this, "loginButton")
                 .addOnClick(this, "onLoginButtonClick");
@@ -52,12 +53,14 @@ namespace TestWPPL.Login {
             statusTextBlock = txtBlockBuilder.activate(this, "status");
         }
 
-        public void onLoginButtonClick() {
+        public void onLoginButtonClick()
+        {
             getController().callMethod("login", emailTextBox.Text, passwordBox.Password);
         }
 
 
-        public void saveToken(String token){
+        public void saveToken(String token)
+        {
             this.Dispatcher.Invoke(() =>
             {
                 string fullPath = @"userToken.txt";
