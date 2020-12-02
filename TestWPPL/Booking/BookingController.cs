@@ -31,14 +31,39 @@ namespace TestWPPL.Booking
             //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
+        public async void deleteBooking(int _booking_id, String token)
+        {
+            var client = new ApiClient(ApiConstant.BASE_URL);
+            var request = new ApiRequestBuilder();
+
+            var req = request
+                .buildHttpRequest()
+                .setEndpoint("api/booking/" + _booking_id)
+                .setRequestMethod(HttpMethod.Delete);
+            client.setAuthorizationToken(token);
+            client.setOnSuccessRequest(setStatus);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+            //Console.WriteLine(response.getJObject()["token"]);
+            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+        }
+
         private void setItem(HttpResponseBundle _response)
         {
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 Console.WriteLine("BAWAH");
-                Console.WriteLine(_response.getParsedObject<Root>().booking);
-                getView().callMethod("setBooking", _response.getParsedObject<Root>().booking);
+                Console.WriteLine(_response.getParsedObject<Bookings>().booking);
+                getView().callMethod("setBooking", _response.getParsedObject<Bookings>().booking);
+            }
+        }
+
+        private void setStatus(HttpResponseBundle _response)
+        {
+            if (_response.getHttpResponseMessage().Content != null)
+            {
+                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
     }

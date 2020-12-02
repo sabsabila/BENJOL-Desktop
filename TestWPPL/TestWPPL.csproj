@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +39,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +50,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TestWPPL.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
@@ -55,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -62,6 +83,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,11 +93,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Velacro">
-      <HintPath>..\..\..\BENJOL-Desktop\Velacro.dll</HintPath>
-    </Reference>
-    <Reference Include="windows">
-      <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
+    <Reference Include="Velacro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Velacro.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -98,10 +118,21 @@
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Model\ModelPickup.cs" />
+    <Compile Include="Model\ModelSparepart.cs" />
+    <Compile Include="Model\ModelUser.cs" />
+    <Compile Include="Model\ObjectSparepart.cs" />
+    <Compile Include="Pickup\ListPickupPage.xaml.cs">
+      <DependentUpon>ListPickupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelService.cs" />
     <Compile Include="Pickup\PickupController.cs" />
     <Compile Include="Model\ModelBooking.cs" />
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Progress\ProgressPage.xaml.cs">
       <DependentUpon>ProgressPage.xaml</DependentUpon>
@@ -110,6 +141,26 @@
     <Compile Include="Register\RegisterController.cs" />
     <Compile Include="Register\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceAddDialog.xaml.cs">
+      <DependentUpon>ServiceAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServiceController.cs" />
+    <Compile Include="Service\ServiceEditDialog.xaml.cs">
+      <DependentUpon>ServiceEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sparepart\AddSparepartPage.xaml.cs">
+      <DependentUpon>AddSparepartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sparepart\EditSparepartPage.xaml.cs">
+      <DependentUpon>EditSparepartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sparepart\SparepartController.cs" />
+    <Compile Include="Sparepart\SparepartPage.xaml.cs">
+      <DependentUpon>SparepartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Booking\BookingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -142,7 +193,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pickup\ListPickupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pickup\PickupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Profile\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +212,30 @@
     <Page Include="Register\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServiceAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServiceEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Service\ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sparepart\AddSparepartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sparepart\EditSparepartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sparepart\SparepartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +303,12 @@
   <ItemGroup>
     <Resource Include="Image\wrench.png" />
     <Resource Include="Login\Group 1581.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sparepart\camera-placeholder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dashboard\icons8-wrench-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

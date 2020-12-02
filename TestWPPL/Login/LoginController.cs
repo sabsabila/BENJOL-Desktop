@@ -24,15 +24,19 @@ namespace TestWPPL.Login {
                 .setEndpoint("api/login/")
                 .setRequestMethod(HttpMethod.Post);
             client.setOnSuccessRequest(setUserToken);
-            var response = await client.sendRequest(request.getApiRequestBundle());
+           var response = await client.sendRequest(request.getApiRequestBundle());
             //Console.WriteLine(response.getJObject()["token"]);
             //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
         private void setUserToken(HttpResponseBundle _response){
             if (_response.getHttpResponseMessage().Content != null) {
-                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                //string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("saveToken", _response.getJObject()["token"].ToString());
+            }
+            else
+            {
+                getView().callMethod("setStatus", "Wrong e-mail or password");
             }
         }
     }
