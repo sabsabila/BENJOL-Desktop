@@ -17,6 +17,7 @@ using TestWPPL.Progress;
 using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
+using TestWPPL.Service;
 
 namespace TestWPPL.Dashboard
 {
@@ -31,7 +32,7 @@ namespace TestWPPL.Dashboard
             
             InitializeComponent();
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(new BookingPage());
+            appFrame.Navigate(new ServicePage());
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
@@ -62,6 +63,12 @@ namespace TestWPPL.Dashboard
         {
             appFrame.Navigate(new ListPickupPage());
             pageTitle.Text = "Pickups";
+        }
+
+        private void servicesButton_Click(object sender, RoutedEventArgs e)
+        {
+            appFrame.Navigate(new ServicePage());
+            pageTitle.Text = "Services";
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
