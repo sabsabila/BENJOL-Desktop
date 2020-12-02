@@ -3,6 +3,9 @@ using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBox;
 using System.IO;
+using TestWPPL.Model;
+using Velacro.UIElements.TextBlock;
+using TestWPPL.Booking;
 
 namespace TestWPPL.Progress
 {
@@ -13,34 +16,43 @@ namespace TestWPPL.Progress
     {
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
-        private BuilderTextBox txtBoxBuilder1;
+        private BuilderTextBlock txtBlockBuilder;
         private IMyButton save_btn;
+        private IMyButton back_btn;
         private IMyTextBox txtbox_startTime;
         private IMyTextBox txtbox_endTime;
-        private ProgressController progressController;
+        private IMyTextBlock nameTxtBlock;
+        private IMyTextBlock phoneNumberTxtBlock;
+        private int bookingId;
 
-        public ProgressPage()
+        public ProgressPage(int _bookingId)
         {
             InitializeComponent();
             this.KeepAlive = true;
             setController(new ProgressController(this));
-            initUIBuilders1();
-            initUIElements1();
+            initUIBuilders();
+            initUIElements();
+            this.bookingId = _bookingId;
+            getUser();
         }
 
-        private void initUIElements1()
+        private void initUIElements()
         {
             save_btn = buttonBuilder.activate(this, "saveButton")
                 .addOnClick(this, "onSaveButtonClick");
+            back_btn = buttonBuilder.activate(this, "backButton")
+                .addOnClick(this, "onBackButtonClick");
             txtbox_startTime = txtBoxBuilder.activate(this, "startTime_txtBox");
-            txtbox_endTime = txtBoxBuilder1.activate(this, "endTime_txtBox");
+            txtbox_endTime = txtBoxBuilder.activate(this, "endTime_txtBox");
+            nameTxtBlock = txtBlockBuilder.activate(this, "nameTxt");
+            phoneNumberTxtBlock = txtBlockBuilder.activate(this, "phoneNumberTxt");
         }
 
-        private void initUIBuilders1()
+        private void initUIBuilders()
         {
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
-            txtBoxBuilder1 = new BuilderTextBox();
+            txtBlockBuilder = new BuilderTextBlock();
             System.Diagnostics.Debug.WriteLine("Test uibu page");
         }
 
@@ -50,8 +62,13 @@ namespace TestWPPL.Progress
         {
             System.Diagnostics.Debug.WriteLine("Test onsave page");
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("editProgress", startTime_txtBox.Text, endTime_txtBox.Text, token);
+            getController().callMethod("editProgress", bookingId, startTime_txtBox.Text, endTime_txtBox.Text, token);
             Console.WriteLine(token);
+        }
+
+        public void onBackButtonClick()
+        {
+            this.NavigationService.Navigate(new BookingPage());
         }
 
         public void setProgressStatus(string _status)
@@ -60,6 +77,21 @@ namespace TestWPPL.Progress
             this.Dispatcher.Invoke(() => {
                 save_btn.setText(_status);
                 Console.WriteLine(_status);
+            });
+        }
+
+        private void getUser()
+        {
+            String token = File.ReadAllText(@"userToken.txt");
+            getController().callMethod("requestUser", bookingId, token);
+        }
+
+        public void setUser(ModelUser user)
+        {
+            this.Dispatcher.Invoke(() => {
+                nameTxtBlock.setText(user.first_name + " " + user.last_name);
+                if (user.phone_number != null)
+                    phoneNumberTxtBlock.setText(user.phone_number);
             });
         }
     }
