@@ -24,7 +24,7 @@ namespace TestWPPL.Progress
                 .addHeaders("Accept-Encoding", "gzip,deflate,br")
                 .addParameters("start_time", _startTime)
                 .addParameters("end_time", _endTime)
-                .setEndpoint("api/booking/{id}")
+                .setEndpoint("api/booking/5")
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setViewProgressStatus);
