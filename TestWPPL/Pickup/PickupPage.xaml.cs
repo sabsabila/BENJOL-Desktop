@@ -93,7 +93,7 @@ namespace TestWPPL.Pickup
 
         public void onBackButtonClick()
         {
-            this.NavigationService.Navigate(new BookingPage());
+            this.NavigationService.Navigate(new ListPickupPage());
         }
 
         public void setStatus(String _status)
