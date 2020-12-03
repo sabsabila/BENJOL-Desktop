@@ -32,7 +32,7 @@
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,105,115,0" VerticalAlignment="Top" Source="/image/icon_products.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,145,115,0" VerticalAlignment="Top" Source="/image/icon_Invoices.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,185,115,0" VerticalAlignment="Top" Source="/image/icon_help-center.png"/>
-        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,225,115,0" VerticalAlignment="Top" Source="icons8-wrench-50.png"/>
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,225,115,0" VerticalAlignment="Top" Source="/image/icons8-wrench-50.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,265,115,0" VerticalAlignment="Top" Source="/image/icon_setting.png"/>
         <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
         <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#FF636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
