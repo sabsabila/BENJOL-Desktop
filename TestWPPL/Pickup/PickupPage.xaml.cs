@@ -121,6 +121,8 @@ namespace TestWPPL.Pickup
                 nameTxtBlock.setText(user.first_name + " " + user.last_name);
                 if(user.phone_number != null)
                     phoneNumberTxtBlock.setText(user.phone_number);
+                if (user.profile_picture != null)
+                    picture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + user.profile_picture));
             });
         }
     }

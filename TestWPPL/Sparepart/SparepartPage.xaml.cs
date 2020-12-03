@@ -80,6 +80,10 @@ namespace TestWPPL.Sparepart
                 //nyimpen id asli
                 actualId.Add(sparepart.sparepart_id);
                 sparepart.sparepart_id = id;
+                if (sparepart.picture == null)
+                    sparepart.picture = "/image/image.png";
+                else
+                    sparepart.picture = ApiConstant.BASE_URL + sparepart.picture;
                 id++;
             }
             

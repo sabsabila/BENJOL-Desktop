@@ -306,10 +306,13 @@
     <Resource Include="Login\Group 1581.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Sparepart\camera-placeholder.jpg" />
+    <Resource Include="Image\camera-placeholder.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Dashboard\icons8-wrench-50.png" />
+    <Resource Include="Image\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icons8-wrench-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
