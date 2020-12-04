@@ -37,8 +37,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Width="420" Margin="20,70,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="searchBtn" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="460,70,120,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Button x:Name="addBtn" Content="Add Item" MaxWidth="90" HorizontalAlignment="Stretch" Margin="540,70,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Width="318" Margin="20,70,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="searchBtn" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="293,70,287,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button x:Name="addBtn" Content="Add Item" MaxWidth="90" HorizontalAlignment="Stretch" Margin="585,70,-25,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
     </Grid>
 </Page:MyPage>

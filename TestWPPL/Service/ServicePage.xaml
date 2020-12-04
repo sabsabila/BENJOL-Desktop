@@ -30,8 +30,7 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.515,1.987"/>
-        <Button x:Name="addServiceButton" Content="Add" HorizontalAlignment="Stretch" Margin="683,70,41,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Button x:Name="searchServiceButton" Content="Search" HorizontalAlignment="Stretch" Margin="355,70,369,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        
+        <Button x:Name="searchServiceButton" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="293,69,287,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button x:Name="addServiceButton" Content="Add Item" MaxWidth="90" HorizontalAlignment="Stretch" Margin="585,69,-25,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
     </Grid>
 </Page:MyPage>

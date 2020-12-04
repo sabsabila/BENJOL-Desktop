@@ -73,8 +73,8 @@ namespace TestWPPL.Dashboard
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
+            appFrame.Navigate(new ProfilePage());
             pageTitle.Text = "Setting";
-            appFrame.Navigate(new ProfilePage()); ;
         }
     }
 }

@@ -20,6 +20,6 @@
         <Image x:Name="picture" HorizontalAlignment="Left" Height="136" Margin="426,88,0,0" VerticalAlignment="Top" Width="144" Source="/Image/camera-placeholder.jpg"/>
         <Label x:Name="image" Content="Picture" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top"/>
         <Button x:Name="uploadBtn" Content="Upload" HorizontalAlignment="Left" Margin="426,263,0,0" VerticalAlignment="Top" Width="144" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Button x:Name="backBtn" Content="Back" HorizontalAlignment="Left" Margin="98,263,0,0" VerticalAlignment="Top" Width="75" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button x:Name="backBtn" Content="Cancel" HorizontalAlignment="Left" Margin="98,263,0,0" VerticalAlignment="Top" Width="75" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
     </Grid>
 </Page:MyPage>
