@@ -6,6 +6,8 @@ using System.IO;
 using TestWPPL.Model;
 using Velacro.UIElements.TextBlock;
 using TestWPPL.Booking;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace TestWPPL.Progress
 {
@@ -71,12 +73,16 @@ namespace TestWPPL.Progress
             this.NavigationService.Navigate(new BookingPage());
         }
 
-        public void setProgressStatus(string _status)
+        public void setProgressStatus(String _status)
         {
-            System.Diagnostics.Debug.WriteLine("Test setprogress page");
             this.Dispatcher.Invoke(() => {
-                save_btn.setText(_status);
-                Console.WriteLine(_status);
+                MessageBoxResult result = MessageBox.Show(_status, "Set Pickup Status", MessageBoxButton.OK, MessageBoxImage.Information);
+                switch (result)
+                {
+                    case MessageBoxResult.OK:
+                        this.NavigationService.Navigate(new BookingPage());
+                        break;
+                }
             });
         }
 
@@ -92,6 +98,8 @@ namespace TestWPPL.Progress
                 nameTxtBlock.setText(user.first_name + " " + user.last_name);
                 if (user.phone_number != null)
                     phoneNumberTxtBlock.setText(user.phone_number);
+                if (user.profile_picture != null)
+                    picture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + user.profile_picture));
             });
         }
     }

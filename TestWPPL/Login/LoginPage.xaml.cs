@@ -17,11 +17,9 @@ namespace TestWPPL.Login
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
         private BuilderPasswordBox pwdBoxBuilder;
-        private BuilderTextBlock txtBlockBuilder;
         private IMyButton loginButton_btn;
         private IMyTextBox emailTxtBox;
         private IMyPasswordBox passwordTxtBox;
-        private IMyTextBlock statusTextBlock;
         private MyWindow benjolWindow;
 
         public LoginPage()
@@ -39,7 +37,6 @@ namespace TestWPPL.Login
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
             pwdBoxBuilder = new BuilderPasswordBox();
-            txtBlockBuilder = new BuilderTextBlock();
         }
 
         private void initUIElements()
@@ -51,7 +48,6 @@ namespace TestWPPL.Login
             emailTxtBox.setTextVerticalAlignment(MyVerticalAlignment.CENTER);
             passwordTxtBox = pwdBoxBuilder.activate(this, "passwordBox");
             passwordTxtBox.setPasswordVerticalAlignment(MyVerticalAlignment.CENTER);
-            statusTextBlock = txtBlockBuilder.activate(this, "status");
         }
 
         public void onLoginButtonClick()
@@ -74,9 +70,9 @@ namespace TestWPPL.Login
             });
         }
 
-        public void setStatus(String status)
+        public void setStatus(String _status)
         {
-            statusTextBlock.setText(status);
+            MessageBoxResult result = MessageBox.Show(_status, "Add Item", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

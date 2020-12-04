@@ -10,7 +10,11 @@
 
     <Grid Background="#FFF0F0F7">
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="82" Margin="26,35,0,0" VerticalAlignment="Top" Width="201"/>
-        <Image HorizontalAlignment="Left" Height="43" Margin="44,52,0,0" VerticalAlignment="Top" Width="46" Source="/image/user.png"/>
+        <Border BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="45" Margin="50,50,0,0" VerticalAlignment="Top" Width="45" CornerRadius="22,22,22,22">
+            <Border.Background>
+                <ImageBrush x:Name="picture" ImageSource="/image/user.png"/>
+            </Border.Background>
+        </Border>
         <TextBlock x:Name="nameTxt" Text="" HorizontalAlignment="Left" Margin="109,44,0,0" VerticalAlignment="Top" Foreground="#FF636363"/>
         <TextBlock x:Name="phoneNumberTxt" Text="-" HorizontalAlignment="Left" Margin="111,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.13,0.313" Foreground="#FF636363"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="169" Margin="242,34,0,0" VerticalAlignment="Top" Width="366"/>

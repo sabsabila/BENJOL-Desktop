@@ -22,7 +22,7 @@
                     <GridViewColumn Header="Action" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="PickUp" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
+                                <Button x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
