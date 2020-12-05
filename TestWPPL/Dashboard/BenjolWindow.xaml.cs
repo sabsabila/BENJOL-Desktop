@@ -27,10 +27,10 @@ namespace TestWPPL.Dashboard
     /// </summary>
     public partial class BenjolWindow : MyWindow
     {
-        
+
         public BenjolWindow()
         {
-            
+
             InitializeComponent();
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
             pageTitle.Text = "Dashboard";
@@ -58,7 +58,7 @@ namespace TestWPPL.Dashboard
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
         {
             appFrame.Navigate(new SparepartPage());
-            pageTitle.Text = "Spareparts"; 
+            pageTitle.Text = "Spareparts";
             returnButtonColor();
             sparepartButton.Background = Brushes.White;
 

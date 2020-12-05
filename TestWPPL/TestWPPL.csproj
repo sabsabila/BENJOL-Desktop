@@ -124,6 +124,7 @@
     <Compile Include="Model\ModelPickup.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
+    <Compile Include="Model\ObjectBengkel.cs" />
     <Compile Include="Model\ObjectSparepart.cs" />
     <Compile Include="Payment\PaymentController.cs" />
     <Compile Include="Payment\PaymentPage.xaml.cs">
@@ -141,6 +142,7 @@
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Profile\ProfileController.cs" />
     <Compile Include="Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
