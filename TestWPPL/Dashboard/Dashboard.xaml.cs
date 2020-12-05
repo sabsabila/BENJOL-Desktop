@@ -38,7 +38,7 @@ namespace TestWPPL.Dashboard {
                 telephone.Text = bengkel.phone_number;
                 address.Text = bengkel.address;
                 if (bengkel.profile_picture != null)
-                    bengkelPicture.Source = new BitmapImage(new Uri(ApiConstant.BASE_URL + bengkel.profile_picture));
+                    bengkelPicture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + bengkel.profile_picture));
             }));
         }
 
