@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -15,46 +16,36 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestWPPL.Annotations;
+using TestWPPL.Model;
 using Velacro.Basic;
 using Velacro.Chart.LineChart;
 using Velacro.UIElements.Basic;
 
 namespace TestWPPL.Dashboard {
-    /// <summary>
-    /// Interaction logic for Dashboard.xaml
-    /// </summary>
-    ///
-    ///
-    public class TodoItem : INotifyPropertyChanged {
-        public string Title { get; set; }
-        public int Completion { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null){
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
     public partial class Dashboard : MyPage{
-        private IMyLineChart lineChart;
-        private BuilderLineChart builderLineChart;
-        BindingList<TodoItem> items = new BindingList<TodoItem>();
         public Dashboard() {
             InitializeComponent();
-            
-            items.Add(new TodoItem() { Title = "Hore", Completion = 45 });
-            items.Add(new TodoItem() { Title = "Bisa", Completion = 80 });
-            items.Add(new TodoItem() { Title = "Login", Completion = 0 });
-
-            lbTodoList.ItemsSource = items;
-
+            setController(new DashboardController(this));
+            getProfile();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e){
-            Button button = sender as Button;
-            TodoItem dataObject = button.DataContext as TodoItem;
-            int index = items.IndexOf(dataObject);
-            items.RemoveAt(index);
+        public void setProfile(ModelBengkel bengkel)
+        {
+            this.Dispatcher.Invoke((Action)(() => {
+                bengkelName.Text = bengkel.name;
+                email.Text = bengkel.email;
+                telephone.Text = bengkel.phone_number;
+                address.Text = bengkel.address;
+                if (bengkel.profile_picture != null)
+                    bengkelPicture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + bengkel.profile_picture));
+            }));
+        }
+
+        private void getProfile()
+        {
+            String token = File.ReadAllText(@"userToken.txt");
+            getController().callMethod("getProfile", token);
         }
     }
 }

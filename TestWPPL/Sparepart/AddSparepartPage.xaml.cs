@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestWPPL.Model;
+using Velacro.Basic;
+using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBlock;
@@ -34,6 +36,7 @@ namespace TestWPPL.Sparepart
         private IMyTextBox nameTxtBox;
         private IMyTextBox priceTxtBox;
         private IMyTextBox stockTxtBox;
+        private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
         public AddSparepartPage()
         {
@@ -71,12 +74,17 @@ namespace TestWPPL.Sparepart
         {
             ObjectSparepart newSparepart = new ObjectSparepart(nameTxtBox.getText(), Int32.Parse(priceTxtBox.getText()), Int16.Parse(stockTxtBox.getText()));
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("addSparepart", newSparepart, token);
+            getController().callMethod("addSparepart",uploadImage, newSparepart, token);
         }
 
         public void onUploadButtonClick()
         {
+            uploadImage.Clear();
             Console.WriteLine("ini buat upload");
+            OpenFile openFile = new OpenFile();
+            uploadImage.Add(openFile.openFile(false)[0]);
+            picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
+            Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
         }
 
         public void setStatus(String _status)

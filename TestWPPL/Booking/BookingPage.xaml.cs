@@ -47,6 +47,10 @@ namespace TestWPPL.Booking
             {
                 actualId.Add(booking.booking_id);
                 booking.booking_id = id;
+                if (booking.start_time == null)
+                    booking.start_time = "-";
+                if (booking.end_time == null)
+                    booking.end_time = "-";
                 id++;
             }
 

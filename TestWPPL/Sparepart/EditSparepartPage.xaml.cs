@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestWPPL.Model;
+using Velacro.Basic;
+using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBlock;
@@ -36,6 +38,7 @@ namespace TestWPPL.Sparepart
         private IMyTextBox priceTxtBox;
         private IMyTextBox stockTxtBox;
         private int sparepartId;
+        private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
         public EditSparepartPage(int sparepartId)
         {
@@ -76,12 +79,17 @@ namespace TestWPPL.Sparepart
         {
             ObjectSparepart newSparepart = new ObjectSparepart(nameTxtBox.getText(), Int32.Parse(priceTxtBox.getText()), Int16.Parse(stockTxtBox.getText()));
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("editSparepart", newSparepart, sparepartId, token);
+            getController().callMethod("editSparepart",uploadImage, newSparepart, sparepartId, token);
         }
 
         public void onUploadButtonClick()
         {
+            uploadImage.Clear();
             Console.WriteLine("ini buat upload");
+            OpenFile openFile = new OpenFile();
+            uploadImage.Add(openFile.openFile(false)[0]);
+            picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
+            Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
         }
 
         private void getEditedItem()
@@ -96,6 +104,8 @@ namespace TestWPPL.Sparepart
                 nameTxtBox.setText(sparepart.name);
                 priceTxtBox.setText(sparepart.price.ToString());
                 stockTxtBox.setText(sparepart.stock.ToString());
+                if (sparepart.picture != null)
+                    picture.Source = new BitmapImage(new Uri(ApiConstant.BASE_URL + sparepart.picture));
             });
         }
 

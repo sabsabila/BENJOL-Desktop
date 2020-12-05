@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestWPPL.Model;
@@ -34,44 +36,52 @@ namespace TestWPPL.Sparepart
             //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
-        public async void addSparepart(ObjectSparepart sparepart, String token)
+        public async void addSparepart(MyList<MyFile> files, ObjectSparepart sparepart, String token)
         {
-            //Console.WriteLine("ini pas request api sparepart");
+            Console.WriteLine("ini di add sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
-            var req = request
-                .buildHttpRequest()
-                .addParameters("name", sparepart.name)
-                .addParameters("price", sparepart.price.ToString())
-                .addParameters("stock", sparepart.stock.ToString())
-                .setEndpoint("api/sparepart")
-                .setRequestMethod(HttpMethod.Post);
+            var formContent = new MultipartFormDataContent();
+            formContent.Add(new StringContent(sparepart.name), "name");
+            formContent.Add(new StringContent(sparepart.price.ToString()), "price");
+            formContent.Add(new StringContent(sparepart.stock.ToString()), "stock");
+            if (files.Count > 0)
+                formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "picture", files[0].fullFileName);
+
+            var multiPartRequest = request
+            .buildMultipartRequest(new MultiPartContent(formContent))
+            .setEndpoint("api/sparepart")
+            .setRequestMethod(HttpMethod.Post);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            Console.WriteLine(response.getHttpResponseMessage().ToString());
         }
 
-        public async void editSparepart(ObjectSparepart sparepart, int sparepartId, String token)
+        public async void editSparepart(MyList<MyFile> files, ObjectSparepart sparepart, int sparepartId, String token)
         {
-            Console.WriteLine("ini pas request api sparepart");
+            Console.WriteLine("ini pas request edit sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
-            var req = request
-                .buildHttpRequest()
-                .addParameters("name", sparepart.name)
-                .addParameters("price", sparepart.price.ToString())
-                .addParameters("stock", sparepart.stock.ToString())
-                .setEndpoint("api/sparepart/" + sparepartId)
-                .setRequestMethod(HttpMethod.Put);
+            var formContent = new MultipartFormDataContent();
+            formContent.Add(new StringContent(sparepart.name), "name");
+            formContent.Add(new StringContent(sparepart.price.ToString()), "price");
+            formContent.Add(new StringContent(sparepart.stock.ToString()), "stock");
+            formContent.Add(new StringContent("PUT"), "_method");
+            if (files.Count > 0)
+                formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "picture", files[0].fullFileName);
+
+            Console.WriteLine(sparepart.name);
+            var multiPartRequest = request
+             .buildMultipartRequest(new MultiPartContent(formContent))
+             .setEndpoint("api/sparepart/" + sparepartId)
+             .setRequestMethod(HttpMethod.Post);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            Console.WriteLine(response.getHttpResponseMessage().ToString());
         }
 
         public async void showSparepart(int sparepartId, String token)
@@ -87,8 +97,6 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setSparepart);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
         public async void deleteSparepart(int sparepartId, String token)
@@ -104,8 +112,6 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
         }
 
         private void setItem(HttpResponseBundle _response)
@@ -113,8 +119,6 @@ namespace TestWPPL.Sparepart
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                //Console.WriteLine("ini pas get sparepart");
-                //Console.WriteLine(_response.getParsedObject<Spareparts>().spareparts.Count());
                 getView().callMethod("setSparepart", _response.getParsedObject<Spareparts>().spareparts);
             }
         }
