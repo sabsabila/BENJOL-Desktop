@@ -92,7 +92,19 @@ namespace TestWPPL.Profile
             Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
         }
 
-        public void setItem(ModelBengkel bengkel)
+        public void onLogoutButtonClick()
+        {
+            String token = File.ReadAllText(@"userToken.txt");
+            MessageBoxResult result = MessageBox.Show("Are you sure ?", "Logout", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    getController().callMethod("requestLogout", token);
+                    break;
+            }
+        }
+
+        public void setProfile(ModelBengkel bengkel)
         {
             this.Dispatcher.Invoke(() => {
                 nameTxtBox.setText(bengkel.name);
@@ -112,6 +124,23 @@ namespace TestWPPL.Profile
                 {
                     case MessageBoxResult.OK:
                         this.NavigationService.Navigate(new ProfilePage());
+                        break;
+                }
+            });
+        }
+
+        public void setLogoutStatus(String _status)
+        {
+            this.Dispatcher.Invoke(() => {
+                MessageBoxResult result = MessageBox.Show(_status, "Logout Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                switch (result)
+                {
+                    case MessageBoxResult.OK:
+                        string fullPath = @"userToken.txt";
+                        File.WriteAllText(fullPath, "");
+                        var mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        Window.GetWindow(this).Close();
                         break;
                 }
             });
