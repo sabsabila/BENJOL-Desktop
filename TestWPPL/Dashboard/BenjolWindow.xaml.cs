@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using TestWPPL.Booking;
 using TestWPPL.Pickup;
 using TestWPPL.Progress;
+using TestWPPL.Payment;
 using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
@@ -44,37 +45,39 @@ namespace TestWPPL.Dashboard
 
         private void bookingButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new BookingPage());
+            appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Booking";
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new SparepartPage());
+            appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Spareparts";
+            
         }
 
         private void paymentButton_Click(object sender, RoutedEventArgs e)
         {
-            pageTitle.Text = "Payments";
+            appFrame.Navigate(new PaymentPage());
+            pageTitle.Text = "Payment";
         }
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new ListPickupPage());
+            appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Pickups";
         }
 
         private void servicesButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new ServicePage());
+            appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Services";
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
             pageTitle.Text = "Setting";
-            appFrame.Navigate(new ProfilePage()); ;
+            appFrame.Navigate(new PaymentPage()); ;
         }
     }
 }
