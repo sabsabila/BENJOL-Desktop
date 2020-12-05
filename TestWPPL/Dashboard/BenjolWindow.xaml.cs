@@ -32,13 +32,14 @@ namespace TestWPPL.Dashboard
             
             InitializeComponent();
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
-            appFrame.Navigate(new ServicePage());
+            appFrame.Navigate(new Dashboard());
         }
 
         //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
         //pake appFrame.Navigate(namaPage)
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
+            appFrame.Navigate(new Dashboard());
             pageTitle.Text = "Dashboard";
         }
 
