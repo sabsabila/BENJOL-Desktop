@@ -28,6 +28,7 @@ namespace TestWPPL.Service
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
+            
             var response = await client.sendRequest(request.getApiRequestBundle());
             //Console.WriteLine(response.getJObject()["token"]);
             //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
