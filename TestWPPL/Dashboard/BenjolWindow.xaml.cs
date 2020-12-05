@@ -33,6 +33,7 @@ namespace TestWPPL.Dashboard
             
             InitializeComponent();
             //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
+            pageTitle.Text = "Dashboard";
             appFrame.Navigate(new Dashboard());
         }
 
