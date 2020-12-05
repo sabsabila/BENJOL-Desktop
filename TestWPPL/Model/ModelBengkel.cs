@@ -12,8 +12,8 @@ namespace TestWPPL.Model
         public int account_id { get; set; }
         public string name { get; set; }
         public string address { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        public object created_at { get; set; }
+        public object updated_at { get; set; }
         public string username { get; set; }
         public string email { get; set; }
         public string phone_number { get; set; }
