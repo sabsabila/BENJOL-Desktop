@@ -11,12 +11,15 @@
       Title="Dashboard">
     <Grid Background="#FFF0F0F7">
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="203" Margin="38,75,0,0" VerticalAlignment="Top" Width="554"/>
-        <Image x:Name="bengkelPicture" HorizontalAlignment="Center" Height="159" Width="160" VerticalAlignment="Top" Margin="389,97,86,0" Source="/Image/camera-placeholder.jpg" />
-        <Label Background="#FFF0F0F7" Content="Hi!" HorizontalAlignment="Left" Margin="52,83,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <Border BorderBrush="{x:Null}" HorizontalAlignment="Center" Height="160" Width="160" VerticalAlignment="Top" Margin="300,95,150,90" CornerRadius="80,80,80,80">
+            <Border.Background>
+                <ImageBrush x:Name="bengkelPicture" ImageSource="/Image/camera-placeholder.jpg"/>
+            </Border.Background>
+        </Border>
         <Label Content=":" HorizontalAlignment="Left" Margin="238,230,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="bengkelName" Text="name" HorizontalAlignment="Left" Margin="64,140,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="email" Text="email" HorizontalAlignment="Left" Margin="64,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="20"/>
-        <TextBlock x:Name="telephone" Text="telphone" HorizontalAlignment="Left" Margin="64,172,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="address" Text="address" HorizontalAlignment="Left" Margin="64,226,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="bengkelName" Foreground="#FFFBB308" Text="name" HorizontalAlignment="Left" Margin="64,97,0,0" VerticalAlignment="Top" FontSize="24" Width="244"/>
+        <TextBlock x:Name="email" Foreground="#FF636363" Text="email" HorizontalAlignment="Left" Margin="64,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="16"/>
+        <TextBlock x:Name="telephone" Foreground="#FF636363" Text="telphone" HorizontalAlignment="Left" Margin="64,157,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="address" Foreground="#FF636363" Text="address" HorizontalAlignment="Left" Margin="64,226,0,0" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </basic:MyPage>
