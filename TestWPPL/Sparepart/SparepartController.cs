@@ -42,30 +42,12 @@ namespace TestWPPL.Sparepart
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
-            MultipartFormDataContent formContent;
+            var formContent = new MultipartFormDataContent();
+            formContent.Add(new StringContent(sparepart.name), "name");
+            formContent.Add(new StringContent(sparepart.price.ToString()), "price");
+            formContent.Add(new StringContent(sparepart.stock.ToString()), "stock");
             if (files.Count > 0)
-            {
-                formContent = new MultipartFormDataContent
-                {
-                    // Send form text values here
-                    {new StringContent(sparepart.name), "name" },
-                    {new StringContent(sparepart.price.ToString()), "price" },
-                    {new StringContent(sparepart.stock.ToString()), "stock" },
-                    // Send Image Here
-                
-                    {new StreamContent(new MemoryStream(files[0].byteArray)),"picture",files[0].fullFileName}
-                };
-            }
-            else
-            {
-                formContent = new MultipartFormDataContent
-                {
-                    // Send form text values here
-                    {new StringContent(sparepart.name), "name" },
-                    {new StringContent(sparepart.price.ToString()), "price" },
-                    {new StringContent(sparepart.stock.ToString()), "stock" },
-                };
-            }
+                formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "picture", files[0].fullFileName);
 
             var multiPartRequest = request
             .buildMultipartRequest(new MultiPartContent(formContent))
@@ -83,32 +65,14 @@ namespace TestWPPL.Sparepart
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
-            MultipartFormDataContent formContent;
+            var formContent = new MultipartFormDataContent();
+            formContent.Add(new StringContent(sparepart.name), "name");
+            formContent.Add(new StringContent(sparepart.price.ToString()), "price");
+            formContent.Add(new StringContent(sparepart.stock.ToString()), "stock");
+            formContent.Add(new StringContent("PUT"), "_method");
             if (files.Count > 0)
-            {
-                formContent = new MultipartFormDataContent
-                {
-                    // Send form text values here
-                    {new StringContent(sparepart.name), "name" },
-                    {new StringContent(sparepart.price.ToString()), "price" },
-                    {new StringContent(sparepart.stock.ToString()), "stock" },
-                    {new StringContent("PUT"), "_method" },
+                formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "picture", files[0].fullFileName);
 
-                    // Send Image Here
-                    {new StreamContent(new MemoryStream(files[0].byteArray)),"picture",files[0].fullFileName}
-                };
-            }
-            else
-            {
-                formContent = new MultipartFormDataContent
-                {
-                    // Send form text values here
-                    {new StringContent(sparepart.name), "name" },
-                    {new StringContent(sparepart.price.ToString()), "price" },
-                    {new StringContent(sparepart.stock.ToString()), "stock" },
-                    {new StringContent("PUT"), "_method" },
-                };
-            }
             Console.WriteLine(sparepart.name);
             var multiPartRequest = request
              .buildMultipartRequest(new MultiPartContent(formContent))
@@ -117,6 +81,7 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            Console.WriteLine(response.getHttpResponseMessage().ToString());
         }
 
         public async void showSparepart(int sparepartId, String token)
