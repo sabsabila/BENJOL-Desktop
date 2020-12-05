@@ -46,13 +46,13 @@ namespace TestWPPL.Dashboard
 
         private void bookingButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new PaymentPage());
+            appFrame.Navigate(new BookingPage());
             pageTitle.Text = "Booking";
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new PaymentPage());
+            appFrame.Navigate(new SparepartPage());
             pageTitle.Text = "Spareparts";
             
         }
@@ -65,20 +65,20 @@ namespace TestWPPL.Dashboard
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new PaymentPage());
+            appFrame.Navigate(new ListPickupPage());
             pageTitle.Text = "Pickups";
         }
 
         private void servicesButton_Click(object sender, RoutedEventArgs e)
         {
-            appFrame.Navigate(new PaymentPage());
+            appFrame.Navigate(new ServicePage());
             pageTitle.Text = "Services";
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
             pageTitle.Text = "Setting";
-            appFrame.Navigate(new PaymentPage()); ;
+            appFrame.Navigate(new ProfilePage()); ;
         }
     }
 }
