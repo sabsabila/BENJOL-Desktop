@@ -117,7 +117,9 @@
     <Compile Include="Dashboard\BenjolWindow.xaml.cs">
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\DashboardController.cs" />
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Model\ModelBengkel.cs" />
     <Compile Include="Model\ModelPickup.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
