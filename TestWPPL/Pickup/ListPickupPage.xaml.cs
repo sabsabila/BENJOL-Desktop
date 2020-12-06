@@ -56,6 +56,11 @@ namespace TestWPPL.Pickup
             getController().callMethod("requestPickup", token);
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         private void PickUp_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < listPickup.Count; i++)

@@ -8,6 +8,7 @@ using Velacro.UIElements.TextBlock;
 using TestWPPL.Booking;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Text.RegularExpressions;
 
 namespace TestWPPL.Progress
 {
@@ -21,8 +22,12 @@ namespace TestWPPL.Progress
         private BuilderTextBlock txtBlockBuilder;
         private IMyButton save_btn;
         private IMyButton back_btn;
-        private IMyTextBox txtbox_startTime;
-        private IMyTextBox txtbox_endTime;
+        private IMyTextBox startTimeH;
+        private IMyTextBox startTimeM;
+        private IMyTextBox startTimeS;
+        private IMyTextBox endTimeH;
+        private IMyTextBox endTimeM;
+        private IMyTextBox endTimeS;
         private IMyTextBlock nameTxtBlock;
         private IMyTextBlock phoneNumberTxtBlock;
         private int bookingId;
@@ -44,8 +49,12 @@ namespace TestWPPL.Progress
                 .addOnClick(this, "onSaveButtonClick");
             back_btn = buttonBuilder.activate(this, "backButton")
                 .addOnClick(this, "onBackButtonClick");
-            txtbox_startTime = txtBoxBuilder.activate(this, "startTime_txtBox");
-            txtbox_endTime = txtBoxBuilder.activate(this, "endTime_txtBox");
+            startTimeH = txtBoxBuilder.activate(this, "startTimeHour");
+            startTimeM = txtBoxBuilder.activate(this, "startTimeMinute");
+            startTimeS = txtBoxBuilder.activate(this, "startTimeSecond");
+            endTimeH = txtBoxBuilder.activate(this, "endTimeHour");
+            endTimeM = txtBoxBuilder.activate(this, "endTimeMinute");
+            endTimeS = txtBoxBuilder.activate(this, "endTimeSecond");
             nameTxtBlock = txtBlockBuilder.activate(this, "nameTxt");
             phoneNumberTxtBlock = txtBlockBuilder.activate(this, "phoneNumberTxt");
         }
@@ -64,7 +73,10 @@ namespace TestWPPL.Progress
         {
             System.Diagnostics.Debug.WriteLine("Test onsave page");
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("editProgress", bookingId, startTime_txtBox.Text, endTime_txtBox.Text, token);
+            String startTime = startTimeH.getText().ToString() + ":" + startTimeM.getText().ToString() + ":" + startTimeS.getText().ToString();
+            String endTime = endTimeH.getText().ToString() + ":" + endTimeM.getText().ToString() + ":" + endTimeS.getText().ToString();
+            Console.WriteLine("INI START TIME" + startTime);
+            getController().callMethod("editProgress", bookingId, startTime, endTime, token);
             Console.WriteLine(token);
         }
 
@@ -92,6 +104,11 @@ namespace TestWPPL.Progress
             getController().callMethod("requestUser", bookingId, token);
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public void setUser(ModelUser user)
         {
             this.Dispatcher.Invoke(() => {
@@ -101,6 +118,42 @@ namespace TestWPPL.Progress
                 if (user.profile_picture != null)
                     picture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + user.profile_picture));
             });
+        }
+
+        private void startTimeHour_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void endTimeHour_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void startTimeMinute_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void startTimeSecond_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void endTimeMinute_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void endTimeSecond_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
     }
 }

@@ -35,11 +35,16 @@ namespace TestWPPL.Dashboard {
             this.Dispatcher.Invoke((Action)(() => {
                 bengkelName.Text = bengkel.name;
                 email.Text = bengkel.email;
-                telephone.Text = bengkel.phone_number;
+                telephone.Text = "+" + bengkel.phone_number;
                 address.Text = bengkel.address;
                 if (bengkel.profile_picture != null)
                     bengkelPicture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + bengkel.profile_picture));
             }));
+        }
+
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void getProfile()

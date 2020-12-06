@@ -30,8 +30,8 @@ namespace TestWPPL.Payment
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load payments");
         }
 
         public async void updatePaymentStatus(String _status, int _payment_id, String token)
@@ -47,6 +47,8 @@ namespace TestWPPL.Payment
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit payment");
         }
 
         private void setItem(HttpResponseBundle _response)

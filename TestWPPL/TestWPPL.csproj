@@ -124,6 +124,7 @@
     <Compile Include="Model\ModelPickup.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
+    <Compile Include="Model\ObjectBengkel.cs" />
     <Compile Include="Model\ObjectSparepart.cs" />
     <Compile Include="Payment\PaymentController.cs" />
     <Compile Include="Payment\PaymentPage.xaml.cs">
@@ -141,6 +142,7 @@
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Profile\ProfileController.cs" />
     <Compile Include="Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -149,10 +151,6 @@
       <DependentUpon>ProgressPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Register\RegisterController.cs" />
-    <Compile Include="Register\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\ServiceAddDialog.xaml.cs">
       <DependentUpon>ServiceAddDialog.xaml</DependentUpon>
     </Compile>
@@ -225,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Progress\ProgressPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Register\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
