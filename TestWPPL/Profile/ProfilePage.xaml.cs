@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,7 +78,8 @@ namespace TestWPPL.Profile
 
         public void onUpdateButtonClick()
         {
-            ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneTxtBox.getText(), emailTxtBox.getText(), addressTxtBox.getText());
+            String phoneNumber = "62" + phoneTxtBox.getText();
+            ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneNumber, emailTxtBox.getText(), addressTxtBox.getText());
             String token = File.ReadAllText(@"userToken.txt");
             getController().callMethod("editProfile", uploadImage, newBengkel, token);
         }
@@ -104,11 +106,14 @@ namespace TestWPPL.Profile
             }
         }
 
+        
+
         public void setProfile(ModelBengkel bengkel)
         {
             this.Dispatcher.Invoke(() => {
                 nameTxtBox.setText(bengkel.name);
-                phoneTxtBox.setText(bengkel.phone_number);
+                string number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
+                phoneTxtBox.setText(number);
                 emailTxtBox.setText(bengkel.email);
                 addressTxtBox.setText(bengkel.address);
                 if (bengkel.profile_picture != null)
@@ -129,6 +134,11 @@ namespace TestWPPL.Profile
             });
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public void setLogoutStatus(String _status)
         {
             this.Dispatcher.Invoke(() => {
@@ -144,6 +154,12 @@ namespace TestWPPL.Profile
                         break;
                 }
             });
+        }
+
+        private void phoneTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
     }
 }

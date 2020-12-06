@@ -109,6 +109,10 @@ namespace TestWPPL.Pickup
             });
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
         private void getUser()
         {
             String token = File.ReadAllText(@"userToken.txt");

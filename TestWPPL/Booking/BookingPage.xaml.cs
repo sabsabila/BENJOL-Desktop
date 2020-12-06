@@ -135,5 +135,10 @@ namespace TestWPPL.Booking
                 }
             });
         }
+
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

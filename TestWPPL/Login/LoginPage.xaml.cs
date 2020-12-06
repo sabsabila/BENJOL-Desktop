@@ -72,7 +72,7 @@ namespace TestWPPL.Login
 
         public void setStatus(String _status)
         {
-            MessageBoxResult result = MessageBox.Show(_status, "Add Item", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBoxResult result = MessageBox.Show(_status, "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

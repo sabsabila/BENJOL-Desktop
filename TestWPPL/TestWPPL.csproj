@@ -151,10 +151,6 @@
       <DependentUpon>ProgressPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Register\RegisterController.cs" />
-    <Compile Include="Register\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\ServiceAddDialog.xaml.cs">
       <DependentUpon>ServiceAddDialog.xaml</DependentUpon>
     </Compile>
@@ -227,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Progress\ProgressPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Register\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

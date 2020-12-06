@@ -29,8 +29,8 @@ namespace TestWPPL.Profile
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load profile");
         }
 
         public async void editProfile(MyList<MyFile> files, ObjectBengkel bengkel, String token)
@@ -56,7 +56,8 @@ namespace TestWPPL.Profile
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getHttpResponseMessage().ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit profile");
         }
 
         public async void requestLogout(String token)
@@ -71,8 +72,8 @@ namespace TestWPPL.Profile
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setLogoutStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to log out");
         }
 
         private void setItem(HttpResponseBundle _response)

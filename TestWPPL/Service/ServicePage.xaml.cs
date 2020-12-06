@@ -110,6 +110,11 @@ namespace TestWPPL.Service
             CollectionViewSource.GetDefaultView(this.serviceList.ItemsSource).Refresh();
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public void setStatus(String _status)
         {
             this.Dispatcher.Invoke(() => {
