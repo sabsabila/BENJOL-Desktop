@@ -35,6 +35,10 @@ namespace TestWPPL.Service
             this.DialogResult = true;
             this.Close();
         }
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {

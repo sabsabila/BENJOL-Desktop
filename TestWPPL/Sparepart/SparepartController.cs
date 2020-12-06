@@ -32,8 +32,8 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load Spareparts");
         }
 
         public async void addSparepart(MyList<MyFile> files, ObjectSparepart sparepart, String token)
@@ -56,7 +56,8 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getHttpResponseMessage().ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to add sparepart");
         }
 
         public async void editSparepart(MyList<MyFile> files, ObjectSparepart sparepart, int sparepartId, String token)
@@ -81,7 +82,8 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getHttpResponseMessage().ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit spareparts");
         }
 
         public async void showSparepart(int sparepartId, String token)
@@ -112,6 +114,8 @@ namespace TestWPPL.Sparepart
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to delete spareparts");
         }
 
         private void setItem(HttpResponseBundle _response)
