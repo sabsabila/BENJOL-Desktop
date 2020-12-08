@@ -10,8 +10,8 @@
       d:DesignHeight="365" d:DesignWidth="635"
       Title="Dashboard">
     <Grid Background="#FFF0F0F7">
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" Margin="30,75,30,75" VerticalAlignment="Stretch"/>
-        <Border BorderBrush="{x:Null}" HorizontalAlignment="Center" Height="160" Width="160" VerticalAlignment="Top" Margin="380,90,30,90" CornerRadius="80,80,80,80">
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="250" Width="550"  VerticalAlignment="Top" Margin="45,65,0,0"/>
+        <Border BorderBrush="{x:Null}" HorizontalAlignment="Left" Height="160" Width="160" VerticalAlignment="Top" Margin="420,90,0,0" CornerRadius="80,80,80,80">
             <Border.Background>
                 <ImageBrush x:Name="bengkelPicture" ImageSource="/Image/camera-placeholder.jpg"/>
             </Border.Background>

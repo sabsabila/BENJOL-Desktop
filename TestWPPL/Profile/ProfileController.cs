@@ -33,7 +33,7 @@ namespace TestWPPL.Profile
                 getView().callMethod("setFailStatus", "Failed to load profile");
         }
 
-        public async void editProfile(MyList<MyFile> files, ObjectBengkel bengkel, String token)
+        public async void editProfile(MyList<MyFile> files, String[] password, ObjectBengkel bengkel, String token)
         {
             Console.WriteLine("ini pas request edit bengkel");
             var client = new ApiClient(ApiConstant.BASE_URL);
@@ -45,6 +45,11 @@ namespace TestWPPL.Profile
             formContent.Add(new StringContent(bengkel.email), "email");
             formContent.Add(new StringContent(bengkel.address), "address");
             formContent.Add(new StringContent("PUT"), "_method");
+            if (password[0] != null && password[1] != null)
+            {
+                formContent.Add(new StringContent(password[0]), "oldPassword");
+                formContent.Add(new StringContent(password[1]), "newPassword");
+            }
             if (files.Count > 0)
                 formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "profile_picture", files[0].fullFileName);
 
@@ -58,6 +63,8 @@ namespace TestWPPL.Profile
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to edit profile");
+            else if(response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Unauthorized"))
+                getView().callMethod("setFailStatus", "Old password doesn't match ");
         }
 
         public async void requestLogout(String token)
