@@ -20,13 +20,10 @@ namespace TestWPPL.Login
         private IMyButton loginButton_btn;
         private IMyTextBox emailTxtBox;
         private IMyPasswordBox passwordTxtBox;
-        private MyWindow benjolWindow;
 
         public LoginPage()
         {
             InitializeComponent();
-            //this.KeepAlive = true;
-            benjolWindow = new BenjolWindow();
             setController(new LoginController(this));
             initUIBuilders();
             initUIElements();
@@ -62,10 +59,7 @@ namespace TestWPPL.Login
             {
                 string fullPath = @"userToken.txt";
                 File.WriteAllText(fullPath, token);
-                // Read a file  
-                //string readText = File.ReadAllText(fullPath);
-                //Console.WriteLine(readText);
-                benjolWindow.Show();
+                new BenjolWindow().Show();
                 Window.GetWindow(this).Close();
             });
         }

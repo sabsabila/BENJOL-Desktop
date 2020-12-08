@@ -19,6 +19,8 @@ using Velacro.Basic;
 using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.PasswordBox;
+using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
 
@@ -31,6 +33,7 @@ namespace TestWPPL.Profile
     {
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton btnBuilder;
+        private BuilderPasswordBox passBoxBuilder;
         private IMyButton updateButton;
         private IMyButton uploadButton;
         private IMyButton logoutButton;
@@ -38,6 +41,8 @@ namespace TestWPPL.Profile
         private IMyTextBox phoneTxtBox;
         private IMyTextBox emailTxtBox;
         private IMyTextBox addressTxtBox;
+        private IMyPasswordBox oldPass;
+        private IMyPasswordBox newPass;
         private int sparepartId;
         private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
@@ -54,6 +59,7 @@ namespace TestWPPL.Profile
         {
             txtBoxBuilder = new BuilderTextBox();
             btnBuilder = new BuilderButton();
+            passBoxBuilder = new BuilderPasswordBox();
         }
 
         private void initUIElements()
@@ -68,6 +74,8 @@ namespace TestWPPL.Profile
             phoneTxtBox = txtBoxBuilder.activate(this, "phoneTxt");
             emailTxtBox = txtBoxBuilder.activate(this, "emailTxt");
             addressTxtBox = txtBoxBuilder.activate(this, "addressTxt");
+            oldPass = passBoxBuilder.activate(this, "oldPassTxt");
+            newPass = passBoxBuilder.activate(this, "newPassTxt");
         }
 
         private void getEditedItem()
@@ -81,7 +89,13 @@ namespace TestWPPL.Profile
             String phoneNumber = "62" + phoneTxtBox.getText();
             ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneNumber, emailTxtBox.getText(), addressTxtBox.getText());
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("editProfile", uploadImage, newBengkel, token);
+            String[] password = new String[2];
+            if(!newPass.getPassword().ToString().Equals(""))
+            {
+                password[0] = oldPass.getPassword();
+                password[1] = newPass.getPassword();
+            }
+            getController().callMethod("editProfile", uploadImage, password, newBengkel, token);
         }
 
         public void onUploadButtonClick()
@@ -149,8 +163,8 @@ namespace TestWPPL.Profile
                         string fullPath = @"userToken.txt";
                         File.WriteAllText(fullPath, "");
                         var mainWindow = new MainWindow();
-                        mainWindow.Show();
                         Window.GetWindow(this).Close();
+                        mainWindow.Show();
                         break;
                 }
             });
