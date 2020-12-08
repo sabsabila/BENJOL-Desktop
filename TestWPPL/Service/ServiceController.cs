@@ -28,9 +28,10 @@ namespace TestWPPL.Service
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
+            
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load services");
         }
 
         private void setItem(HttpResponseBundle _response)
@@ -56,8 +57,8 @@ namespace TestWPPL.Service
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to add services");
         }
 
         public async void editService(String _serviceName, int _serviceId, String token)
@@ -73,8 +74,8 @@ namespace TestWPPL.Service
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setNothing);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit service");
         }
 
         public async void deleteService(int _service_id, String token)
@@ -89,8 +90,8 @@ namespace TestWPPL.Service
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to delete service");
         }
 
         private void setStatus(HttpResponseBundle _response)
@@ -109,11 +110,6 @@ namespace TestWPPL.Service
             {
                 Console.WriteLine(_response.getHttpResponseMessage().ReasonPhrase);
             }
-        }
-
-        private void refreshPage() 
-        { 
-            
         }
 
     }

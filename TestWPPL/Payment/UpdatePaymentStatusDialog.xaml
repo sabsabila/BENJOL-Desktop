@@ -1,0 +1,29 @@
+﻿<Window:MyWindow  xmlns:Window="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
+        x:Class="TestWPPL.Payment.UpdatePaymentStatusDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWPPL.Payment"
+        mc:Ignorable="d"
+        Title="UpdatePaymentStatusDialog" Height="400" Width="400">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblQuestion" Grid.Column="1">Payment Status</Label>
+        <TextBox x:Name="statusTxt" Grid.Column="1" Grid.Row="1" MinWidth="250" />
+
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button IsDefault="True" x:Name="saveButton"  MinWidth="60" Margin="0,0,10,0">_Save</Button>
+            <Button IsCancel="True" x:Name="backButton"  MinWidth="60">_Back</Button>
+        </WrapPanel>
+    </Grid>
+</Window:MyWindow>

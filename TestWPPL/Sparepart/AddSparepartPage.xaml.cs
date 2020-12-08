@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,9 +73,15 @@ namespace TestWPPL.Sparepart
 
         public void onSaveButtonClick()
         {
-            ObjectSparepart newSparepart = new ObjectSparepart(nameTxtBox.getText(), Int32.Parse(priceTxtBox.getText()), Int16.Parse(stockTxtBox.getText()));
-            String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("addSparepart",uploadImage, newSparepart, token);
+            ObjectSparepart newSparepart = null;
+            if (!nameTxtBox.getText().Equals("") && !priceTxtBox.getText().Equals("") && !stockTxtBox.getText().Equals(""))
+            {
+                newSparepart = new ObjectSparepart(nameTxtBox.getText(), Int32.Parse(priceTxtBox.getText()), Int16.Parse(stockTxtBox.getText()));
+                String token = File.ReadAllText(@"userToken.txt");
+                getController().callMethod("addSparepart", uploadImage, newSparepart, token);
+            }
+            else
+                MessageBox.Show("Please fill in all fields before saving", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void onUploadButtonClick()
@@ -85,6 +92,11 @@ namespace TestWPPL.Sparepart
             uploadImage.Add(openFile.openFile(false)[0]);
             picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
             Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
+        }
+
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void setStatus(String _status)
@@ -98,6 +110,18 @@ namespace TestWPPL.Sparepart
                         break;
                 }
             });
+        }
+
+        private void priceTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void stockTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
     }
 }

@@ -117,11 +117,22 @@
     <Compile Include="Dashboard\BenjolWindow.xaml.cs">
       <DependentUpon>BenjolWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\DashboardController.cs" />
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Model\ModelBengkel.cs" />
+    <Compile Include="Model\ModelPayment.cs" />
     <Compile Include="Model\ModelPickup.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
+    <Compile Include="Model\ObjectBengkel.cs" />
     <Compile Include="Model\ObjectSparepart.cs" />
+    <Compile Include="Payment\PaymentController.cs" />
+    <Compile Include="Payment\PaymentPage.xaml.cs">
+      <DependentUpon>PaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\UpdatePaymentStatusDialog.xaml.cs">
+      <DependentUpon>UpdatePaymentStatusDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pickup\ListPickupPage.xaml.cs">
       <DependentUpon>ListPickupPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +142,7 @@
     <Compile Include="Pickup\PickupPage.xaml.cs">
       <DependentUpon>PickupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Profile\ProfileController.cs" />
     <Compile Include="Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -139,10 +151,6 @@
       <DependentUpon>ProgressPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Register\RegisterController.cs" />
-    <Compile Include="Register\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service\ServiceAddDialog.xaml.cs">
       <DependentUpon>ServiceAddDialog.xaml</DependentUpon>
     </Compile>
@@ -194,6 +202,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Payment\PaymentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Payment\UpdatePaymentStatusDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pickup\ListPickupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Progress\ProgressPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Register\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

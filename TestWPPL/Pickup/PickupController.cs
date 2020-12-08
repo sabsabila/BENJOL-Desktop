@@ -34,6 +34,8 @@ namespace TestWPPL.Pickup
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit pickup");
         }
 
         public async void requestPickup(String token)
@@ -49,6 +51,8 @@ namespace TestWPPL.Pickup
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setPickup);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load pickup");
         }
 
         public async void requestUser(int _bookingId, String token)
@@ -64,6 +68,8 @@ namespace TestWPPL.Pickup
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setUser);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load user");
         }
 
         private void setStatus(HttpResponseBundle _response)

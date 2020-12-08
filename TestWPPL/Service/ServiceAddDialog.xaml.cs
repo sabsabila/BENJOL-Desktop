@@ -28,13 +28,22 @@ namespace TestWPPL.Service
 
         private void btnSaveService_Click(object sender, RoutedEventArgs e)
         {
-            String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("postService", txtAnswer.Text, token);
+            if (!txtAnswer.Text.Equals(""))
+            {
+                String token = File.ReadAllText(@"userToken.txt");
+                getController().callMethod("postService", txtAnswer.Text, token);
+            }else
+                MessageBox.Show("Please fill in all fields before saving", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void setStatus(String _status)

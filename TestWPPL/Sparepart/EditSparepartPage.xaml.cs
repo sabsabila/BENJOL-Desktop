@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -109,6 +110,10 @@ namespace TestWPPL.Sparepart
             });
         }
 
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
         public void setStatus(String _status)
         {
             this.Dispatcher.Invoke(() => {
@@ -120,6 +125,18 @@ namespace TestWPPL.Sparepart
                         break;
                 }
             });
+        }
+
+        private void priceTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void stockTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as IMyTextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
     }
 }

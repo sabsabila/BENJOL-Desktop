@@ -1,50 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
+using System.Net.Http;
+using Newtonsoft.Json;
 
-namespace TestWPPL.Booking
+namespace TestWPPL.Payment
 {
-    public class BookingController : MyController {
-        public BookingController(IMyView _myView) : base(_myView) { 
-            
+    class PaymentController : MyController
+    {
+        public PaymentController(IMyView _myView) : base(_myView)
+        {
+
         }
 
-        public async void booking(String token)
+        public async void showPayments(String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/myBooking")
+                .setEndpoint("api/bengkelPayment")
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to load bookings");
+                getView().callMethod("setFailStatus", "Failed to load payments");
         }
 
-        public async void deleteBooking(int _booking_id, String token)
+        public async void updatePaymentStatus(String _status, int _payment_id, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/booking/" + _booking_id)
-                .setRequestMethod(HttpMethod.Delete);
+                .addParameters("status", _status)
+                .setEndpoint("api/finishPayment/" + _payment_id)
+                .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to delete bookings");
+                getView().callMethod("setFailStatus", "Failed to edit payment");
         }
 
         private void setItem(HttpResponseBundle _response)
@@ -53,8 +57,9 @@ namespace TestWPPL.Booking
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 Console.WriteLine("BAWAH");
-                Console.WriteLine(_response.getParsedObject<Bookings>().booking);
-                getView().callMethod("setBooking", _response.getParsedObject<Bookings>().booking);
+                getView().callMethod("setPayment", _response.getParsedObject<Payments>().payments);
+
+
             }
         }
 
