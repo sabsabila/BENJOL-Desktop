@@ -8,6 +8,7 @@
       xmlns:basic="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       mc:Ignorable="d" 
       d:DesignHeight="365" d:DesignWidth="635"
+      FontFamily="{StaticResource Muli}"
       Title="Dashboard">
     <Grid Background="#FFF0F0F7">
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="250" Width="550"  VerticalAlignment="Top" Margin="45,65,0,0"/>

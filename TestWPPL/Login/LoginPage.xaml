@@ -7,7 +7,10 @@
       xmlns:basic1="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       xmlns:lineChart="clr-namespace:Velacro.Chart.LineChart;assembly=Velacro"
       mc:Ignorable="d" 
+      Background="{DynamicResource MaterialDesignPaper}"
       d:DesignHeight="450" d:DesignWidth="800"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      FontFamily="{StaticResource Muli}"
       Title="LoginPage">
     <Grid Background="#FFFFFF">
         <Image x:Name="loginImage" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="540" Source="Group 1581.png" Margin="-48,-42,0,-42"/>
@@ -17,7 +20,7 @@
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="492,209,0,0" VerticalAlignment="Top" Width="260" Height="36" Opacity="0.5"/>
         <TextBlock x:Name="emailLabel" HorizontalAlignment="Left" Margin="492,126,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Opacity="0.8"/>
         <TextBlock HorizontalAlignment="Left" Margin="492,188,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Opacity="0.8"/>
-        <Button x:Name="loginButton" Background="#FBB308" Content="Login" HorizontalAlignment="Left" Margin="492,277,0,0" VerticalAlignment="Top" Width="260" Height="36" FontSize="14" BorderThickness="0" />
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" FontStyle="Normal" x:Name="loginButton" Background="#FBB308" Content="Login" HorizontalAlignment="Left" Margin="492,277,0,0" VerticalAlignment="Top" Width="260" Height="36" FontSize="14" BorderThickness="0" />
 
     </Grid>
 </basic1:MyPage>

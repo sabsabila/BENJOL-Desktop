@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestWPPL.Payment"
+        FontFamily="{StaticResource Muli}"
         mc:Ignorable="d"
         Title="UpdatePaymentStatusDialog" Height="400" Width="400">
     <Grid Margin="15">
@@ -19,11 +20,16 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="lblQuestion" Grid.Column="1">Payment Status</Label>
-        <TextBox x:Name="statusTxt" Grid.Column="1" Grid.Row="1" MinWidth="250" />
 
-        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
-            <Button IsDefault="True" x:Name="saveButton"  MinWidth="60" Margin="0,0,10,0">_Save</Button>
-            <Button IsCancel="True" x:Name="backButton"  MinWidth="60">_Back</Button>
+
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" RenderTransformOrigin="0.496,1.515" Grid.Column="2">
+            <RadioButton x:Name="paymentStatus1" Content="paid" Margin="100,25,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <RadioButton x:Name="paymentStatus2" Content="unpaid" Margin="55,25,0,0" VerticalAlignment="Top"  FontSize="12"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Right" Margin="0,95,111,-80" RenderTransformOrigin="0.496,1.515" Grid.Column="1">
+            <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="#FFFCCA53" Foreground="#FF636363" IsDefault="True" x:Name="saveButton"  MinWidth="60" Margin="0,0,10,0" Content="_Save" />
+            <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="#FFFCCA53" Foreground="#FF636363" IsCancel="True" x:Name="backButton"  MinWidth="60" Content="_Back"/>
         </WrapPanel>
     </Grid>
 </Window:MyWindow>

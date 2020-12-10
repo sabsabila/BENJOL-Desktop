@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Payment"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}"
       Title="PaymentPage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
@@ -15,15 +16,14 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding payment_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="NAME" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="ITEMS/SERVICES" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="COST" Width="110"/>
-                    <GridViewColumn  Header="STATUS" Width="auto">
+                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Items/Services" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service}" Header="Status" Width="auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="{Binding status}"/>
-                                    <Button x:Name="updateStatusBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="update" Click="onUpdateStatusPaymentBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateStatusBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="update" Click="onUpdateStatusPaymentBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -31,7 +31,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Width="420" Margin="20,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="searchInvoiceBtn" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="261,55,-131,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
     </Grid>
 </Page:MyPage>
