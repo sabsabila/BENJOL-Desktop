@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Pickup"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}" 
       Title="ListPickupPage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
@@ -14,16 +15,16 @@
         <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="20"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding pickup_location}" Header="Pickup At" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding dropoff_location}" Header="Drop Off At" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding pickup_location}" Header="Pickup At" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding dropoff_location}" Header="Drop Off At" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Action" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
+                                <Button  x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" FontSize="11" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

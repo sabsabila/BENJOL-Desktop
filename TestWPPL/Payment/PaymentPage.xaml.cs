@@ -11,6 +11,7 @@ using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBox;
+using Velacro.UIElements.RadioButton;
 
 namespace TestWPPL.Payment
 {
@@ -19,19 +20,38 @@ namespace TestWPPL.Payment
     /// </summary>
     public partial class PaymentPage : MyPage
     {
+        private BuilderButton btnBuilder;
+        private IMyButton update_Button;
         private List<ModelPayment> listPayments;
         private List<int> actualId = new List<int>();
         private CollectionView view;
 
+
+
+        //ModelPayment dataObject;
 
         public PaymentPage()
         {
             InitializeComponent();
             this.KeepAlive = true;
             setController(new PaymentController(this));
+            initUIBuilders();
+            initUIElements();
             getPayment();
         }
-               
+
+        private void initUIBuilders()
+        {
+           
+            btnBuilder = new BuilderButton();
+        }
+        private void initUIElements()
+        {
+            update_Button = btnBuilder.activate(this, "updateStatusBtn")
+                            .addOnClick(this, "onUpdateStatusPaymentBtn_Click");
+        }
+
+
 
         public void getPayment()
         {
@@ -54,12 +74,12 @@ namespace TestWPPL.Payment
             this.Dispatcher.Invoke((Action)(() => {
                 paymentList.ItemsSource = payments;
                 view = (CollectionView)CollectionViewSource.GetDefaultView(paymentList.ItemsSource);
-                
+
             }));
         }
 
-    
-        
+
+
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
@@ -95,14 +115,15 @@ namespace TestWPPL.Payment
             ModelPayment dataObject = button.DataContext as ModelPayment;
 
             var editDialog = new UpdatePaymentStatusDialog(dataObject);
-            
-            
-            if(editDialog.ShowDialog() == true)
+
+
+            if (editDialog.ShowDialog() == true)
             {
                 this.NavigationService.Navigate(new PaymentPage());
             }
-            
+
         }
+
 
     }
 }

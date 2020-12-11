@@ -6,22 +6,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Service"
       mc:Ignorable="d"
+      FontFamily="{StaticResource Muli}" 
       Title="ServicePage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7" >
         <Label Content="List Service" HorizontalAlignment="Left" Margin="20,10
                ,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="20"/>
-        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch">
+        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="NAME" Width="600"/>
-                    <GridViewColumn Header="ACTION" Width="110">
+                    <GridViewColumn DisplayMemberBinding="{Binding service_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Remove" Click="deleteBtn_Click"/>
-                                    <Button x:Name="editBtn" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}" FontSize="11" MaxWidth="100" HorizontalAlignment="Left" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Remove" Click="deleteBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn" BorderBrush="{x:Null}" FontSize="11" MaxWidth="100" HorizontalAlignment="Right" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -29,9 +30,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.515,1.987"/>
-        <Button x:Name="addServiceButton" Content="Add" HorizontalAlignment="Stretch" Margin="683,70,41,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Button x:Name="searchServiceButton" Content="Search" HorizontalAlignment="Stretch" Margin="355,70,369,0" VerticalAlignment="Top" Width="76" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" RenderTransformOrigin="0.515,1.987"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addServiceButton" Content="Add" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchServiceButton" Content="Search" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="160,58,-176,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
         
     </Grid>
 </Page:MyPage>
