@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Sparepart"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}" 
       Title="SparepartPage">
 
     <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="sparepartList" HorizontalAlignment="Stretch" Margin="20,100,20,50" VerticalAlignment="Stretch">
+        <ListView x:Name="sparepartList" HorizontalAlignment="Stretch"  Width="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding sparepart_id}" Header="#" Width="Auto"/>
@@ -23,7 +24,7 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Action" Width="150">
+                    <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -32,7 +33,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                        
+
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

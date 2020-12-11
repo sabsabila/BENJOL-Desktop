@@ -9,6 +9,7 @@
         FontFamily="{StaticResource Muli}"
         xmlns:local="clr-namespace:TestWPPL.Dashboard"
         mc:Ignorable="d"
+        FontFamily="{StaticResource Muli}"
         Title="BENJOL" >
     <Window.Resources>
         <Style TargetType="Button">

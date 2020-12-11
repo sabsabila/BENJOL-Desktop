@@ -6,12 +6,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Service"
       mc:Ignorable="d"
+      FontFamily="{StaticResource Muli}" 
       Title="ServicePage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7" >
         <Label Content="List Service" HorizontalAlignment="Left" Margin="20,10
                ,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="20"/>
-        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch">
+        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding service_id}" Header="#" Width="Auto"/>

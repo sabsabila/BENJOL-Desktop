@@ -8,10 +8,10 @@
       mc:Ignorable="d" 
       Title="BookingPage">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
-        
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#FFF0F0F7">
+
         <Label Content="Antrian Booking" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="bookingList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
+        <ListView x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Center" Width="Auto" SelectionChanged="bookingList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="Auto"/>
