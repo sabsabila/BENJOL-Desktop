@@ -13,6 +13,7 @@ namespace TestWPPL.Payment
 {
     class PaymentController : MyController
     {
+        String _paymentStatus;
         public PaymentController(IMyView _myView) : base(_myView)
         {
 
@@ -34,14 +35,14 @@ namespace TestWPPL.Payment
                 getView().callMethod("setFailStatus", "Failed to load payments");
         }
 
-        public async void updatePaymentStatus(String _status, int _payment_id, String token)
+        public async void updatePaymentStatus(int _payment_id, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .addParameters("status", _status)
+                .addParameters("status", _paymentStatus)
                 .setEndpoint("api/finishPayment/" + _payment_id)
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
@@ -71,5 +72,17 @@ namespace TestWPPL.Payment
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
+
+        public void onRadioButtonPayment1Checked()
+        {
+            _paymentStatus = "paid";
+        }
+
+        public void onRadioButtonPayment2Checked()
+        {
+            _paymentStatus = "unpaid";
+        }
+
+
     }
 }

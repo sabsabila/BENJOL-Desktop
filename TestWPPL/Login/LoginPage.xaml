@@ -7,6 +7,7 @@
       xmlns:basic1="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       xmlns:lineChart="clr-namespace:Velacro.Chart.LineChart;assembly=Velacro"
       mc:Ignorable="d" 
+      Background="{DynamicResource MaterialDesignPaper}"
       d:DesignHeight="450" d:DesignWidth="800"
       FontFamily="{StaticResource Muli}"
       Title="LoginPage">

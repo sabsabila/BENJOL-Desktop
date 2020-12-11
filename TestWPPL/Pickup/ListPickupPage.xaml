@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Pickup"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}" 
       Title="ListPickupPage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
@@ -23,8 +24,7 @@
                     <GridViewColumn Header="Action" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" FontSize="11" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
-                                
+                                <Button  x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" FontSize="11" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
