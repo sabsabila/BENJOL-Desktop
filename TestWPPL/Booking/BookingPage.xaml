@@ -14,19 +14,19 @@
         <ListView x:Name="bookingList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="110"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="80"/>
-                    <GridViewColumn Header="ACTION" Width="150">
+                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="Auto"/>
+                    <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="progressBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Margin="10" Content="Set Progress" Click="progressBtn_Click"/>
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Margin="10" Content="Cancel" Click="deleteBtn_Click"/>
+                                    <Button x:Name="progressBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Set Progress" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
+                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Cancel" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
