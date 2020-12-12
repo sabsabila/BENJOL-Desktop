@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
@@ -77,7 +72,6 @@ namespace TestWPPL.Pickup
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
@@ -87,7 +81,6 @@ namespace TestWPPL.Pickup
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setUser", _response.getParsedObject<ItemUser>().user);
             }
         }

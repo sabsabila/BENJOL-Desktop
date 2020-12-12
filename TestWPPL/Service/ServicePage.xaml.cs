@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
@@ -22,8 +13,7 @@ namespace TestWPPL.Service
 {
     public partial class ServicePage : MyPage
     {
-        private List<ModelService> listServices;
-        private List<int> actualId = new List<int>();
+        
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton buttonBuilder;
         private IMyTextBox searchTxtBox;
@@ -80,13 +70,10 @@ namespace TestWPPL.Service
 
         public void setService(List<ModelService> services)
         {
-            this.listServices = services;
-            actualId.Clear();
             int id = 1;
             foreach (ModelService service in services)
             {
-                actualId.Add(service.service_id);
-                service.service_id = id;
+                service.num = id;
                 id++;
             }
 
@@ -130,11 +117,6 @@ namespace TestWPPL.Service
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listServices.Count; i++)
-            {
-                listServices.ElementAt(i).service_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelService dataObject = button.DataContext as ModelService;
             String token = File.ReadAllText(@"userToken.txt");
@@ -150,11 +132,6 @@ namespace TestWPPL.Service
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listServices.Count; i++)
-            {
-                listServices.ElementAt(i).service_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelService dataObject = button.DataContext as ModelService;
             var editDialog = new ServiceEditDialog(dataObject);
@@ -164,8 +141,5 @@ namespace TestWPPL.Service
 
         }
             
-
-
-
     }
 }
