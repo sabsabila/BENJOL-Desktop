@@ -74,8 +74,8 @@ namespace TestWPPL.Profile
             phoneTxtBox = txtBoxBuilder.activate(this, "phoneTxt");
             emailTxtBox = txtBoxBuilder.activate(this, "emailTxt");
             addressTxtBox = txtBoxBuilder.activate(this, "addressTxt");
-            oldPass = passBoxBuilder.activate(this, "oldPassTxt");
-            newPass = passBoxBuilder.activate(this, "newPassTxt");
+            oldPass = passBoxBuilder.activate(this, "oldPassword");
+            newPass = passBoxBuilder.activate(this, "newPassword");
         }
 
         private void getEditedItem()
@@ -120,13 +120,13 @@ namespace TestWPPL.Profile
             }
         }
 
-        
-
         public void setProfile(ModelBengkel bengkel)
         {
             this.Dispatcher.Invoke(() => {
                 nameTxtBox.setText(bengkel.name);
-                string number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
+                string number = "";
+                if (bengkel.phone_number != null)
+                    number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
                 phoneTxtBox.setText(number);
                 emailTxtBox.setText(bengkel.email);
                 addressTxtBox.setText(bengkel.address);

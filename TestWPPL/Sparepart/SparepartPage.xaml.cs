@@ -31,8 +31,6 @@ namespace TestWPPL.Sparepart
         private IMyButton searchButton;
         private IMyButton addButton;
         private IMyTextBox searchTextBox;
-        private List<ModelSparepart> listSparepart;
-        private List<int> actualId = new List<int>();
         private CollectionView view;
 
         public SparepartPage()
@@ -73,13 +71,9 @@ namespace TestWPPL.Sparepart
         public void setSparepart(List<ModelSparepart> spareparts)
         {
             int id = 1;
-            this.listSparepart = spareparts;
-            actualId.Clear();
             foreach (ModelSparepart sparepart in spareparts)
             {
-                //nyimpen id asli
-                actualId.Add(sparepart.sparepart_id);
-                sparepart.sparepart_id = id;
+                sparepart.num = id;
                 if (sparepart.picture == null)
                     sparepart.picture = "/image/image.png";
                 else
@@ -115,12 +109,7 @@ namespace TestWPPL.Sparepart
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            //dibalikin id aslinya
-            for (int i = 0; i < listSparepart.Count; i++)
-            {
-                listSparepart.ElementAt(i).sparepart_id = actualId.ElementAt(i);
-            }
-
+            
             Button button = sender as Button;
             ModelSparepart dataObject = button.DataContext as ModelSparepart;
             Console.WriteLine("id yg mau dikirim : " + dataObject.sparepart_id);
@@ -129,11 +118,7 @@ namespace TestWPPL.Sparepart
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            //dibalikin id aslinya
-            for (int i = 0; i < listSparepart.Count; i++)
-            {
-                listSparepart.ElementAt(i).sparepart_id = actualId.ElementAt(i);
-            }
+           
             Button button = sender as Button;
             ModelSparepart dataObject = button.DataContext as ModelSparepart;
 

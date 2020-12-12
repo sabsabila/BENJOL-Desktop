@@ -35,7 +35,10 @@ namespace TestWPPL.Dashboard {
             this.Dispatcher.Invoke((Action)(() => {
                 bengkelName.Text = bengkel.name;
                 email.Text = bengkel.email;
-                telephone.Text = "+" + bengkel.phone_number;
+                if (bengkel.phone_number != null)
+                    telephone.Text = "+" + bengkel.phone_number;
+                else
+                    telephone.Text = "-";
                 address.Text = bengkel.address;
                 if (bengkel.profile_picture != null)
                     bengkelPicture.ImageSource = new BitmapImage(new Uri(ApiConstant.BASE_URL + bengkel.profile_picture));

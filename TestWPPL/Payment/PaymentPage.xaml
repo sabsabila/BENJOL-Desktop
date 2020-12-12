@@ -11,20 +11,19 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
         <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,102,20,38" VerticalAlignment="Stretch" Width="Auto">
+        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,40" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding payment_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Items/Services" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="110"/>
-                    <GridViewColumn  Header="Status" Width="auto">
+                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="110"/>
+                    <GridViewColumn  Header="Action" Width="auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateStatusBtn" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="update" Click="onUpdateStatusPaymentBtn_Click"/>
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateStatusBtn" HorizontalAlignment="Right" Background="#FFFCCA53" FontSize="11" Foreground="#FF636363" Content="update" Click="onUpdateStatusPaymentBtn_Click"/>
-                                </StackPanel>
+                                <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Update" Click="onUpdateStatusPaymentBtn_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

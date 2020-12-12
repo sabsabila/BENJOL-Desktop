@@ -10,12 +10,12 @@
       Title="ServicePage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7" >
-        <Label Content="List Service" HorizontalAlignment="Left" Margin="20,10
-               ,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="20"/>
+        <Label Content="Services" HorizontalAlignment="Left" Margin="20,10
+               ,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
         <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="20,100,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
@@ -30,9 +30,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" RenderTransformOrigin="0.515,1.987"/>
+        <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Margin="20,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" RenderTransformOrigin="0.515,1.987"/>
         <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addServiceButton" Content="Add" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
         <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchServiceButton" Content="Search" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="160,58,-176,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        
+
     </Grid>
 </Page:MyPage>

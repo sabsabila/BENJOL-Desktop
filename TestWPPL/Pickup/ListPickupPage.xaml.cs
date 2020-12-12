@@ -23,8 +23,6 @@ namespace TestWPPL.Pickup
     /// </summary>
     public partial class ListPickupPage : MyPage
     {
-        private List<ModelPickup> listPickup;
-        private List<int> actualId = new List<int>();
         public ListPickupPage()
         {
             InitializeComponent(); 
@@ -35,13 +33,10 @@ namespace TestWPPL.Pickup
 
         public void setPickup(List<ModelPickup> pickups)
         {
-            this.listPickup = pickups;
-            actualId.Clear();
             int id = 1;
             foreach (ModelPickup pickup in pickups)
             {
-                actualId.Add(pickup.booking_id);
-                pickup.booking_id = id;
+                pickup.num = id;
                 id++;
             }
 
@@ -63,11 +58,6 @@ namespace TestWPPL.Pickup
 
         private void PickUp_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listPickup.Count; i++)
-            {
-                listPickup.ElementAt(i).booking_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelPickup dataObject = button.DataContext as ModelPickup;
             Console.WriteLine("id booking di pickup : " + dataObject.booking_id);

@@ -25,28 +25,20 @@ namespace TestWPPL.Booking
 {
     public partial class BookingPage : MyPage
     {
-        private List<ModelBooking> listBooking;
-        private List<int> actualId = new List<int>();
-
         public BookingPage()
         {
             InitializeComponent();
             this.KeepAlive = true;
             setController(new BookingController(this));
-            initUIBuilders();
-            initUIElements();
             getBooking();
         }
 
         public void setBooking(List<ModelBooking> bookings)
         {
-            this.listBooking = bookings;
-            actualId.Clear();
             int id = 1;
             foreach(ModelBooking booking in bookings)
             {
-                actualId.Add(booking.booking_id);
-                booking.booking_id = id;
+                booking.num = id;
                 if (booking.start_time == null)
                     booking.start_time = "-";
                 if (booking.end_time == null)
@@ -59,15 +51,6 @@ namespace TestWPPL.Booking
             }));
         }
 
-        private void initUIBuilders()
-        {
-        }
-
-        private void initUIElements()
-        {
-
-        }
-
         private void getBooking()
         {
             String token = File.ReadAllText(@"userToken.txt");
@@ -76,11 +59,6 @@ namespace TestWPPL.Booking
 
         private void PickUpButton_OnClick(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listBooking.Count; i++)
-            {
-                listBooking.ElementAt(i).booking_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
             this.NavigationService.Navigate(new PickupPage(dataObject.booking_id));
@@ -88,11 +66,6 @@ namespace TestWPPL.Booking
 
         private void progressBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listBooking.Count; i++)
-            {
-                listBooking.ElementAt(i).booking_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
 
@@ -102,11 +75,6 @@ namespace TestWPPL.Booking
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            //dibalikin id aslinya
-            for (int i = 0; i < listBooking.Count; i++)
-            {
-                listBooking.ElementAt(i).booking_id = actualId.ElementAt(i);
-            }
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
 

@@ -22,8 +22,7 @@ namespace TestWPPL.Service
 {
     public partial class ServicePage : MyPage
     {
-        private List<ModelService> listServices;
-        private List<int> actualId = new List<int>();
+        
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton buttonBuilder;
         private IMyTextBox searchTxtBox;
@@ -80,13 +79,10 @@ namespace TestWPPL.Service
 
         public void setService(List<ModelService> services)
         {
-            this.listServices = services;
-            actualId.Clear();
             int id = 1;
             foreach (ModelService service in services)
             {
-                actualId.Add(service.service_id);
-                service.service_id = id;
+                service.num = id;
                 id++;
             }
 
@@ -130,11 +126,6 @@ namespace TestWPPL.Service
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listServices.Count; i++)
-            {
-                listServices.ElementAt(i).service_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelService dataObject = button.DataContext as ModelService;
             String token = File.ReadAllText(@"userToken.txt");
@@ -150,11 +141,6 @@ namespace TestWPPL.Service
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listServices.Count; i++)
-            {
-                listServices.ElementAt(i).service_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelService dataObject = button.DataContext as ModelService;
             var editDialog = new ServiceEditDialog(dataObject);
@@ -164,8 +150,5 @@ namespace TestWPPL.Service
 
         }
             
-
-
-
     }
 }

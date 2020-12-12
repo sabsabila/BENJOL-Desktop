@@ -20,8 +20,6 @@ namespace TestWPPL.Payment
     /// </summary>
     public partial class PaymentPage : MyPage
     {
-        private BuilderButton btnBuilder;
-        private IMyButton update_Button;
         private List<ModelPayment> listPayments;
         private List<int> actualId = new List<int>();
         private CollectionView view;
@@ -35,24 +33,9 @@ namespace TestWPPL.Payment
             InitializeComponent();
             this.KeepAlive = true;
             setController(new PaymentController(this));
-            initUIBuilders();
-            initUIElements();
             getPayment();
         }
-
-        private void initUIBuilders()
-        {
-           
-            btnBuilder = new BuilderButton();
-        }
-        private void initUIElements()
-        {
-            update_Button = btnBuilder.activate(this, "updateStatusBtn")
-                            .addOnClick(this, "onUpdateStatusPaymentBtn_Click");
-        }
-
-
-
+        
         public void getPayment()
         {
             String token = File.ReadAllText(@"userToken.txt");
