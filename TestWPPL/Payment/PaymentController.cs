@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
 using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace TestWPPL.Payment
 {

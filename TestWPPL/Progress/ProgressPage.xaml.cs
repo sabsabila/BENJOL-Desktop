@@ -12,9 +12,6 @@ using System.Text.RegularExpressions;
 
 namespace TestWPPL.Progress
 {
-    /// <summary>
-    /// Interaction logic for ProgressPage.xaml
-    /// </summary>
     public partial class ProgressPage : MyPage
     {
         private BuilderButton buttonBuilder;
@@ -67,17 +64,13 @@ namespace TestWPPL.Progress
             System.Diagnostics.Debug.WriteLine("Test uibu page");
         }
 
-       
-
         public void onSaveButtonClick()
         {
             System.Diagnostics.Debug.WriteLine("Test onsave page");
             String token = File.ReadAllText(@"userToken.txt");
             String startTime = startTimeH.getText().ToString() + ":" + startTimeM.getText().ToString() + ":" + startTimeS.getText().ToString();
             String endTime = endTimeH.getText().ToString() + ":" + endTimeM.getText().ToString() + ":" + endTimeS.getText().ToString();
-            Console.WriteLine("INI START TIME" + startTime);
             getController().callMethod("editProgress", bookingId, startTime, endTime, token);
-            Console.WriteLine(token);
         }
 
         public void onBackButtonClick()

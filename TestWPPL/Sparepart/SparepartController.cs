@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
@@ -21,7 +16,6 @@ namespace TestWPPL.Sparepart
 
         public async void requestSpareparts(String token)
         {
-            //Console.WriteLine("ini pas request api sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -38,7 +32,6 @@ namespace TestWPPL.Sparepart
 
         public async void addSparepart(MyList<MyFile> files, ObjectSparepart sparepart, String token)
         {
-            Console.WriteLine("ini di add sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -62,7 +55,6 @@ namespace TestWPPL.Sparepart
 
         public async void editSparepart(MyList<MyFile> files, ObjectSparepart sparepart, int sparepartId, String token)
         {
-            Console.WriteLine("ini pas request edit sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -74,7 +66,6 @@ namespace TestWPPL.Sparepart
             if (files.Count > 0)
                 formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "picture", files[0].fullFileName);
 
-            Console.WriteLine(sparepart.name);
             var multiPartRequest = request
              .buildMultipartRequest(new MultiPartContent(formContent))
              .setEndpoint("api/sparepart/" + sparepartId)
@@ -88,7 +79,6 @@ namespace TestWPPL.Sparepart
 
         public async void showSparepart(int sparepartId, String token)
         {
-            //Console.WriteLine("ini pas request api sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -103,7 +93,6 @@ namespace TestWPPL.Sparepart
 
         public async void deleteSparepart(int sparepartId, String token)
         {
-            //Console.WriteLine("ini pas request api sparepart");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -132,7 +121,6 @@ namespace TestWPPL.Sparepart
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
@@ -142,8 +130,6 @@ namespace TestWPPL.Sparepart
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine("ini masuk edit page");
-                Console.WriteLine("sparepart name : " + _response.getParsedObject<ItemSparepart>().spareparts.name);
                 getView().callMethod("setItem", _response.getParsedObject<ItemSparepart>().spareparts);
             }
         }

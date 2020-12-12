@@ -1,34 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.Basic;
 using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.PasswordBox;
-using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
 
 namespace TestWPPL.Profile
 {
-    /// <summary>
-    /// Interaction logic for ProfilePage.xaml
-    /// </summary>
     public partial class ProfilePage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
@@ -101,7 +87,6 @@ namespace TestWPPL.Profile
         public void onUploadButtonClick()
         {
             uploadImage.Clear();
-            Console.WriteLine("ini buat upload");
             OpenFile openFile = new OpenFile();
             uploadImage.Add(openFile.openFile(false)[0]);
             picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));

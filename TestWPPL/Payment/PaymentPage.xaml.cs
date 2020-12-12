@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 using System.Windows.Controls;
@@ -9,24 +7,14 @@ using System;
 using System.Collections.Generic;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
-using Velacro.UIElements.Button;
-using Velacro.UIElements.TextBox;
-using Velacro.UIElements.RadioButton;
 
 namespace TestWPPL.Payment
 {
-    /// <summary>
-    /// Interaction logic for PaymentPage.xaml
-    /// </summary>
     public partial class PaymentPage : MyPage
     {
         private List<ModelPayment> listPayments;
         private List<int> actualId = new List<int>();
         private CollectionView view;
-
-
-
-        //ModelPayment dataObject;
 
         public PaymentPage()
         {
@@ -98,7 +86,6 @@ namespace TestWPPL.Payment
             ModelPayment dataObject = button.DataContext as ModelPayment;
 
             var editDialog = new UpdatePaymentStatusDialog(dataObject);
-
 
             if (editDialog.ShowDialog() == true)
             {
