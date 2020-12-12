@@ -16,7 +16,7 @@
             <ColumnDefinition Width="387*"/>
             <ColumnDefinition Width="413*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="loginImage" HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="540" Source="Group 1581.png" Margin="-48,0,0,-84" Grid.ColumnSpan="2"/>
+        <Image x:Name="loginImage" HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="555" Source="Group 1581.png" Margin="-44,-32,0,-43" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="loginTitle" HorizontalAlignment="Left" Margin="105.448,47,0,0" TextWrapping="Wrap" Text="USER LOGIN" VerticalAlignment="Top" Height="31" Width="260" FontSize="24" TextAlignment="Center" Opacity="0.8" Grid.Column="1"/>
         <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="167.448,83,0,0" TextWrapping="Wrap" Text="Bengkel Jadi Online" VerticalAlignment="Top" Width="135" TextAlignment="Center" Opacity="0.8" Grid.Column="1"/>
         <TextBox x:Name="emailTextBox"  HorizontalAlignment="Left" Height="36" Margin="105.448,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" Opacity="0.505" FontSize="16" Grid.Column="1"/>

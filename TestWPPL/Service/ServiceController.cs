@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
@@ -39,7 +35,6 @@ namespace TestWPPL.Service
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getParsedObject<Services>().services);
                 getView().callMethod("setService", _response.getParsedObject<Services>().services);
             }
         }
@@ -99,7 +94,6 @@ namespace TestWPPL.Service
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(status);
                 getView().callMethod("setStatus", status);
             }
         }

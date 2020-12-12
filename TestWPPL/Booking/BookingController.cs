@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
@@ -52,8 +48,6 @@ namespace TestWPPL.Booking
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine("BAWAH");
-                Console.WriteLine(_response.getParsedObject<Bookings>().booking);
                 getView().callMethod("setBooking", _response.getParsedObject<Bookings>().booking);
             }
         }

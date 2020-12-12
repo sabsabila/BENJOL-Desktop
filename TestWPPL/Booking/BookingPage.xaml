@@ -8,13 +8,13 @@
       mc:Ignorable="d" 
       Title="BookingPage">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#FFF0F0F7">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#FFF0F0F7">
 
-        <Label Content="Antrian Booking" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Center" Width="Auto" SelectionChanged="bookingList_SelectionChanged">
+        <Label Content="Bookings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <ListView x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Center" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
@@ -26,7 +26,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button x:Name="progressBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Set Progress" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Cancel" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
+                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Finish/Cancel" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

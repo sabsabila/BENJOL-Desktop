@@ -11,11 +11,11 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
 
-        <Label Content="Antrian Booking" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <Label Content="Pickups" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
         <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding pickup_location}" Header="Pickup At" Width="Auto"/>
