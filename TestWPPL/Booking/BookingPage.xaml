@@ -1,5 +1,6 @@
 ﻿<Page:MyPage xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       x:Class="TestWPPL.Booking.BookingPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,8 +11,8 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#FFF0F0F7">
 
-        <Label Content="Bookings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Center" Width="Auto">
+        <Label Content="Bookings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
+        <ListView Style="{DynamicResource MaterialDesignListView}" x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Center" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
@@ -25,8 +26,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="progressBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Set Progress" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" FontSize="11" Content="Finish/Cancel" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="progressBtn" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Set Progress" Margin="0,0,5,0"  Padding="7" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="deleteBtn"  HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Finish/Cancel"  Padding="7" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

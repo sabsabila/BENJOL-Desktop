@@ -22,8 +22,8 @@
         <TextBox x:Name="txtAnswer" Grid.Column="1" Grid.Row="1" MinWidth="250" />
 
         <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
-            <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" Background="#FFFCCA53" Foreground="#FF636363" IsDefault="True" x:Name="saveButton" Click="btnSaveService_Click" MinWidth="60" Margin="0,0,10,0">_Save</Button>
-            <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" Background="#FFFCCA53" Foreground="#FF636363" IsCancel="True" x:Name="cancelButton" Click="btnCancel_Click" MinWidth="60">_Cancel</Button>
+            <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" Background="#FFFCCA53" Foreground="#636363" IsDefault="True" x:Name="saveButton" Click="btnSaveService_Click" MinWidth="60" Margin="0,0,10,0">_Save</Button>
+            <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" Background="#FFFCCA53" Foreground="#636363" IsCancel="True" x:Name="cancelButton" Click="btnCancel_Click" MinWidth="60">_Cancel</Button>
         </WrapPanel>
     </Grid>
 </Window:MyWindow>

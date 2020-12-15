@@ -23,7 +23,7 @@
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="105.448,209,0,0" VerticalAlignment="Top" Width="260" Height="36" Opacity="0.5" Grid.Column="1"/>
         <TextBlock x:Name="emailLabel" HorizontalAlignment="Left" Margin="105.448,126,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Opacity="0.8" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="105.448,188,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Opacity="0.8" Grid.Column="1"/>
-        <Button  Style="{StaticResource MaterialDesignFlatLightBgButton}"  x:Name="loginButton" Background="#FBB308" Content="Login" HorizontalAlignment="Left" Foreground="#FF636363" Margin="105.448,277,0,0" VerticalAlignment="Top" Width="260" Height="36" FontSize="14" BorderThickness="0" Grid.Column="1" />
+        <Button  Style="{StaticResource MaterialDesignFlatLightBgButton}"  x:Name="loginButton" Background="#FBB308" Content="Login" HorizontalAlignment="Left" Foreground="#636363" Margin="105.448,277,0,0" VerticalAlignment="Top" Width="260" Height="36" FontSize="14" BorderThickness="0" Grid.Column="1" />
 
     </Grid>
 </basic1:MyPage>
