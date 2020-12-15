@@ -6,24 +6,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Payment"
       mc:Ignorable="d" 
+             
       FontFamily="{StaticResource Muli}"
       Title="PaymentPage">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
-        <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,40" VerticalAlignment="Stretch" Width="Auto">
+        <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
+        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Top" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding payment_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="200"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="110"/>
-                    <GridViewColumn  Header="Action" Width="auto">
+                    <GridViewColumn DisplayMemberBinding="{Binding payment_id}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
+                    <GridViewColumn  Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Update" Click="onUpdateStatusPaymentBtn_Click"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton"  FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Content="Update" Margin="0,0,5,0"  Height="Auto" Width="Auto" BorderBrush="{x:Null}" Click="onUpdateStatusPaymentBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="createPaymentButton" FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Content="Input cost" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Click="onInputCostBtn_Click"/>
+                                </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

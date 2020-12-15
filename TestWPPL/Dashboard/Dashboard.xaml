@@ -19,8 +19,8 @@
         </Border>
         <Label Content=":" HorizontalAlignment="Left" Margin="238,230,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="bengkelName" Foreground="#FFFBB308" Text="name" HorizontalAlignment="Left" Margin="64,97,0,0" VerticalAlignment="Top" FontSize="24" Width="244"/>
-        <TextBlock x:Name="email" Foreground="#FF636363" Text="email" HorizontalAlignment="Left" Margin="64,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="16"/>
-        <TextBlock x:Name="telephone" Foreground="#FF636363" Text="telphone" HorizontalAlignment="Left" Margin="64,157,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="email" Foreground="#636363" Text="email" HorizontalAlignment="Left" Margin="64,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="16"/>
+        <TextBlock x:Name="telephone" Foreground="#636363" Text="telphone" HorizontalAlignment="Left" Margin="64,157,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="address" Foreground="#FF636363" Text="address" HorizontalAlignment="Left" Margin="64,226,0,0" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </basic:MyPage>

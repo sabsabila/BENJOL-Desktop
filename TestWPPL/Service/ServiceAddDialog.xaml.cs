@@ -25,7 +25,7 @@ namespace TestWPPL.Service
                 MessageBox.Show("Please fill in all fields before saving", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)  
         {
             this.Close();
         }

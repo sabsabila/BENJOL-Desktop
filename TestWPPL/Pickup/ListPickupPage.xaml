@@ -11,7 +11,7 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
 
-        <Label Content="Pickups" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <Label Content="Pickups" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
         <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
@@ -24,7 +24,7 @@
                     <GridViewColumn Header="Action" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button  x:Name="PickUp" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="10" FontSize="11" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="PickUp_Click"/>
+                                <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="PickUp" BorderBrush="{x:Null}" Margin="10" FontSize="11" Background="#FFFCCA53" Width="Auto" Height="Auto" Foreground="#636363" Content="Edit" Click="PickUp_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

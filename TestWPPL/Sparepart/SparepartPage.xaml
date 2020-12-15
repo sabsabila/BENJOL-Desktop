@@ -9,7 +9,7 @@
       Title="SparepartPage">
 
     <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
+        <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
         <ListView x:Name="sparepartList" HorizontalAlignment="Stretch"  Width="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch">
             <ListView.View>
                 <GridView>
@@ -27,9 +27,9 @@
                     <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn" BorderBrush="{x:Null}" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Margin="0,0,0,0" MaxWidth="150"  Click="editBtn_Click"/>
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Delete" Margin="10,0,0,0"  MaxWidth="180"  Click="deleteBtn_Click"/>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn"  BorderBrush="{x:Null}" FontSize="11"  Background="#FFFCCA53" Foreground="#636363" Content="Edit" Margin="0,0,0,0" Height="Auto" Width="Auto"  Click="editBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}"  FontSize="11" Background="#FFFCCA53" Foreground="#636363" Content="Delete" Margin="10,0,0,0"  Height="Auto" Width="Auto"   Click="deleteBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -39,7 +39,7 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Width="420" Margin="20,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchBtn" Content="Search" FontSize="11" Width="Auto" MaxWidth="100" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363" Margin="160,58,-176,0"/>
-        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addBtn" Content="Add Item" FontSize="11" MaxWidth="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchBtn" Content="Search"  FontSize="11" Width="Auto" MaxWidth="100" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363" Margin="160,58,-176,0"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addBtn" Content="Add Item" FontSize="11" MaxWidth="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363"/>
     </Grid>
 </Page:MyPage>
