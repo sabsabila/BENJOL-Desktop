@@ -10,10 +10,10 @@ namespace TestWPPL.Pickup
     {
         String _status;
 
-        public PickupController(IMyView _myView) : base(_myView)
-        {
+            public PickupController(IMyView _myView) : base(_myView)
+            {
 
-        }
+            }
 
         public async void pickup(int _bookingId, String token)
         {

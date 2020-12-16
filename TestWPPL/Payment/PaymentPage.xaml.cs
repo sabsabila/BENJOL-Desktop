@@ -49,8 +49,6 @@ namespace TestWPPL.Payment
             }));
         }
 
-
-
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
@@ -87,11 +85,26 @@ namespace TestWPPL.Payment
 
             var editDialog = new UpdatePaymentStatusDialog(dataObject);
 
+
             if (editDialog.ShowDialog() == true)
             {
                 this.NavigationService.Navigate(new PaymentPage());
             }
 
+        }
+
+        public void onInputCostBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelPayment dataObject = button.DataContext as ModelPayment;
+
+            var editDialog2 = new AddCostDialog(dataObject.booking_id);
+
+            if (editDialog2.ShowDialog() == true)
+            {
+                this.NavigationService.Navigate(new PaymentPage());
+            }
+            
         }
 
 

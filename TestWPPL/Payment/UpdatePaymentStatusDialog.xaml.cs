@@ -1,14 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.RadioButton;
+using Velacro.UIElements.TextBox;
 
 
 namespace TestWPPL.Payment
 {
+    /// <summary>
+    /// Interaction logic for UpdatePaymentStatusDialog.xaml
+    /// </summary>
     public partial class UpdatePaymentStatusDialog : MyWindow
     {
         private BuilderButton btnBuilder;
@@ -24,6 +40,9 @@ namespace TestWPPL.Payment
             InitializeComponent();
             setController(new PaymentController(this));
             this.dataObject = _dataObject;
+
+            Console.WriteLine("id yang dikirim : " + _dataObject.payment_id);
+
             initUIBuilders();
             initUIElements();
 
@@ -43,12 +62,12 @@ namespace TestWPPL.Payment
 
             radioButtonPayment1 = radioButtonBuilder
                .activate(this, "paymentStatus1")
-               .setGroupName("pickupStatusGroup")
-               .addOnChecked(getController(), "onRadioButtonPickup1Checked");
+               .setGroupName("paymentStatusGroup")
+               .addOnChecked(getController(), "onRadioButtonPayment1Checked");
             radioButtonPayment2 = radioButtonBuilder
                 .activate(this, "paymentStatus2")
-                .setGroupName("pickupStatusGroup")
-                .addOnChecked(getController(), "onRadioButtonPickup2Checked");
+                .setGroupName("paymentStatusGroup")
+                .addOnChecked(getController(), "onRadioButtonPayment2Checked");
 
         }
 
@@ -60,6 +79,8 @@ namespace TestWPPL.Payment
             getController().callMethod("updatePaymentStatus", dataObject.payment_id, token);
             this.DialogResult = true;
             this.Close();
+
+
         }
 
         public void BackButtonClick()

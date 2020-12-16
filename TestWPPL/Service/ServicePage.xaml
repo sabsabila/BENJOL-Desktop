@@ -21,8 +21,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}" FontSize="11" MaxWidth="100" HorizontalAlignment="Left" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Remove" Click="deleteBtn_Click"/>
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn" BorderBrush="{x:Null}" FontSize="11" MaxWidth="100" HorizontalAlignment="Right" Margin="10" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Click="editBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}"  Height="Auto" Width="Auto" FontSize="11" MaxWidth="100" Margin="10" Background="#FFFCCA53" Foreground="#636363" Content="Remove" Click="deleteBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn" BorderBrush="{x:Null}"  Height="Auto" Width="Auto" FontSize="11" MaxWidth="100"  Margin="10" Background="#FFFCCA53" Foreground="#636363" Content="Edit" Click="editBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -31,8 +31,8 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="searchTextBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Margin="20,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" RenderTransformOrigin="0.515,1.987"/>
-        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addServiceButton" Content="Add" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchServiceButton" Content="Search" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="160,58,-176,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addServiceButton" Content="Add" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchServiceButton" Content="Search" FontSize="11" Width="100" HorizontalAlignment="Stretch" Margin="160,58,-176,0" VerticalAlignment="Top" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363"/>
 
     </Grid>
 </Page:MyPage>
