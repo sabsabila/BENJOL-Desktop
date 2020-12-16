@@ -52,7 +52,6 @@
         <Rectangle Grid.Column="1" Fill="#FFFCCA53" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
         <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Rectangle Fill="#FFFCCA53" Grid.Row ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        <Label Content="BENJOL" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Foreground="#FF636363" HorizontalContentAlignment="Center" Margin="20,0,0,0"/>
         <Button x:Name="dashboardButton" Grid.Row="1" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}"/>
         <Button x:Name="bookingButton" Grid.Row ="1" Content="&#x9;Booking" HorizontalAlignment="Stretch" Margin="0,62,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="bookingButton_Click"  BorderBrush="{x:Null}"/>
         <Button x:Name="sparepartButton" Grid.Row ="1" Content="&#x9;Products" HorizontalAlignment="Stretch" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#FF636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}"/>
@@ -70,5 +69,6 @@
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="20" HorizontalAlignment="Left" Margin="20,265,115,0" VerticalAlignment="Top" Source="/image/icon_setting.png"/>
         <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
         <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#FF636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
+        <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Source="/image/horizontal-secondary.png"/>
     </Grid>
 </Window:MyWindow>
