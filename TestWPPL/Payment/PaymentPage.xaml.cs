@@ -49,8 +49,6 @@ namespace TestWPPL.Payment
             }));
         }
 
-
-
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();

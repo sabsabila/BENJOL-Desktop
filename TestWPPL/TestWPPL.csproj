@@ -352,6 +352,7 @@
     <Resource Include="Image\icons8-wrench-50.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\horizontal-secondary.png" />
     <Resource Include="Image\Hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

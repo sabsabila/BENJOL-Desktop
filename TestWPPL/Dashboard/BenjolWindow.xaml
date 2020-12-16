@@ -76,8 +76,7 @@
         <Rectangle Grid.Column="1" Fill="#FFFCCA53" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
         <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Rectangle Fill="#FFFCCA53" Grid.Row ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        <Label Content="BENJOL" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Foreground="#636363" HorizontalContentAlignment="Center" Margin="20,0,0,0"/>
-
+        
         <Button Style="{StaticResource hover_icon_style}" x:Name="dashboardButton" Grid.Row="1" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53"  Foreground="#636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}">
 
         </Button>
@@ -114,6 +113,7 @@
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Source="/image/icons8-wrench-50.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top" Source="/image/icon_setting.png"/>
         <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
+        <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Source="/image/horizontal-secondary.png"/>
         <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
     </Grid>
 </Window:MyWindow>

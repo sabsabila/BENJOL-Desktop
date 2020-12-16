@@ -10,9 +10,7 @@ using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Payment
 {
-    /// <summary>
-    /// Interaction logic for AddCostDialog.xaml
-    /// </summary>
+    
     public partial class AddCostDialog : MyWindow
     {
         private int bookingId;
@@ -27,8 +25,6 @@ namespace TestWPPL.Payment
             costTxtBox.Text = "";
 
         }
-
-        
 
         public void btnSaveCostPayment_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +64,7 @@ namespace TestWPPL.Payment
                 {
                     case MessageBoxResult.OK:
                         this.Close();
-                        
+                        var navigation = new PaymentPage();
                         break;
                 }
             });
