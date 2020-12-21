@@ -7,7 +7,7 @@
       xmlns:lineChart="clr-namespace:Velacro.Chart.LineChart;assembly=Velacro"
       xmlns:basic="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       mc:Ignorable="d" 
-      d:DesignHeight="365" d:DesignWidth="635"
+      d:DesignHeight="500" d:DesignWidth="635"
       FontFamily="{StaticResource Muli}"
       Title="Dashboard">
     <Grid Background="#FFF0F0F7">
@@ -22,5 +22,11 @@
         <TextBlock x:Name="email" Foreground="#636363" Text="email" HorizontalAlignment="Left" Margin="64,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="16"/>
         <TextBlock x:Name="telephone" Foreground="#636363" Text="telphone" HorizontalAlignment="Left" Margin="64,157,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="address" Foreground="#FF636363" Text="address" HorizontalAlignment="Left" Margin="64,226,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="93" Margin="45,354,0,0" VerticalAlignment="Top" Width="250"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="93" Margin="345,354,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Bookings" HorizontalAlignment="Left" Margin="58,363,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="20"/>
+        <Label Content="Revenues" HorizontalAlignment="Left" Margin="357,363,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="207,398,0,0" TextWrapping="Wrap" Foreground="#FFFBB308" Text="123" FontSize="24" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="462,396,0,0" TextWrapping="Wrap" Foreground="#FFFBB308" Text="Rp300.000" FontSize="24" VerticalAlignment="Top"/>
     </Grid>
 </basic:MyPage>
