@@ -11,6 +11,7 @@ namespace TestWPPL.Model
 {
     public class ModelService : INotifyPropertyChanged
     {
+        public int num { get; set; }
         public int service_id { get; set; }
         public int bengkel_id { get; set; }
         public string service_name { get; set; }

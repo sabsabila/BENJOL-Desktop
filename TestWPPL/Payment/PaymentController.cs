@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
 using System.Net.Http;
-using Newtonsoft.Json;
+
+using System.IO;
 
 namespace TestWPPL.Payment
 {
     class PaymentController : MyController
     {
+        String _paymentStatus;
         public PaymentController(IMyView _myView) : base(_myView)
         {
 
@@ -34,14 +32,14 @@ namespace TestWPPL.Payment
                 getView().callMethod("setFailStatus", "Failed to load payments");
         }
 
-        public async void updatePaymentStatus(String _status, int _payment_id, String token)
+        public async void updatePaymentStatus(int _payment_id, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .addParameters("status", _status)
+                .addParameters("status", _paymentStatus)
                 .setEndpoint("api/finishPayment/" + _payment_id)
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
@@ -50,6 +48,29 @@ namespace TestWPPL.Payment
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to edit payment");
         }
+
+
+        public async void updateServiceCost(int service_cost, String bengkel_note, int _bookingId, String token)
+        {
+            var client = new ApiClient(ApiConstant.BASE_URL);
+            var request = new ApiRequestBuilder();
+
+            var req = request
+                .buildHttpRequest()
+                .addParameters("bengkel_note", bengkel_note)
+                .addParameters("service_cost", (service_cost).ToString())
+                .setEndpoint("api/bookingDetail/" + _bookingId)
+                .setRequestMethod(HttpMethod.Put);
+            client.setAuthorizationToken(token);
+            client.setOnSuccessRequest(setStatus);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit payment");
+        }
+
+
+        
+
 
         private void setItem(HttpResponseBundle _response)
         {
@@ -69,7 +90,20 @@ namespace TestWPPL.Payment
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
+               
             }
         }
+
+        public void onRadioButtonPayment1Checked()
+        {
+            _paymentStatus = "paid";
+        }
+
+        public void onRadioButtonPayment2Checked()
+        {
+            _paymentStatus = "unpaid";
+        }
+
+
     }
 }

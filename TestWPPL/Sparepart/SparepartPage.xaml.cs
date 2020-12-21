@@ -1,29 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Velacro.UIElements.Basic;
 using TestWPPL.Model;
 using System.IO;
-using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Sparepart
 {
-    /// <summary>
-    /// Interaction logic for SparepartPage.xaml
-    /// </summary>
     public partial class SparepartPage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
@@ -31,8 +18,6 @@ namespace TestWPPL.Sparepart
         private IMyButton searchButton;
         private IMyButton addButton;
         private IMyTextBox searchTextBox;
-        private List<ModelSparepart> listSparepart;
-        private List<int> actualId = new List<int>();
         private CollectionView view;
 
         public SparepartPage()
@@ -55,12 +40,11 @@ namespace TestWPPL.Sparepart
 
         public void onSearchButtonClick()
         {
-            Console.WriteLine("ini buat search");
+            
         }
 
         public void onAddButtonClick()
         {
-            Console.WriteLine("ini buat add");
             this.NavigationService.Navigate(new AddSparepartPage());
         }
 
@@ -73,13 +57,9 @@ namespace TestWPPL.Sparepart
         public void setSparepart(List<ModelSparepart> spareparts)
         {
             int id = 1;
-            this.listSparepart = spareparts;
-            actualId.Clear();
             foreach (ModelSparepart sparepart in spareparts)
             {
-                //nyimpen id asli
-                actualId.Add(sparepart.sparepart_id);
-                sparepart.sparepart_id = id;
+                sparepart.num = id;
                 if (sparepart.picture == null)
                     sparepart.picture = "/image/image.png";
                 else
@@ -115,25 +95,15 @@ namespace TestWPPL.Sparepart
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            //dibalikin id aslinya
-            for (int i = 0; i < listSparepart.Count; i++)
-            {
-                listSparepart.ElementAt(i).sparepart_id = actualId.ElementAt(i);
-            }
-
+            
             Button button = sender as Button;
             ModelSparepart dataObject = button.DataContext as ModelSparepart;
-            Console.WriteLine("id yg mau dikirim : " + dataObject.sparepart_id);
             this.NavigationService.Navigate(new EditSparepartPage(dataObject.sparepart_id));
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            //dibalikin id aslinya
-            for (int i = 0; i < listSparepart.Count; i++)
-            {
-                listSparepart.ElementAt(i).sparepart_id = actualId.ElementAt(i);
-            }
+           
             Button button = sender as Button;
             ModelSparepart dataObject = button.DataContext as ModelSparepart;
 

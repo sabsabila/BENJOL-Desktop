@@ -5,40 +5,47 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Sparepart"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}" 
       Title="SparepartPage">
 
     <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="sparepartList" HorizontalAlignment="Stretch" Margin="20,100,20,50" VerticalAlignment="Stretch">
+        <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
+        <ListView x:Name="sparepartList" HorizontalAlignment="Stretch"  Width="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding sparepart_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding price}" Header="Price" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding stock}" Header="Stock" Width="100"/>
-                    <GridViewColumn Header="Picture" Width="150">
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding price}" Header="Price" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding stock}" Header="Stock" Width="Auto"/>
+                    <GridViewColumn Header="Picture" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding picture}" HorizontalAlignment="Center" Height="100" Width="100" VerticalAlignment="Top" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Action" Width="150">
+                    <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="editBtn" BorderBrush="{x:Null}" HorizontalAlignment="Left" Background="#FFFCCA53" Foreground="#FF636363" Content="Edit" Margin="10" Click="editBtn_Click"/>
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Right" Background="#FFFCCA53" Foreground="#FF636363" Content="Delete" Margin="10" Click="deleteBtn_Click"/>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="editBtn"  BorderBrush="{x:Null}" FontSize="11"  Background="#FFFCCA53" Foreground="#636363" Content="Edit" Margin="0,0,0,0" Height="Auto" Width="Auto"  Click="editBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="deleteBtn" BorderBrush="{x:Null}"  FontSize="11" Background="#FFFCCA53" Foreground="#636363" Content="Delete" Margin="10,0,0,0"  Height="Auto" Width="Auto"   Click="deleteBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                        
+
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+<<<<<<< HEAD
         <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="20" Width="318" Margin="20,70,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="searchBtn" Content="Search" MaxWidth="70" HorizontalAlignment="Stretch" Margin="293,70,287,0" VerticalAlignment="Top" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
         <Button x:Name="addBtn" Content="Add Item" MaxWidth="90" HorizontalAlignment="Stretch" Margin="585,70,-25,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+=======
+        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Width="420" Margin="20,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="searchBtn" Content="Search"  FontSize="11" Width="Auto" MaxWidth="100" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363" Margin="160,58,-176,0"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" x:Name="addBtn" Content="Add Item" FontSize="11" MaxWidth="100" HorizontalAlignment="Stretch" Margin="550,58,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.678,0.588" Background="#FFFCCA53" BorderBrush="{x:Null}" Foreground="#636363"/>
+>>>>>>> 2db8446062a2315a6944c15748ea208ccd53bf16
     </Grid>
 </Page:MyPage>

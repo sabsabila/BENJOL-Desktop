@@ -5,21 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Sparepart"
       mc:Ignorable="d" 
+      FontFamily="{StaticResource Muli}" 
       d:DesignHeight="365" d:DesignWidth="635"
       Title="EditSparepartPage">
 
     <Grid Background="#FFF0F0F7">
-        <Label Content="Edit Sparepart" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
-        <Label x:Name="name" Content="Name" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="10,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
-        <Label x:Name="price" Content="Price" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="priceTxt" PreviewTextInput="priceTxt_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="10,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
-        <Label x:Name="stock" Content="Stock" HorizontalAlignment="Left" Margin="13,170,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="stockTxt" PreviewTextInput="stockTxt_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="10,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
+        <Label Content="Edit Sparepart" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.678,0.588" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#636363"/>
+        <Label x:Name="name" Content="Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="30" Margin="10,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
+        <Label x:Name="price" Content="Price" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="priceTxt" PreviewTextInput="priceTxt_PreviewTextInput" HorizontalAlignment="Left" Height="30" Margin="10,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
+        <Label x:Name="stock" Content="Stock" HorizontalAlignment="Left" Margin="13,185,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="stockTxt" PreviewTextInput="stockTxt_PreviewTextInput" HorizontalAlignment="Left" Height="30" Margin="10,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307"/>
         <Image x:Name="picture" HorizontalAlignment="Left" Height="136" Margin="426,88,0,0" VerticalAlignment="Top" Width="144" Source="/Image/camera-placeholder.jpg"/>
         <Label x:Name="image" Content="Picture" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top"/>
+<<<<<<< HEAD
         <Button x:Name="uploadBtn" Content="Upload" HorizontalAlignment="Left" Margin="426,263,0,0" VerticalAlignment="Top" Width="144" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
         <Button x:Name="backBtn" Content="Cancel" HorizontalAlignment="Left" Margin="98,263,0,0" VerticalAlignment="Top" Width="75" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#FF636363"/>
+=======
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="uploadBtn" Content="Upload" HorizontalAlignment="Left" Margin="426,263,0,0" VerticalAlignment="Top" Width="144" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#636363"/>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="backBtn" Content="Back" HorizontalAlignment="Left" Margin="98,263,0,0" VerticalAlignment="Top" Width="75" Background="#FFFBB308" BorderBrush="{x:Null}" Foreground="#636363"/>
+>>>>>>> 2db8446062a2315a6944c15748ea208ccd53bf16
     </Grid>
 </Page:MyPage>

@@ -10,6 +10,7 @@ namespace TestWPPL.Model
 {
     public class ModelBooking : INotifyPropertyChanged
     {
+        public int num { get; set; }
         public int booking_id { get; set; }
         public string repairment_date { get; set; }
         public string start_time { get; set; }

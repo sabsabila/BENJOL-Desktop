@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 using System.Windows.Controls;
@@ -9,20 +7,14 @@ using System;
 using System.Collections.Generic;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
-using Velacro.UIElements.Button;
-using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Payment
 {
-    /// <summary>
-    /// Interaction logic for PaymentPage.xaml
-    /// </summary>
     public partial class PaymentPage : MyPage
     {
         private List<ModelPayment> listPayments;
         private List<int> actualId = new List<int>();
         private CollectionView view;
-
 
         public PaymentPage()
         {
@@ -31,8 +23,7 @@ namespace TestWPPL.Payment
             setController(new PaymentController(this));
             getPayment();
         }
-               
-
+        
         public void getPayment()
         {
             String token = File.ReadAllText(@"userToken.txt");
@@ -54,12 +45,10 @@ namespace TestWPPL.Payment
             this.Dispatcher.Invoke((Action)(() => {
                 paymentList.ItemsSource = payments;
                 view = (CollectionView)CollectionViewSource.GetDefaultView(paymentList.ItemsSource);
-                
+
             }));
         }
 
-    
-        
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
@@ -95,14 +84,29 @@ namespace TestWPPL.Payment
             ModelPayment dataObject = button.DataContext as ModelPayment;
 
             var editDialog = new UpdatePaymentStatusDialog(dataObject);
-            
-            
-            if(editDialog.ShowDialog() == true)
+
+
+            if (editDialog.ShowDialog() == true)
+            {
+                this.NavigationService.Navigate(new PaymentPage());
+            }
+
+        }
+
+        public void onInputCostBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelPayment dataObject = button.DataContext as ModelPayment;
+
+            var editDialog2 = new AddCostDialog(dataObject.booking_id);
+
+            if (editDialog2.ShowDialog() == true)
             {
                 this.NavigationService.Navigate(new PaymentPage());
             }
             
         }
+
 
     }
 }

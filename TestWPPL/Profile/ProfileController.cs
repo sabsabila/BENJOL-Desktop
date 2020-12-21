@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
@@ -35,7 +31,6 @@ namespace TestWPPL.Profile
 
         public async void editProfile(MyList<MyFile> files, String[] password, ObjectBengkel bengkel, String token)
         {
-            Console.WriteLine("ini pas request edit bengkel");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -53,7 +48,6 @@ namespace TestWPPL.Profile
             if (files.Count > 0)
                 formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "profile_picture", files[0].fullFileName);
 
-            Console.WriteLine(bengkel.name);
             var multiPartRequest = request
              .buildMultipartRequest(new MultiPartContent(formContent))
              .setEndpoint("api/bengkel")
@@ -97,7 +91,6 @@ namespace TestWPPL.Profile
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
@@ -107,7 +100,6 @@ namespace TestWPPL.Profile
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setLogoutStatus", _response.getJObject()["message"].ToString());
             }
         }

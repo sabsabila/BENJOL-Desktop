@@ -1,34 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.Basic;
 using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.PasswordBox;
-using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
 
 namespace TestWPPL.Profile
 {
-    /// <summary>
-    /// Interaction logic for ProfilePage.xaml
-    /// </summary>
     public partial class ProfilePage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
@@ -74,8 +60,8 @@ namespace TestWPPL.Profile
             phoneTxtBox = txtBoxBuilder.activate(this, "phoneTxt");
             emailTxtBox = txtBoxBuilder.activate(this, "emailTxt");
             addressTxtBox = txtBoxBuilder.activate(this, "addressTxt");
-            oldPass = passBoxBuilder.activate(this, "oldPassTxt");
-            newPass = passBoxBuilder.activate(this, "newPassTxt");
+            oldPass = passBoxBuilder.activate(this, "oldPassword");
+            newPass = passBoxBuilder.activate(this, "newPassword");
         }
 
         private void getEditedItem()
@@ -101,7 +87,6 @@ namespace TestWPPL.Profile
         public void onUploadButtonClick()
         {
             uploadImage.Clear();
-            Console.WriteLine("ini buat upload");
             OpenFile openFile = new OpenFile();
             uploadImage.Add(openFile.openFile(false)[0]);
             picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
@@ -120,13 +105,13 @@ namespace TestWPPL.Profile
             }
         }
 
-        
-
         public void setProfile(ModelBengkel bengkel)
         {
             this.Dispatcher.Invoke(() => {
                 nameTxtBox.setText(bengkel.name);
-                string number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
+                string number = "";
+                if (bengkel.phone_number != null)
+                    number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
                 phoneTxtBox.setText(number);
                 emailTxtBox.setText(bengkel.email);
                 addressTxtBox.setText(bengkel.address);

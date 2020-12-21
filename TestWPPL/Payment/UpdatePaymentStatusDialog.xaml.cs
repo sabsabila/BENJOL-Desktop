@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
-using Velacro.UIElements.TextBlock;
+using Velacro.UIElements.RadioButton;
 using Velacro.UIElements.TextBox;
 
 
@@ -27,24 +27,31 @@ namespace TestWPPL.Payment
     /// </summary>
     public partial class UpdatePaymentStatusDialog : MyWindow
     {
-        private BuilderTextBox txtBoxBuilder;
         private BuilderButton btnBuilder;
+        private BuilderRadioButton radioButtonBuilder;
         private IMyButton save_Button;
         private IMyButton back_Button;
-        private IMyTextBox statusTxtBox;
+        private IMyRadioButton radioButtonPayment1;
+        private IMyRadioButton radioButtonPayment2;
         ModelPayment dataObject;
-        
+
         public UpdatePaymentStatusDialog(ModelPayment _dataObject)
         {
             InitializeComponent();
             setController(new PaymentController(this));
             this.dataObject = _dataObject;
-            statusTxt.Text = _dataObject.status;
+
             Console.WriteLine("id yang dikirim : " + _dataObject.payment_id);
-            
+
             initUIBuilders();
             initUIElements();
-           
+
+        }
+
+        private void initUIBuilders()
+        {
+            radioButtonBuilder = new BuilderRadioButton();
+            btnBuilder = new BuilderButton();
         }
         private void initUIElements()
         {
@@ -52,38 +59,36 @@ namespace TestWPPL.Payment
                             .addOnClick(this, "SavePaymentStatusClick");
             back_Button = btnBuilder.activate(this, "backButton")
                         .addOnClick(this, "BackButtonClick");
-            statusTxtBox = txtBoxBuilder.activate(this, "statusTxt");
-            
+
+            radioButtonPayment1 = radioButtonBuilder
+               .activate(this, "paymentStatus1")
+               .setGroupName("paymentStatusGroup")
+               .addOnChecked(getController(), "onRadioButtonPayment1Checked");
+            radioButtonPayment2 = radioButtonBuilder
+                .activate(this, "paymentStatus2")
+                .setGroupName("paymentStatusGroup")
+                .addOnChecked(getController(), "onRadioButtonPayment2Checked");
+
         }
 
 
         public void SavePaymentStatusClick()
         {
-        
+
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("updatePaymentStatus", statusTxtBox.getText(), dataObject.payment_id, token);
+            getController().callMethod("updatePaymentStatus", dataObject.payment_id, token);
             this.DialogResult = true;
             this.Close();
-            
-            
+
+
         }
 
-         public void BackButtonClick()
+        public void BackButtonClick()
         {
             this.Close();
         }
-    
 
-        private void initUIBuilders()
-        {
-            txtBoxBuilder = new BuilderTextBox();
-            btnBuilder = new BuilderButton();
-        }
 
-        public void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
         public void setFailStatus(String _status)
         {
