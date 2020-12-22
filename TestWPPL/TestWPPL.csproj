@@ -149,9 +149,6 @@
     <Compile Include="Model\ModelService.cs" />
     <Compile Include="Pickup\PickupController.cs" />
     <Compile Include="Model\ModelBooking.cs" />
-    <Compile Include="Pickup\PickupPage.xaml.cs">
-      <DependentUpon>PickupPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Profile\ProfileController.cs" />
     <Compile Include="Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
@@ -225,10 +222,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pickup\ListPickupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pickup\PickupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

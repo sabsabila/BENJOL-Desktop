@@ -44,13 +44,6 @@ namespace TestWPPL.Booking
             getController().callMethod("booking", token);
         }
 
-        private void PickUpButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            ModelBooking dataObject = button.DataContext as ModelBooking;
-            this.NavigationService.Navigate(new PickupPage(dataObject.booking_id));
-        }
-
         private void progressBtn_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;

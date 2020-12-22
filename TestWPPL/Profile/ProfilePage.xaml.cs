@@ -89,8 +89,18 @@ namespace TestWPPL.Profile
             uploadImage.Clear();
             OpenFile openFile = new OpenFile();
             uploadImage.Add(openFile.openFile(false)[0]);
-            picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
-            Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
+            if (uploadImage[0] != null)
+            {
+                if (uploadImage[0].extension.Equals(".png", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpg", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpeg", StringComparison.InvariantCultureIgnoreCase))
+                    picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("File format not supported !", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    uploadImage.Clear();
+                }
+            }
         }
 
         public void onLogoutButtonClick()
