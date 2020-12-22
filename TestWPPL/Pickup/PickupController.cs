@@ -8,14 +8,13 @@ namespace TestWPPL.Pickup
 {
     class PickupController : MyController
     {
-        String _status;
 
             public PickupController(IMyView _myView) : base(_myView)
             {
 
             }
 
-        public async void pickup(int _bookingId, String token)
+        public async void pickup(String _status, int _bookingId, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
@@ -91,21 +90,6 @@ namespace TestWPPL.Pickup
             {
                 getView().callMethod("setPickup", _response.getParsedObject<Pickups>().pickups);
             }
-        }
-
-        public void onRadioButtonPickup1Checked()
-        {
-            _status = "picking up";
-        }
-
-        public void onRadioButtonPickup2Checked()
-        {
-            _status = "processing";
-        }
-
-        public void onRadioButtonPickup3Checked()
-        {
-            _status = "delivering";
         }
     }
 }

@@ -12,10 +12,6 @@ namespace TestWPPL.Payment
 {
     public partial class PaymentPage : MyPage
     {
-        private List<ModelPayment> listPayments;
-        private List<int> actualId = new List<int>();
-        private CollectionView view;
-
         public PaymentPage()
         {
             InitializeComponent();
@@ -32,26 +28,20 @@ namespace TestWPPL.Payment
 
         public void setPayment(List<ModelPayment> payments)
         {
-            this.listPayments = payments;
-            actualId.Clear();
             int id = 1;
             foreach (ModelPayment payment in payments)
             {
-                actualId.Add(payment.payment_id);
-                payment.payment_id = id;
+                payment.num = id;
+                if (payment.receipt == null)
+                    payment.receipt = "/image/image.png";
+                else
+                    payment.receipt = ApiConstant.BASE_URL + payment.receipt;
                 id++;
             }
 
             this.Dispatcher.Invoke((Action)(() => {
                 paymentList.ItemsSource = payments;
-                view = (CollectionView)CollectionViewSource.GetDefaultView(paymentList.ItemsSource);
-
             }));
-        }
-
-        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
         }
 
         public void setFailStatus(String _status)
@@ -72,20 +62,11 @@ namespace TestWPPL.Payment
             });
         }
 
-
         public void onUpdateStatusPaymentBtn_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listPayments.Count; i++)
-            {
-                listPayments.ElementAt(i).payment_id = actualId.ElementAt(i);
-            }
-
             Button button = sender as Button;
             ModelPayment dataObject = button.DataContext as ModelPayment;
-
             var editDialog = new UpdatePaymentStatusDialog(dataObject);
-
-
             if (editDialog.ShowDialog() == true)
             {
                 this.NavigationService.Navigate(new PaymentPage());
@@ -106,7 +87,6 @@ namespace TestWPPL.Payment
             }
             
         }
-
 
     }
 }
