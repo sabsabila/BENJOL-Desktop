@@ -27,12 +27,11 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn  Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton"  FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Content="Update" Margin="0,0,5,0"  Height="Auto" Width="Auto" BorderBrush="{x:Null}" Click="onUpdateStatusPaymentBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton"  FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Margin="0,0,5,0"  Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="{Binding buttonAction}" Click="onUpdateStatusPaymentBtn_Click"/>
                                     <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="createPaymentButton" FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Content="Input cost" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Click="onInputCostBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>

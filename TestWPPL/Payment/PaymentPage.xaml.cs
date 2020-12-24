@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,6 +30,7 @@ namespace TestWPPL.Payment
         public void setPayment(List<ModelPayment> payments)
         {
             int id = 1;
+
             foreach (ModelPayment payment in payments)
             {
                 payment.num = id;
@@ -38,6 +40,19 @@ namespace TestWPPL.Payment
                     payment.receipt = ApiConstant.BASE_URL + payment.receipt;
                 id++;
             }
+
+            foreach (ModelPayment payment in payments)
+            {
+                if (payment.status.Equals("unpaid"))
+                    payment.buttonAction = "Process invoice";
+                else if (payment.status.Equals("verification"))
+                    payment.buttonAction = "Verification";
+                else if (payment.status.Equals("paid"))
+                    payment.buttonAction = "Done";
+                payment.num = id;
+                id++;
+            }
+
 
             this.Dispatcher.Invoke((Action)(() => {
                 paymentList.ItemsSource = payments;
@@ -64,13 +79,31 @@ namespace TestWPPL.Payment
 
         public void onUpdateStatusPaymentBtn_Click(object sender, RoutedEventArgs e)
         {
+            String status = null;
             Button button = sender as Button;
-            ModelPayment dataObject = button.DataContext as ModelPayment;
-            var editDialog = new UpdatePaymentStatusDialog(dataObject);
-            if (editDialog.ShowDialog() == true)
+
+            if (button.Content.Equals("Process invoice"))
             {
-                this.NavigationService.Navigate(new PaymentPage());
+                status = "verification";
             }
+            else if (button.Content.Equals("Verification"))
+            {
+                status = "paid";
+            }
+            else if (button.Content.Equals("Done"))
+            {
+                status = null;
+            }
+
+               
+
+            ModelPayment dataObject = button.DataContext as ModelPayment;
+            String token = File.ReadAllText(@"userToken.txt");
+            MessageBoxResult result;
+            if (status != null)
+                getController().callMethod("updatePaymentStatus", status, dataObject.payment_id, token);
+            else
+                result = MessageBox.Show("invoice has been paid !", "Finished payment", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
