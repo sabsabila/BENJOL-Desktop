@@ -6,7 +6,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestWPPL.Service"
       mc:Ignorable="d"
-             Width="600"
+      d:DesignWidth="600"
+      HorizontalAlignment="Left"
       FontFamily="{StaticResource Muli}" 
       Title="ServicePage">
 

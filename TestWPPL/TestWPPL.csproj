@@ -126,9 +126,11 @@
     </Compile>
     <Compile Include="Dashboard\DashboardController.cs" />
     <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Model\ModelBookingCount.cs" />
     <Compile Include="Model\ModelBengkel.cs" />
     <Compile Include="Model\ModelPayment.cs" />
     <Compile Include="Model\ModelPickup.cs" />
+    <Compile Include="Model\ModelRevenueCount.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
     <Compile Include="Model\ObjectBengkel.cs" />

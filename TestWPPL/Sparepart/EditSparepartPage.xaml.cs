@@ -30,7 +30,6 @@ namespace TestWPPL.Sparepart
         {
             InitializeComponent();
             this.sparepartId = sparepartId;
-            Console.WriteLine("id yang dikirim : " + sparepartId);
             setController(new SparepartController(this));
             initUIBuilders();
             initUIElements();

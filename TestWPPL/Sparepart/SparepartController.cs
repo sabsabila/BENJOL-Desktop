@@ -21,7 +21,7 @@ namespace TestWPPL.Sparepart
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/mySpareparts")
+                .setEndpoint("api/bengkelSparepart")
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);

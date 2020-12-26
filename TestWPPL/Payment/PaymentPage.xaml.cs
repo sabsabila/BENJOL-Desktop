@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Windows;
-using System.Windows.Media;
+﻿using System.Windows;
 using System.IO;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System;
 using System.Collections.Generic;
 using TestWPPL.Model;
@@ -34,25 +31,19 @@ namespace TestWPPL.Payment
             foreach (ModelPayment payment in payments)
             {
                 payment.num = id;
+                if (payment.status.Equals("unpaid"))
+                    payment.buttonAction = "Process Payment";
+                else if (payment.status.Equals("pending"))
+                    payment.buttonAction = "Confirm Payment";
+                else if (payment.status.Equals("paid"))
+                    payment.buttonAction = "Confirmed";
+
                 if (payment.receipt == null)
                     payment.receipt = "/image/image.png";
                 else
                     payment.receipt = ApiConstant.BASE_URL + payment.receipt;
                 id++;
             }
-
-            foreach (ModelPayment payment in payments)
-            {
-                if (payment.status.Equals("unpaid"))
-                    payment.buttonAction = "Process invoice";
-                else if (payment.status.Equals("pending"))
-                    payment.buttonAction = "Pending";
-                else if (payment.status.Equals("paid"))
-                    payment.buttonAction = "Done";
-                payment.num = id;
-                id++;
-            }
-
 
             this.Dispatcher.Invoke((Action)(() => {
                 paymentList.ItemsSource = payments;
@@ -82,20 +73,19 @@ namespace TestWPPL.Payment
             String status = null;
             Button button = sender as Button;
 
-            if (button.Content.Equals("Process invoice"))
+            if (button.Content.Equals("Process Payment"))
             {
                 status = "pending";
             }
-            else if (button.Content.Equals("Pending"))
+            else if (button.Content.Equals("Confirm Payment"))
             {
                 status = "paid";
             }
-            else if (button.Content.Equals("Done"))
+            else if (button.Content.Equals("Confirmed"))
             {
                 status = null;
             }
 
-               
 
             ModelPayment dataObject = button.DataContext as ModelPayment;
             String token = File.ReadAllText(@"userToken.txt");
@@ -112,13 +102,20 @@ namespace TestWPPL.Payment
             Button button = sender as Button;
             ModelPayment dataObject = button.DataContext as ModelPayment;
 
-            var editDialog2 = new AddCostDialog(dataObject.booking_id);
-
-            if (editDialog2.ShowDialog() == true)
+            if (dataObject.status.Equals("unpaid"))
             {
-                this.NavigationService.Navigate(new PaymentPage());
+                var editDialog2 = new AddCostDialog(dataObject.booking_id);
+
+                if (editDialog2.ShowDialog() == true)
+                {
+                    this.NavigationService.Navigate(new PaymentPage());
+                }
             }
-            
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Can't edit service cost as payment have been processed", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
     }

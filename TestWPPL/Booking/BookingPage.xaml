@@ -15,19 +15,21 @@
         <ListView Style="{DynamicResource MaterialDesignListView}" x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,50" VerticalAlignment="Center" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="140"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="140"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="progressBtn" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Set Progress" Margin="0,0,5,0"  Padding="7" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
-                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="deleteBtn"  HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Finish/Cancel"  Padding="7" Height="Auto" Width="Auto" Click="deleteBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="progressBtn" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Start Service" Margin="0,0,5,0"  Padding="7" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="finishBtn"  HorizontalAlignment="Center" Background="#32943c" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Finish"  Padding="7" Height="Auto" Width="Auto" Click="finishBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="cancelBtn"  HorizontalAlignment="Center" Background="#c23838" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Canceled"  Padding="7" Height="Auto" Width="Auto" Click="cancelBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
