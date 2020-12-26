@@ -11,6 +11,7 @@ namespace TestWPPL.Model
     public class ModelPayment : INotifyPropertyChanged
     {
         public int num { get; set; }
+        public string buttonAction { get; set; }
         public int payment_id { get; set; }
         public int booking_id { get; set; }
         public string status { get; set; }

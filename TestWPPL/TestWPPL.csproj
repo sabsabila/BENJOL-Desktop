@@ -140,9 +140,6 @@
     <Compile Include="Payment\PaymentPage.xaml.cs">
       <DependentUpon>PaymentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Payment\UpdatePaymentStatusDialog.xaml.cs">
-      <DependentUpon>UpdatePaymentStatusDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pickup\ListPickupPage.xaml.cs">
       <DependentUpon>ListPickupPage.xaml</DependentUpon>
     </Compile>
@@ -210,14 +207,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Payment\AddCostDialog.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Payment\PaymentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Payment\UpdatePaymentStatusDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
