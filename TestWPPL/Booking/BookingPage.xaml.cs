@@ -48,33 +48,75 @@ namespace TestWPPL.Booking
         {
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
-
-            Console.WriteLine("id booking di progress : " + dataObject.booking_id);
             this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id));
         }
 
-        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
 
-            Console.WriteLine("id booking di booking : " + dataObject.booking_id);
-
-            String token = File.ReadAllText(@"userToken.txt");
-
-            MessageBoxResult result = MessageBox.Show("Please contact the customer before canceling, or make sure the service is done. Proceed ?", "Delete Booking", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            switch (result)
+            if (dataObject.status.Equals("ongoing"))
             {
-                case MessageBoxResult.Yes:
-                    getController().callMethod("deleteBooking", dataObject.booking_id, token);
-                    break;
+                MessageBoxResult result = MessageBox.Show("Can't cancel on going booking.", "Cancel Booking", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (dataObject.status.Equals("finished"))
+            {
+                MessageBoxResult result = MessageBox.Show("This booking has already been finished.", "Cancel Booking", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (dataObject.status.Equals("canceled"))
+            {
+                MessageBoxResult result = MessageBox.Show("This booking has already been canceled.", "Cancel Booking", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                String token = File.ReadAllText(@"userToken.txt");
+
+                MessageBoxResult result = MessageBox.Show("Please contact the customer before canceling, or make sure the service is done. Proceed ?", "Cancel Booking", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        getController().callMethod("statusBooking", dataObject.booking_id, "canceled", token);
+                        break;
+                }
+            }
+        }
+
+        private void finishBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelBooking dataObject = button.DataContext as ModelBooking;
+
+            if (dataObject.status.Equals("upcoming"))
+            {
+                MessageBoxResult result = MessageBox.Show("Please process this booking first before finishing it.", "Finish Booking", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (dataObject.status.Equals("finished"))
+            {
+                MessageBoxResult result = MessageBox.Show("This booking has already been finished.", "Finish Booking", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (dataObject.status.Equals("canceled"))
+            {
+                MessageBoxResult result = MessageBox.Show("This booking has already been canceled.", "Finish Booking", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                String token = File.ReadAllText(@"userToken.txt");
+
+                MessageBoxResult result = MessageBox.Show("Finish this booking ?", "Finish Booking", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        getController().callMethod("statusBooking", dataObject.booking_id, "finished", token);
+                        break;
+                }
             }
         }
 
         public void setStatus(String _status)
         {
             this.Dispatcher.Invoke(() => {
-                MessageBoxResult result = MessageBox.Show(_status, "Delete Booking", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show(_status, "Status Booking", MessageBoxButton.OK, MessageBoxImage.Information);
                 switch (result)
                 {
                     case MessageBoxResult.OK:
@@ -88,5 +130,6 @@ namespace TestWPPL.Booking
         {
             MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        
     }
 }

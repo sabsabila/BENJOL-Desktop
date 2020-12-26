@@ -105,7 +105,7 @@ namespace TestWPPL.Progress
         public void setUser(ModelUser user)
         {
             this.Dispatcher.Invoke(() => {
-                nameTxtBlock.setText(user.first_name + " " + user.last_name);
+                nameTxtBlock.setText(user.full_name);
                 if (user.phone_number != null)
                     phoneNumberTxtBlock.setText(user.phone_number);
                 if (user.profile_picture != null)

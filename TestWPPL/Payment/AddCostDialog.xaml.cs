@@ -19,7 +19,6 @@ namespace TestWPPL.Payment
         {
             InitializeComponent();
             this.bookingId = bookingId;
-            Console.WriteLine("id yang dikirim : " + bookingId);
             setController(new PaymentController(this));
             noteTxtBox.Text = "";
             costTxtBox.Text = "";

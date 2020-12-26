@@ -29,7 +29,6 @@ namespace TestWPPL.Profile
         private IMyTextBox addressTxtBox;
         private IMyPasswordBox oldPass;
         private IMyPasswordBox newPass;
-        private int sparepartId;
         private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
         public ProfilePage()
@@ -110,7 +109,11 @@ namespace TestWPPL.Profile
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    getController().callMethod("requestLogout", token);
+                    string fullPath = @"userToken.txt";
+                    File.WriteAllText(fullPath, "");
+                    var mainWindow = new MainWindow();
+                    Window.GetWindow(this).Close();
+                    mainWindow.Show();
                     break;
             }
         }
@@ -146,23 +149,6 @@ namespace TestWPPL.Profile
         public void setFailStatus(String _status)
         {
             MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        public void setLogoutStatus(String _status)
-        {
-            this.Dispatcher.Invoke(() => {
-                MessageBoxResult result = MessageBox.Show(_status, "Logout Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                switch (result)
-                {
-                    case MessageBoxResult.OK:
-                        string fullPath = @"userToken.txt";
-                        File.WriteAllText(fullPath, "");
-                        var mainWindow = new MainWindow();
-                        Window.GetWindow(this).Close();
-                        mainWindow.Show();
-                        break;
-                }
-            });
         }
 
         private void phoneTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)

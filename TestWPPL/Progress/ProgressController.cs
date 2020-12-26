@@ -34,7 +34,7 @@ namespace TestWPPL.Progress
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/userInfo/" + _bookingId + "/")
+                .setEndpoint("api/user/info/" + _bookingId + "/")
                 .setRequestMethod(HttpMethod.Get);
 
             client.setAuthorizationToken(token);
