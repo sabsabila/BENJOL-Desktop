@@ -45,8 +45,8 @@ namespace TestWPPL.Payment
             {
                 if (payment.status.Equals("unpaid"))
                     payment.buttonAction = "Process invoice";
-                else if (payment.status.Equals("verification"))
-                    payment.buttonAction = "Verification";
+                else if (payment.status.Equals("pending"))
+                    payment.buttonAction = "Pending";
                 else if (payment.status.Equals("paid"))
                     payment.buttonAction = "Done";
                 payment.num = id;
@@ -84,9 +84,9 @@ namespace TestWPPL.Payment
 
             if (button.Content.Equals("Process invoice"))
             {
-                status = "verification";
+                status = "pending";
             }
-            else if (button.Content.Equals("Verification"))
+            else if (button.Content.Equals("Pending"))
             {
                 status = "paid";
             }
