@@ -7,16 +7,39 @@ using TestWPPL.Model;
 using TestWPPL.Pickup;
 using TestWPPL.Progress;
 using Velacro.UIElements.Basic;
+using Velacro.UIElements.Button;
 
 namespace TestWPPL.Booking
 {
     public partial class BookingPage : MyPage
     {
+        private BuilderButton builderButton;
+        private IMyButton refreshButton;
+
         public BookingPage()
         {
             InitializeComponent();
             this.KeepAlive = true;
             setController(new BookingController(this));
+            initUIBuilders();
+            initUIElements();
+            getBooking();
+        }
+
+        private void initUIBuilders()
+        {
+            builderButton = new BuilderButton();
+        }
+
+        private void initUIElements()
+        {
+            refreshButton = builderButton
+                .activate(this, "refreshBtn")
+                .addOnClick(this, "onRefreshButtonClick");
+        }
+
+        public void onRefreshButtonClick()
+        {
             getBooking();
         }
 

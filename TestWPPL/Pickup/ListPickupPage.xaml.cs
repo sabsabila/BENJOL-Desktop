@@ -5,16 +5,39 @@ using System.Windows;
 using System.Windows.Controls;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
+using Velacro.UIElements.Button;
 
 namespace TestWPPL.Pickup
 {
     public partial class ListPickupPage : MyPage
     {
+
+        private BuilderButton builderButton;
+        private IMyButton refreshButton;
         public ListPickupPage()
         {
             InitializeComponent(); 
             this.KeepAlive = true;
             setController(new PickupController(this));
+            initUIBuilders();
+            initUIElements();
+            getPickup();
+        }
+
+        private void initUIBuilders()
+        {
+            builderButton = new BuilderButton();
+        }
+
+        private void initUIElements()
+        {
+            refreshButton = builderButton
+                .activate(this, "refreshBtn")
+                .addOnClick(this, "onRefreshButtonClick");
+        }
+
+        public void onRefreshButtonClick()
+        {
             getPickup();
         }
 
