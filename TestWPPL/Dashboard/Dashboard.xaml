@@ -21,7 +21,6 @@
                     <ImageBrush x:Name="bengkelPicture" ImageSource="/Image/camera-placeholder.jpg"/>
                 </Border.Background>
             </Border>
-            <Label Content=":" HorizontalAlignment="Left" Margin="238,230,0,0" VerticalAlignment="Top"/>
             <TextBlock x:Name="bengkelName" Foreground="#FFFBB308" Text="name" HorizontalAlignment="Left" Margin="40,54,0,0" VerticalAlignment="Top" FontSize="24" Width="244"/>
             <TextBlock x:Name="email" Foreground="#636363" Text="email" HorizontalAlignment="Left" Margin="40,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="16"/>
             <TextBlock x:Name="telephone" Foreground="#636363" Text="telphone" HorizontalAlignment="Left" Margin="40,114,0,0" VerticalAlignment="Top" FontSize="16"/>
