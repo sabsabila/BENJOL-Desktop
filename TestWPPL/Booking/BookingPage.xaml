@@ -1,5 +1,6 @@
 ﻿<Page:MyPage xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
       x:Class="TestWPPL.Booking.BookingPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,25 +9,27 @@
       mc:Ignorable="d" 
       Title="BookingPage">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
-        
-        <Label Content="Antrian Booking" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF636363" FontSize="24"/>
-        <ListView x:Name="bookingList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,70" VerticalAlignment="Stretch" Width="Auto">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#FFF0F0F7">
+
+        <Label Content="Bookings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
+        <ListView Style="{DynamicResource MaterialDesignListView}" x:Name="bookingList" HorizontalAlignment="Center" Height="Auto" Margin="20,70,20,50" VerticalAlignment="Center" Width="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding booking_id}" Header="#" Width="40"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="110"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="80"/>
-                    <GridViewColumn Header="ACTION" Width="150">
+                    <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="140"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="140"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
+                    <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="progressBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Margin="10" Content="Set Progress" Click="progressBtn_Click"/>
-                                    <Button x:Name="deleteBtn" BorderBrush="{x:Null}" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#FF636363" Margin="10" Content="Cancel" Click="deleteBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="progressBtn" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Start Service" Margin="0,0,5,0"  Padding="7" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="finishBtn"  HorizontalAlignment="Center" Background="#32943c" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Finish"  Padding="7" Height="Auto" Width="Auto" Click="finishBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="cancelBtn"  HorizontalAlignment="Center" Background="#c23838" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Canceled"  Padding="7" Height="Auto" Width="Auto" Click="cancelBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -35,5 +38,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="#FFFCCA53" FontSize="11" Padding="6" x:Name="refreshBtn"   Content="Refresh" HorizontalAlignment="Right" Foreground="#636363" Margin="0,20,10,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}"/>
     </Grid>
 </Page:MyPage>

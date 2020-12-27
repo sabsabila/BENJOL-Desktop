@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 
@@ -34,6 +23,10 @@ namespace TestWPPL.Service
             getController().callMethod("editService", txtAnswer.Text, dataObject.service_id, token);
             this.DialogResult = true;
             this.Close();
+        }
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

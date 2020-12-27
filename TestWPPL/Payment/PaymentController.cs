@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
 using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace TestWPPL.Payment
 {
@@ -30,23 +25,44 @@ namespace TestWPPL.Payment
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            //Console.WriteLine(response.getJObject()["token"]);
-            //client.setAuthorizationToken(response.getJObject()["access_token"].ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load payments");
         }
 
-        public async void updatePaymentStatus(String _status, int _payment_id, String token)
+        public async void updatePaymentStatus(String status ,int _payment_id, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .addParameters("status", _status)
-                .setEndpoint("api/finishPayment/" + _payment_id)
+                .addParameters("status", status )
+                .setEndpoint("api/payment/status/" + _payment_id )
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit payment");
+        }
+
+
+        public async void updateServiceCost(int service_cost, String bengkel_note, int _bookingId, String token)
+        {
+            var client = new ApiClient(ApiConstant.BASE_URL);
+            var request = new ApiRequestBuilder();
+
+            var req = request
+                .buildHttpRequest()
+                .addParameters("bengkel_note", bengkel_note)
+                .addParameters("service_cost", (service_cost).ToString())
+                .setEndpoint("api/bookingDetail/" + _bookingId)
+                .setRequestMethod(HttpMethod.Put);
+            client.setAuthorizationToken(token);
+            client.setOnSuccessRequest(setStatus);
+            var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit service cost");
         }
 
         private void setItem(HttpResponseBundle _response)
@@ -54,7 +70,6 @@ namespace TestWPPL.Payment
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine("BAWAH");
                 getView().callMethod("setPayment", _response.getParsedObject<Payments>().payments);
 
 
@@ -67,7 +82,10 @@ namespace TestWPPL.Payment
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
+               
             }
         }
+
+
     }
 }

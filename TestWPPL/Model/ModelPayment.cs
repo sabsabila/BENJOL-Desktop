@@ -10,18 +10,19 @@ namespace TestWPPL.Model
 {
     public class ModelPayment : INotifyPropertyChanged
     {
+        public int num { get; set; }
+        public string buttonAction { get; set; }
         public int payment_id { get; set; }
         public int booking_id { get; set; }
         public string status { get; set; }
-        public object receipt { get; set; }
+        public string receipt { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
         public string repairment_date { get; set; }
         public object service_cost { get; set; }
         public string repairment_note { get; set; }
         public object bengkel_note { get; set; }
-        public object first_name { get; set; }
-        public object last_name { get; set; }
+        public object full_name { get; set; }
         public string service_name { get; set; }
 
 

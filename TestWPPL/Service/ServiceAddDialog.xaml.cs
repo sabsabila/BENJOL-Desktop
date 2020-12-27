@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Velacro.UIElements.Basic;
 
 namespace TestWPPL.Service
@@ -28,13 +17,22 @@ namespace TestWPPL.Service
 
         private void btnSaveService_Click(object sender, RoutedEventArgs e)
         {
-            String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("postService", txtAnswer.Text, token);
+            if (!txtAnswer.Text.Equals(""))
+            {
+                String token = File.ReadAllText(@"userToken.txt");
+                getController().callMethod("postService", txtAnswer.Text, token);
+            }else
+                MessageBox.Show("Please fill in all fields before saving", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)  
         {
             this.Close();
+        }
+
+        public void setFailStatus(String _status)
+        {
+            MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void setStatus(String _status)

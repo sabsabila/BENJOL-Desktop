@@ -2,8 +2,6 @@
 using System.Net.Http;
 using Velacro.Api;
 using Velacro.Basic;
-using RestSharp;
-using System.Windows;
 using TestWPPL.Model;
 
 namespace TestWPPL.Progress
@@ -25,7 +23,8 @@ namespace TestWPPL.Progress
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setViewProgressStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getHttpResponseMessage().ToString());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to edit progress");
         }
 
         public async void requestUser(int _bookingId, String token)
@@ -35,12 +34,14 @@ namespace TestWPPL.Progress
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/userInfo/" + _bookingId + "/")
+                .setEndpoint("api/user/info/" + _bookingId + "/")
                 .setRequestMethod(HttpMethod.Get);
 
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setUser);
             var response = await client.sendRequest(request.getApiRequestBundle());
+            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
+                getView().callMethod("setFailStatus", "Failed to load user");
         }
 
 
@@ -58,7 +59,6 @@ namespace TestWPPL.Progress
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setUser", _response.getParsedObject<ItemUser>().user);
             }
         }
