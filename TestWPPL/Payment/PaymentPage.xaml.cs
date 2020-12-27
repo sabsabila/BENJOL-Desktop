@@ -5,19 +5,42 @@ using System;
 using System.Collections.Generic;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
+using Velacro.UIElements.Button;
 
 namespace TestWPPL.Payment
 {
     public partial class PaymentPage : MyPage
     {
+
+        private BuilderButton builderButton;
+        private IMyButton refreshButton;
         public PaymentPage()
         {
             InitializeComponent();
             this.KeepAlive = true;
             setController(new PaymentController(this));
+            initUIBuilders();
+            initUIElements();
             getPayment();
         }
-        
+
+        private void initUIBuilders()
+        {
+            builderButton = new BuilderButton();
+        }
+
+        private void initUIElements()
+        {
+            refreshButton = builderButton
+                .activate(this, "refreshBtn")
+                .addOnClick(this, "onRefreshButtonClick");
+        }
+
+        public void onRefreshButtonClick()
+        {
+            getPayment();
+        }
+
         public void getPayment()
         {
             String token = File.ReadAllText(@"userToken.txt");
@@ -42,6 +65,8 @@ namespace TestWPPL.Payment
                     payment.receipt = "/image/image.png";
                 else
                     payment.receipt = ApiConstant.BASE_URL + payment.receipt;
+                if (payment.bengkel_note == null)
+                    payment.bengkel_note = "-";
                 id++;
             }
 
