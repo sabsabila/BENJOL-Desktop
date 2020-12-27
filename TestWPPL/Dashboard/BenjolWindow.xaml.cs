@@ -6,7 +6,6 @@ using TestWPPL.Payment;
 using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
-using Velacro.UIElements.TextBlock;
 using TestWPPL.Service;
 
 namespace TestWPPL.Dashboard

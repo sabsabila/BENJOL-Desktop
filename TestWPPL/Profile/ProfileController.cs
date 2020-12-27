@@ -61,22 +61,6 @@ namespace TestWPPL.Profile
                 getView().callMethod("setFailStatus", "Old password doesn't match ");
         }
 
-        public async void requestLogout(String token)
-        {
-            var client = new ApiClient(ApiConstant.BASE_URL);
-            var request = new ApiRequestBuilder();
-
-            var req = request
-                .buildHttpRequest()
-                .setEndpoint("api/logout")
-                .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setLogoutStatus);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to log out");
-        }
-
         private void setItem(HttpResponseBundle _response)
         {
             if (_response.getHttpResponseMessage().Content != null)

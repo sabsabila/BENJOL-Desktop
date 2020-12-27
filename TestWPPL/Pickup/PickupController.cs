@@ -39,7 +39,7 @@ namespace TestWPPL.Pickup
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/myPickups")
+                .setEndpoint("api/bengkelPickup")
                 .setRequestMethod(HttpMethod.Get);
 
             client.setAuthorizationToken(token);
@@ -56,7 +56,7 @@ namespace TestWPPL.Pickup
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/userInfo/" + _bookingId + "/")
+                .setEndpoint("api/user/info/" + _bookingId + "/")
                 .setRequestMethod(HttpMethod.Get);
 
             client.setAuthorizationToken(token);

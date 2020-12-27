@@ -4,13 +4,10 @@ using Velacro.Basic;
 using TestWPPL.Model;
 using System.Net.Http;
 
-using System.IO;
-
 namespace TestWPPL.Payment
 {
     class PaymentController : MyController
     {
-      //  String _paymentStatus;
         public PaymentController(IMyView _myView) : base(_myView)
         {
 
@@ -40,7 +37,7 @@ namespace TestWPPL.Payment
             var req = request
                 .buildHttpRequest()
                 .addParameters("status", status )
-                .setEndpoint("api/finishPayment/" + _payment_id )
+                .setEndpoint("api/payment/status/" + _payment_id )
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
@@ -68,16 +65,11 @@ namespace TestWPPL.Payment
                 getView().callMethod("setFailStatus", "Failed to edit service cost");
         }
 
-
-        
-
-
         private void setItem(HttpResponseBundle _response)
         {
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine("BAWAH");
                 getView().callMethod("setPayment", _response.getParsedObject<Payments>().payments);
 
 

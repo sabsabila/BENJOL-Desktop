@@ -16,7 +16,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding pickup_location}" Header="Pickup At" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding dropoff_location}" Header="Drop Off At" Width="Auto"/>
@@ -32,5 +32,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="refreshBtn" Content="Refresh" HorizontalAlignment="Right" Foreground="#636363" Margin="0,20,10,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page:MyPage>

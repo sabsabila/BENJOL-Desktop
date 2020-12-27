@@ -22,8 +22,7 @@ namespace TestWPPL.Model
         public object service_cost { get; set; }
         public string repairment_note { get; set; }
         public object bengkel_note { get; set; }
-        public object first_name { get; set; }
-        public object last_name { get; set; }
+        public object full_name { get; set; }
         public string service_name { get; set; }
 
 

@@ -18,7 +18,7 @@ namespace TestWPPL.Booking
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/myBooking")
+                .setEndpoint("api/bengkelBooking")
                 .setRequestMethod(HttpMethod.Get);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setItem);
@@ -27,20 +27,21 @@ namespace TestWPPL.Booking
                 getView().callMethod("setFailStatus", "Failed to load bookings");
         }
 
-        public async void deleteBooking(int _booking_id, String token)
+        public async void statusBooking(int _booking_id, String _status, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .setEndpoint("api/booking/" + _booking_id)
-                .setRequestMethod(HttpMethod.Delete);
+                .addParameters("status", _status)
+                .setEndpoint("api/bookingStatus/" + _booking_id)
+                .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
             client.setOnSuccessRequest(setStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to delete bookings");
+                getView().callMethod("setFailStatus", "Failed to edit");
         }
 
         private void setItem(HttpResponseBundle _response)

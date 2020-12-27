@@ -16,10 +16,11 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding first_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Receipt" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -31,7 +32,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton"  FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Margin="0,0,5,0"  Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="{Binding buttonAction}" Click="onUpdateStatusPaymentBtn_Click"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="updateButton"  FontSize="11" MaxWidth="150" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Margin="0,0,5,0"  Height="Auto" Width="Auto" BorderBrush="{x:Null}" Content="{Binding buttonAction}" Click="onUpdateStatusPaymentBtn_Click"/>
                                     <Button Style="{StaticResource MaterialDesignFlatLightBgButton }" x:Name="createPaymentButton" FontSize="11" MaxWidth="100" Background="#FFFCCA53" Padding="6"  Foreground="#636363" Content="Input cost" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Click="onInputCostBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -40,5 +41,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="refreshBtn" Content="Refresh" HorizontalAlignment="Right" Foreground="#636363" Margin="0,20,10,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page:MyPage>
