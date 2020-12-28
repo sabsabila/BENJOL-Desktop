@@ -46,7 +46,7 @@ namespace TestWPPL.Booking
         public void setBooking(List<ModelBooking> bookings)
         {
             int id = 1;
-            foreach(ModelBooking booking in bookings)
+            foreach (ModelBooking booking in bookings)
             {
                 booking.num = id;
                 if (booking.start_time == null)
@@ -56,7 +56,7 @@ namespace TestWPPL.Booking
                 id++;
             }
 
-            this.Dispatcher.Invoke((Action)(() =>{
+            this.Dispatcher.Invoke((Action)(() => {
                 this.bookingList.ItemsSource = bookings;
             }));
         }
@@ -71,7 +71,14 @@ namespace TestWPPL.Booking
         {
             Button button = sender as Button;
             ModelBooking dataObject = button.DataContext as ModelBooking;
-            this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id));
+
+            MessageBoxResult result;
+            if (dataObject.status.Equals("finished"))
+                result = MessageBox.Show("This booking has already been finished.", "Set Service Time", MessageBoxButton.OK, MessageBoxImage.Information);
+            else if(dataObject.status.Equals("canceled"))
+                result = MessageBox.Show("This booking has been canceled.", "Set Service Time", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id, dataObject.start_time, dataObject.end_time));
         }
 
         private void cancelBtn_Click(object sender, RoutedEventArgs e)
