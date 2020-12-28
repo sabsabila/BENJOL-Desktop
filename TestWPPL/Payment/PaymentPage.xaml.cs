@@ -55,7 +55,11 @@ namespace TestWPPL.Payment
             {
                 payment.num = id;
                 if (payment.status.Equals("unpaid"))
+                {
                     payment.buttonAction = "Process Payment";
+                    if (payment.service_cost == null)
+                        payment.buttonAction = "Unprocessed";
+                }
                 else if (payment.status.Equals("pending"))
                     payment.buttonAction = "Confirm Payment";
                 else if (payment.status.Equals("paid"))
@@ -117,8 +121,10 @@ namespace TestWPPL.Payment
             MessageBoxResult result;
             if (status != null)
                 getController().callMethod("updatePaymentStatus", status, dataObject.payment_id, token);
+            else if(dataObject.buttonAction.Equals("Unprocessed"))
+                result = MessageBox.Show("Please input cost first", "Process Payment", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
-                result = MessageBox.Show("invoice has been paid !", "Finished payment", MessageBoxButton.OK, MessageBoxImage.Information);
+                result = MessageBox.Show("Invoice has been paid", "Finished payment", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 

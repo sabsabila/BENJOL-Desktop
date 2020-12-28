@@ -34,7 +34,6 @@ namespace TestWPPL.Service
         {
             if (_response.getHttpResponseMessage().Content != null)
             {
-                string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("setService", _response.getParsedObject<Services>().services);
             }
         }
@@ -67,7 +66,6 @@ namespace TestWPPL.Service
                 .setEndpoint("api/service/" + _serviceId)
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setNothing);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to edit service");
@@ -95,14 +93,6 @@ namespace TestWPPL.Service
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("setStatus", status);
-            }
-        }
-
-        private void setNothing(HttpResponseBundle _response)
-        {
-            if (_response.getHttpResponseMessage().Content != null)
-            {
-                Console.WriteLine(_response.getHttpResponseMessage().ReasonPhrase);
             }
         }
 
