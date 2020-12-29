@@ -26,7 +26,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new Dashboard());
             pageTitle.Text = "Dashboard";
             returnButtonColor();
-            dashboardButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            dashboardButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         }
 
         private void bookingButton_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new BookingPage());
             pageTitle.Text = "Booking";
             returnButtonColor();
-            bookingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            bookingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new SparepartPage());
             pageTitle.Text = "Spareparts";
             returnButtonColor();
-            sparepartButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            sparepartButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
             
 
         }
@@ -52,7 +52,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Payment";
             returnButtonColor();
-            paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         }
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new ListPickupPage());
             pageTitle.Text = "Pickups";
             returnButtonColor();
-            pickupButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            pickupButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
             
         }
 
@@ -69,7 +69,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new ServicePage());
             pageTitle.Text = "Services";
             returnButtonColor();
-            servicesButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            servicesButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ namespace TestWPPL.Dashboard
             pageTitle.Text = "Setting";
             appFrame.Navigate(new ProfilePage());
             returnButtonColor();
-            settingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+            settingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         }
 
         private void returnButtonColor()

@@ -10,7 +10,7 @@
       FontFamily="{StaticResource Muli}"
       Title="PaymentPage">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
         <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
         <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,50" VerticalAlignment="Top" Width="Auto">
             <ListView.View>
