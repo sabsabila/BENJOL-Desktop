@@ -12,13 +12,14 @@
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
         <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
-        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,50" VerticalAlignment="Top" Width="Auto">
+        <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,100,20,50" VerticalAlignment="Top" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Service Date" Width="150"/>
                     <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Receipt" Width="150">
@@ -42,5 +43,6 @@
             </ListView.View>
         </ListView>
         <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="#FFFCCA53" FontSize="11" Padding="6" x:Name="refreshBtn"   Content="Refresh" HorizontalAlignment="Right" Foreground="#636363" Margin="0,20,10,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Width="420" Margin="20,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
     </Grid>
 </Page:MyPage>

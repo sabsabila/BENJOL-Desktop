@@ -8,6 +8,7 @@ using TestWPPL.Model;
 using System.IO;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBox;
+using System.Globalization;
 
 namespace TestWPPL.Sparepart
 {
@@ -57,9 +58,12 @@ namespace TestWPPL.Sparepart
         public void setSparepart(List<ModelSparepart> spareparts)
         {
             int id = 1;
+            CultureInfo culture = new CultureInfo("id-ID");
+
             foreach (ModelSparepart sparepart in spareparts)
             {
                 sparepart.num = id;
+                sparepart.displayPrice = String.Format(culture, "Rp. {0:N}", sparepart.price);
                 if (sparepart.picture == null)
                     sparepart.picture = "/image/image.png";
                 else
