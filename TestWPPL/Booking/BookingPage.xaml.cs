@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using TestWPPL.Model;
 using TestWPPL.Pickup;
 using TestWPPL.Progress;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Booking
 {
     public partial class BookingPage : MyPage
     {
         private BuilderButton builderButton;
+        private BuilderTextBox txtBoxBuilder;
         private IMyButton refreshButton;
+        private IMyTextBox searchTextBox;
+        private CollectionView view;
 
         public BookingPage()
         {
@@ -29,6 +34,7 @@ namespace TestWPPL.Booking
         private void initUIBuilders()
         {
             builderButton = new BuilderButton();
+            txtBoxBuilder = new BuilderTextBox();
         }
 
         private void initUIElements()
@@ -36,6 +42,7 @@ namespace TestWPPL.Booking
             refreshButton = builderButton
                 .activate(this, "refreshBtn")
                 .addOnClick(this, "onRefreshButtonClick");
+            searchTextBox = txtBoxBuilder.activate(this, "searchBox");
         }
 
         public void onRefreshButtonClick()
@@ -56,9 +63,24 @@ namespace TestWPPL.Booking
                 id++;
             }
 
-            this.Dispatcher.Invoke((Action)(() => {
-                this.bookingList.ItemsSource = bookings;
-            }));
+            this.Dispatcher.Invoke(() => {
+                bookingList.ItemsSource = bookings;
+                view = (CollectionView)CollectionViewSource.GetDefaultView(bookingList.ItemsSource);
+                view.Filter = UserFilter;
+            });
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(searchTextBox.getText()))
+                return true;
+            else
+                return ((item as ModelBooking).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(this.bookingList.ItemsSource).Refresh();
         }
 
         private void getBooking()
