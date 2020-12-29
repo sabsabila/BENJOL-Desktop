@@ -46,6 +46,8 @@ namespace TestWPPL.Pickup
             int id = 1;
             foreach (ModelPickup pickup in pickups)
             {
+                DateTime date = DateTime.Parse(pickup.repairment_date);
+                pickup.repairment_date = date.ToString("dd MMMM yyyy");
                 if (pickup.status.Equals("picking up"))
                     pickup.buttonAction = "Process Service";
                 else if (pickup.status.Equals("processing"))
