@@ -48,6 +48,8 @@ namespace TestWPPL.Booking
             int id = 1;
             foreach (ModelBooking booking in bookings)
             {
+                DateTime date = DateTime.Parse(booking.repairment_date);
+                booking.repairment_date = date.ToString("dd MMMM yyyy");
                 booking.num = id;
                 if (booking.start_time == null)
                     booking.start_time = "-";
