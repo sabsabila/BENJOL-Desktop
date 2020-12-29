@@ -15,7 +15,7 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding price}" Header="Price" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding displayPrice}" Header="Price" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding stock}" Header="Stock" Width="Auto"/>
                     <GridViewColumn Header="Picture" Width="Auto">
                         <GridViewColumn.CellTemplate>

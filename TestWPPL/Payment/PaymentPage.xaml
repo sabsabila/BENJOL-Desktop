@@ -19,6 +19,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Service Date" Width="150"/>
                     <GridViewColumn DisplayMemberBinding="{Binding bengkel_note}" Header="Note" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Receipt" Width="150">

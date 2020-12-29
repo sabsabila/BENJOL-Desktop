@@ -62,6 +62,8 @@ namespace TestWPPL.Payment
             foreach (ModelPayment payment in payments)
             {
                 payment.num = id;
+                DateTime date = DateTime.Parse(payment.repairment_date);
+                payment.repairment_date = date.ToString("dd MMMM yyyy");
                 if (payment.status.Equals("unpaid"))
                 {
                     payment.buttonAction = "Process Payment";
