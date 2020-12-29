@@ -20,8 +20,8 @@
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_note}" Header="Problem" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Date" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding start_time}" Header="Start Time" Width="140"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding end_time}" Header="End Time" Width="140"/>
                     <GridViewColumn DisplayMemberBinding="{Binding status}" Header="Status" Width="Auto"/>
                     <GridViewColumn Header="Action" Width="Auto">
                         <GridViewColumn.CellTemplate>
