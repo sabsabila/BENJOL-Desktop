@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.TextBox;
+using System.Windows.Data;
 
 namespace TestWPPL.Payment
 {
@@ -13,7 +15,11 @@ namespace TestWPPL.Payment
     {
 
         private BuilderButton builderButton;
+        private BuilderTextBox txtBoxBuilder;
         private IMyButton refreshButton;
+        private IMyTextBox searchTextBox;
+        private CollectionView view;
+
         public PaymentPage()
         {
             InitializeComponent();
@@ -27,6 +33,7 @@ namespace TestWPPL.Payment
         private void initUIBuilders()
         {
             builderButton = new BuilderButton();
+            txtBoxBuilder = new BuilderTextBox();
         }
 
         private void initUIElements()
@@ -34,6 +41,7 @@ namespace TestWPPL.Payment
             refreshButton = builderButton
                 .activate(this, "refreshBtn")
                 .addOnClick(this, "onRefreshButtonClick");
+            searchTextBox = txtBoxBuilder.activate(this, "searchBox");
         }
 
         public void onRefreshButtonClick()
@@ -76,9 +84,24 @@ namespace TestWPPL.Payment
                 id++;
             }
 
-            this.Dispatcher.Invoke((Action)(() => {
+            this.Dispatcher.Invoke(() => {
                 paymentList.ItemsSource = payments;
-            }));
+                view = (CollectionView)CollectionViewSource.GetDefaultView(paymentList.ItemsSource);
+                view.Filter = UserFilter;
+            });
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(searchTextBox.getText()))
+                return true;
+            else
+                return ((item as ModelPayment).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
         }
 
         public void setFailStatus(String _status)
