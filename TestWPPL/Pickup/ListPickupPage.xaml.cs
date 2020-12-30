@@ -78,7 +78,8 @@ namespace TestWPPL.Pickup
             if (String.IsNullOrEmpty(searchTextBox.getText()))
                 return true;
             else
-                return ((item as ModelPickup).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as ModelPickup).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        (item as ModelPickup).repairment_date.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
