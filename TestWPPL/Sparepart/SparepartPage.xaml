@@ -8,7 +8,7 @@
       FontFamily="{StaticResource Muli}" 
       Title="SparepartPage">
 
-    <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Background="#FFF0F0F7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Label Content="List Sparepart" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
         <ListView x:Name="sparepartList" HorizontalAlignment="Stretch"  Width="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch">
             <ListView.View>
