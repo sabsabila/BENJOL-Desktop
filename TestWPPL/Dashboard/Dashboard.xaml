@@ -36,7 +36,7 @@
                 <ColumnDefinition Width="27*"/>
             </Grid.ColumnDefinitions>
 
-            <Border x:Name="BorderG1" CornerRadius="5" Background="White" Margin="0,28,28,48" Grid.ColumnSpan="5" >
+            <Border x:Name="BorderG1" CornerRadius="5" Background="#F6F9F1"  Margin="0,28,28,48" Grid.ColumnSpan="5" >
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                 </Border.Effect>
@@ -70,7 +70,7 @@
 
 
                 <Grid Grid.Row="3" Grid.Column="0" >
-                    <Rectangle Height="120" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle Height="120" Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10" >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
@@ -83,7 +83,7 @@
                             <materialDesign:PackIcon Kind="DoneOutline" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 27">
-                            <TextBlock x:Name="bookingsDone" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="40"/>
+                            <TextBlock x:Name="bookingsDone" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="30"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20,0,0,20" Cursor="Hand" HorizontalAlignment="Center" Width="143">
                             <TextBlock Text="Bookings Done" FontSize="14" FontWeight="Medium" Foreground="Gray"/>
@@ -91,7 +91,7 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="1">
-                    <Rectangle Height="120" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle Height="120" Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10" >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
@@ -104,7 +104,7 @@
                             <materialDesign:PackIcon Kind="NotebookCheck" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="8,0,7,10" Foreground="White" Width="25" Height="15"/>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 30">
-                            <TextBlock x:Name="bookingsUpcoming" FontWeight="Bold" Text="0"  VerticalAlignment="Center" Foreground="Gray" FontSize="37"/>
+                            <TextBlock x:Name="bookingsUpcoming" FontWeight="Bold" Text="0"  VerticalAlignment="Center" Foreground="Gray" FontSize="30"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
                             <TextBlock Text="Bookings Upcoming" FontSize="14" FontWeight="Medium" Foreground="Gray"/>
@@ -112,7 +112,7 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="2">
-                    <Rectangle Height="120" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle Height="120" Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10" >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
@@ -125,7 +125,7 @@
                             <materialDesign:PackIcon Kind="BellCancelOutline" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 30">
-                            <TextBlock x:Name="bookingsCanceled" FontWeight="Bold" Text="0" VerticalAlignment="Center" Foreground="Gray" FontSize="40"/>
+                            <TextBlock x:Name="bookingsCanceled" FontWeight="Bold" Text="0" VerticalAlignment="Center" Foreground="Gray" FontSize="30"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
                             <TextBlock Text="Bookings Canceled" FontSize="14" Foreground="Gray"/>
@@ -134,8 +134,8 @@
                 </Grid>
 
 
-                <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="210,0,0,0">
-                    <Rectangle Height="120" Width="220" Margin="0" Fill="White" RadiusY="10" RadiusX="10" >
+                <Grid Grid.Row="1" Grid.Column="3">
+                    <Rectangle Height="120" Margin="20"  Fill="#F6F9F1" RadiusY="10" RadiusX="10" >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
@@ -148,16 +148,16 @@
                             <materialDesign:PackIcon Kind="Money" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 40">
-                            <TextBlock Text="Rp" FontFamily="Champagne &amp; Limousines" Margin="0 9" Foreground="Gray" FontSize="20" VerticalAlignment="Bottom"/>
-                            <TextBlock x:Name="totalRevenue" TextWrapping="Wrap" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="25"/>
+                            <TextBlock Text="Rp" FontFamily="Champagne &amp; Limousines" Margin="0 9"  Foreground="Gray" FontSize="15" VerticalAlignment="Bottom"/>
+                            <TextBlock x:Name="totalRevenue" TextWrapping="Wrap" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
-                            <TextBlock Text="Total Revenue" FontSize="14" Foreground="Gray"/>
+                            <TextBlock Text="Gross Revenue" FontSize="14" Foreground="Gray"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="3">
-                    <Rectangle Height="120" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                    <Rectangle Height="120" Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10" >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
@@ -170,35 +170,36 @@
                             <materialDesign:PackIcon Kind="PaymentOnDelivery" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 30">
-                            <TextBlock x:Name="pendingRevenue" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="40"/>
+                            <TextBlock x:Name="pendingRevenue" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="30"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
                             <TextBlock Text="Unconfirmed Payments" FontSize="14" Foreground="Gray"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
-                <Grid Grid.Row="2" Grid.Column="2"  Margin="210,0,0,0" Grid.ColumnSpan="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="13*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Height="120"  Width="220" Fill="White" RadiusY="10" RadiusX="10" Grid.ColumnSpan="2" >
+                <Grid Grid.Row="2" Grid.Column="3">
+                    
+                    <Rectangle Height="120"  Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10"  >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                         </Rectangle.Effect>
                     </Rectangle>
-                    <Grid Margin="25,46,8,47" Height="120">
+                    <Grid Margin="25" Height="120">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="166*"/>
+                            <ColumnDefinition Width="11*"/>
+                        </Grid.ColumnDefinitions>
                         <Grid Width="35" Background="#FFCF1F1F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" Height="40">
                             <Grid.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
                             </Grid.Effect>
                             <materialDesign:PackIcon Kind="MoneyOff" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 30">
-                            <TextBlock Text="Rp" Margin="0 2" Foreground="Gray" FontSize="20" VerticalAlignment="Bottom"/>
-                            <TextBlock x:Name="unpaidServices" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="25"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="73,30,62,0">
+                            <TextBlock Text="Rp" Margin="0 2" Foreground="Gray" FontSize="15" VerticalAlignment="Bottom"/>
+                            <TextBlock x:Name="unpaidServices" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="35,0,24,20">
                             <TextBlock Text="Unpaid Services" FontSize="14" Foreground="Gray"/>
                         </StackPanel>
                     </Grid>
