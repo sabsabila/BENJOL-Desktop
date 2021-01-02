@@ -20,15 +20,9 @@ namespace TestWPPL.Profile
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton btnBuilder;
         private BuilderPasswordBox passBoxBuilder;
-        private IMyButton updateButton;
-        private IMyButton uploadButton;
-        private IMyButton logoutButton;
-        private IMyTextBox nameTxtBox;
-        private IMyTextBox phoneTxtBox;
-        private IMyTextBox emailTxtBox;
-        private IMyTextBox addressTxtBox;
-        private IMyPasswordBox oldPass;
-        private IMyPasswordBox newPass;
+        private IMyButton updateButton, uploadButton, logoutButton;
+        private IMyTextBox nameTxtBox, phoneTxtBox, emailTxtBox, addressTxtBox;
+        private IMyPasswordBox oldPass, newPass;
         private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
         public ProfilePage()

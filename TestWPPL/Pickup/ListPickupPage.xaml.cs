@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Pickup
 {
@@ -13,7 +15,11 @@ namespace TestWPPL.Pickup
     {
 
         private BuilderButton builderButton;
+        private BuilderTextBox txtBoxBuilder;
         private IMyButton refreshButton;
+        private IMyTextBox searchTextBox;
+        private CollectionView view;
+
         public ListPickupPage()
         {
             InitializeComponent(); 
@@ -27,6 +33,7 @@ namespace TestWPPL.Pickup
         private void initUIBuilders()
         {
             builderButton = new BuilderButton();
+            txtBoxBuilder = new BuilderTextBox();
         }
 
         private void initUIElements()
@@ -34,6 +41,7 @@ namespace TestWPPL.Pickup
             refreshButton = builderButton
                 .activate(this, "refreshBtn")
                 .addOnClick(this, "onRefreshButtonClick");
+            searchTextBox = txtBoxBuilder.activate(this, "searchBox");
         }
 
         public void onRefreshButtonClick()
@@ -46,6 +54,8 @@ namespace TestWPPL.Pickup
             int id = 1;
             foreach (ModelPickup pickup in pickups)
             {
+                DateTime date = DateTime.Parse(pickup.repairment_date);
+                pickup.repairment_date = date.ToString("dd MMMM yyyy");
                 if (pickup.status.Equals("picking up"))
                     pickup.buttonAction = "Process Service";
                 else if (pickup.status.Equals("processing"))
@@ -56,9 +66,25 @@ namespace TestWPPL.Pickup
                 id++;
             }
 
-            this.Dispatcher.Invoke((Action)(() => {
-                this.pickupList.ItemsSource = pickups;
-            }));
+            this.Dispatcher.Invoke(() => {
+                pickupList.ItemsSource = pickups;
+                view = (CollectionView)CollectionViewSource.GetDefaultView(pickupList.ItemsSource);
+                view.Filter = UserFilter;
+            });
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(searchTextBox.getText()))
+                return true;
+            else
+                return ((item as ModelPickup).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        (item as ModelPickup).repairment_date.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(this.pickupList.ItemsSource).Refresh();
         }
 
         private void getPickup()

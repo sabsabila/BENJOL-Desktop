@@ -12,7 +12,7 @@
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
 
         <Label Content="Pickups" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
-        <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,70,20,50" VerticalAlignment="Stretch" Width="Auto">
+        <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
@@ -33,5 +33,6 @@
             </ListView.View>
         </ListView>
         <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Background="#FFFCCA53" FontSize="11" Padding="6" x:Name="refreshBtn"   Content="Refresh" HorizontalAlignment="Right" Foreground="#636363" Margin="0,20,10,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="searchBox" TextChanged="txtFilter_TextChanged" HorizontalAlignment="Left" Height="32" Width="420" Margin="20,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
     </Grid>
 </Page:MyPage>

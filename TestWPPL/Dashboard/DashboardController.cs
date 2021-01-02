@@ -30,86 +30,47 @@ namespace TestWPPL.Dashboard
                 getView().callMethod("setFailStatus", "Failed to load profile");
         }
 
-        public async void getBookingsDone(String token)
+        public async void getBookings(String _status, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .addParameters("status", "finished")
+                .addParameters("status", _status)
                 .setEndpoint("api/booking/count")
                 .setRequestMethod(HttpMethod.Post);
             client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setBookingsDone);
+            if(_status.Equals("finished"))
+                client.setOnSuccessRequest(setBookingsDone);
+            else if(_status.Equals("upcoming"))
+                client.setOnSuccessRequest(setBookingsUpcoming);
+            else if(_status.Equals("canceled"))
+                client.setOnSuccessRequest(setBookingsCanceled);
+
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to load statistics");
         }
 
-        public async void getBookingsCanceled(String token)
+        public async void getRevenue(String _status, String token)
         {
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
             var req = request
                 .buildHttpRequest()
-                .addParameters("status", "canceled")
-                .setEndpoint("api/booking/count")
-                .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setBookingsCanceled);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to load statistics");
-        }
-
-        public async void getBookingsUpcoming(String token)
-        {
-            var client = new ApiClient(ApiConstant.BASE_URL);
-            var request = new ApiRequestBuilder();
-
-            var req = request
-                .buildHttpRequest()
-                .addParameters("status", "upcoming")
-                .setEndpoint("api/booking/count")
-                .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setBookingsUpcoming);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to load statistics");
-        }
-
-        public async void getRevenue(String token)
-        {
-            var client = new ApiClient(ApiConstant.BASE_URL);
-            var request = new ApiRequestBuilder();
-
-            var req = request
-                .buildHttpRequest()
-                .addParameters("status", "paid")
+                .addParameters("status", _status)
                 .setEndpoint("api/revenue/count")
                 .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setRevenue);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to load statistics");
-        }
+            client.setAuthorizationToken(token); 
+            if (_status.Equals("paid"))
+                client.setOnSuccessRequest(setRevenue);
+            else if (_status.Equals("unpaid"))
+                client.setOnSuccessRequest(setUnpaidRevenue);
+            else if (_status.Equals("pending"))
+                client.setOnSuccessRequest(setPendingRevenue);
 
-        public async void getUnpaidRevenue(String token)
-        {
-            var client = new ApiClient(ApiConstant.BASE_URL);
-            var request = new ApiRequestBuilder();
-
-            var req = request
-                .buildHttpRequest()
-                .addParameters("status", "unpaid")
-                .setEndpoint("api/revenue/count")
-                .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setUnpaidRevenue);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to load statistics");
@@ -166,6 +127,15 @@ namespace TestWPPL.Dashboard
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
                 getView().callMethod("setUnpaidRevenue", _response.getParsedObject<RevenueCount>().count);
+            }
+        }
+
+        private void setPendingRevenue(HttpResponseBundle _response)
+        {
+            if (_response.getHttpResponseMessage().Content != null)
+            {
+                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                getView().callMethod("setPendingRevenue", _response.getParsedObject<RevenueCount>().count);
             }
         }
     }

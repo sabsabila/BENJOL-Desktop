@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.TextBox;
+using System.Windows.Data;
 
 namespace TestWPPL.Payment
 {
@@ -13,7 +15,11 @@ namespace TestWPPL.Payment
     {
 
         private BuilderButton builderButton;
+        private BuilderTextBox txtBoxBuilder;
         private IMyButton refreshButton;
+        private IMyTextBox searchTextBox;
+        private CollectionView view;
+
         public PaymentPage()
         {
             InitializeComponent();
@@ -27,6 +33,7 @@ namespace TestWPPL.Payment
         private void initUIBuilders()
         {
             builderButton = new BuilderButton();
+            txtBoxBuilder = new BuilderTextBox();
         }
 
         private void initUIElements()
@@ -34,6 +41,7 @@ namespace TestWPPL.Payment
             refreshButton = builderButton
                 .activate(this, "refreshBtn")
                 .addOnClick(this, "onRefreshButtonClick");
+            searchTextBox = txtBoxBuilder.activate(this, "searchBox");
         }
 
         public void onRefreshButtonClick()
@@ -54,8 +62,14 @@ namespace TestWPPL.Payment
             foreach (ModelPayment payment in payments)
             {
                 payment.num = id;
+                DateTime date = DateTime.Parse(payment.repairment_date);
+                payment.repairment_date = date.ToString("dd MMMM yyyy");
                 if (payment.status.Equals("unpaid"))
+                {
                     payment.buttonAction = "Process Payment";
+                    if (payment.service_cost == null)
+                        payment.buttonAction = "Unprocessed";
+                }
                 else if (payment.status.Equals("pending"))
                     payment.buttonAction = "Confirm Payment";
                 else if (payment.status.Equals("paid"))
@@ -70,9 +84,25 @@ namespace TestWPPL.Payment
                 id++;
             }
 
-            this.Dispatcher.Invoke((Action)(() => {
+            this.Dispatcher.Invoke(() => {
                 paymentList.ItemsSource = payments;
-            }));
+                view = (CollectionView)CollectionViewSource.GetDefaultView(paymentList.ItemsSource);
+                view.Filter = UserFilter;
+            });
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(searchTextBox.getText()))
+                return true;
+            else
+                return ((item as ModelPayment).status.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        (item as ModelPayment).repairment_date.IndexOf(searchTextBox.getText(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(this.paymentList.ItemsSource).Refresh();
         }
 
         public void setFailStatus(String _status)
@@ -117,8 +147,10 @@ namespace TestWPPL.Payment
             MessageBoxResult result;
             if (status != null)
                 getController().callMethod("updatePaymentStatus", status, dataObject.payment_id, token);
+            else if(dataObject.buttonAction.Equals("Unprocessed"))
+                result = MessageBox.Show("Please input cost first", "Process Payment", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
-                result = MessageBox.Show("invoice has been paid !", "Finished payment", MessageBoxButton.OK, MessageBoxImage.Information);
+                result = MessageBox.Show("Invoice has been paid", "Finished payment", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 

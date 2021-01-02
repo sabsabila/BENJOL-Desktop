@@ -9,9 +9,9 @@
         xmlns:local="clr-namespace:TestWPPL.Dashboard"
         mc:Ignorable="d"
         FontFamily="{StaticResource Muli}"
-        Title="BENJOL" >
+        Title="BENJOL" WindowState="Maximized">
+    
     <Window.Resources>
-
         <ImageBrush x:Key="hover_icon" ImageSource="/Image/Hover.png" Stretch="None"/>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
