@@ -7,6 +7,7 @@ using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
 using TestWPPL.Service;
+using TestWPPL.AboutUs;
 
 namespace TestWPPL.Dashboard
 {
@@ -89,8 +90,15 @@ namespace TestWPPL.Dashboard
             pickupButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
             servicesButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
             settingButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
+            aboutUsButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
         }
 
-
+        private void aboutUsButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageTitle.Text = "About Us";
+            appFrame.Navigate(new AboutUsPage());
+            returnButtonColor();
+            aboutUsButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+        }
     }
 }

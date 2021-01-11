@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         FontFamily="{StaticResource Muli}"
         Title="BENJOL" WindowState="Maximized">
-    
+
     <Window.Resources>
         <ImageBrush x:Key="hover_icon" ImageSource="/Image/Hover.png" Stretch="None"/>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
@@ -76,7 +76,7 @@
         <Rectangle Grid.Column="1" Fill="#FFFCCA53" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
         <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Rectangle Fill="#FFFCCA53" Grid.Row ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        
+
         <Button Style="{StaticResource hover_icon_style}" x:Name="dashboardButton" Grid.Row="1" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53"  Foreground="#636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}">
 
         </Button>
@@ -104,7 +104,10 @@
         <Button  Style="{StaticResource hover_icon_style}"  x:Name="settingButton" Grid.Row ="1" Content="&#x9;Setting" HorizontalAlignment="Stretch" Margin="0,260,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}">
 
         </Button>
-        <Image Grid.Row ="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="0,250,0,0" VerticalAlignment="Bottom" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
+
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="aboutUsButton" Grid.Row ="1" Content="&#x9;About Us" HorizontalAlignment="Stretch"  Margin="0,300,0,0"  VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="aboutUsButton_Click" BorderBrush="{x:Null}"/>
+       
+        <Image Grid.Row ="1" Height="78" Width="Auto" HorizontalAlignment="Stretch" Margin="0,0,39,0" VerticalAlignment="Bottom" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Source="/image/icon_dashboard.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,72,0,0" VerticalAlignment="Top" Source="/image/icon_inbox.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,112,0,0" VerticalAlignment="Top" Source="/image/icon_products.png"/>
@@ -115,5 +118,6 @@
         <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
         <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Source="/image/horizontal-secondary.png"/>
         <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
+       
     </Grid>
 </Window:MyWindow>
