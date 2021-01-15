@@ -51,7 +51,11 @@ namespace TestWPPL.Dashboard
             bengkelAddressTxtBlock = txtBlockBuilder.activate(this, "address");
             bengkelEmailTxtBlock = txtBlockBuilder.activate(this, "email");
             bengkelTelephoneTxtBlock = txtBlockBuilder.activate(this, "telephone");
+<<<<<<< HEAD
             finishedTxtBlock = txtBlockBuilder.activate(this, "bookingsDone");
+=======
+            finishedTxtBlock = txtBlockBuilder.activate(this, "bookingsDone"); 
+>>>>>>> dev-tiwi
             canceledTxtBlock = txtBlockBuilder.activate(this, "bookingsCanceled");
             upcomingTxtBlock = txtBlockBuilder.activate(this, "bookingsUpcoming");
             revenueTxtBlock = txtBlockBuilder.activate(this, "totalRevenue");

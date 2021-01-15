@@ -46,7 +46,6 @@ namespace TestWPPL.Dashboard
             returnButtonColor();
             sparepartButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
 
-
         }
 
         private void paymentButton_Click(object sender, RoutedEventArgs e)
@@ -63,7 +62,6 @@ namespace TestWPPL.Dashboard
             pageTitle.Text = "Pickups";
             returnButtonColor();
             pickupButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
-
         }
 
         private void servicesButton_Click(object sender, RoutedEventArgs e)
@@ -101,7 +99,6 @@ namespace TestWPPL.Dashboard
             settingButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
             aboutUsButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
         }
-
 
     }
 }

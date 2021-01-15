@@ -185,6 +185,5 @@ namespace TestWPPL.Booking
         {
             MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-
     }
 }

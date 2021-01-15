@@ -5,16 +5,20 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWPPL", "TestWPPL\TestWPPL.csproj", "{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BenjolTeam", "..\..\publishDesktop\BenjolTeam\BenjolTeam.vdproj", "{4F4018A0-039D-4489-8F47-DFC15A13099A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{449F8A72-F7D8-4AEF-B2A3-D3D5B37FFED8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4F4018A0-039D-4489-8F47-DFC15A13099A}.Debug|Any CPU.ActiveCfg = Debug
+		{4F4018A0-039D-4489-8F47-DFC15A13099A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
