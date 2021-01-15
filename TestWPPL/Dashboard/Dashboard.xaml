@@ -47,9 +47,9 @@
                 </Border.Background>
             </Border>
             <TextBlock x:Name="bengkelName" Foreground="#FFFBB308" Text="name" Margin="65,68,43,0" VerticalAlignment="Top" FontSize="28" Grid.ColumnSpan="5"/>
-            <TextBlock x:Name="address" Foreground="#FF636363" Text="address" HorizontalAlignment="Left" Margin="65,264,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="2.473,2.829" Grid.ColumnSpan="4" TextWrapping="Wrap"/>
+            <TextBlock x:Name="address" Foreground="#FF636363" Text="address" HorizontalAlignment="Left" Margin="65,194,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="2.473,2.829" Grid.ColumnSpan="4" TextWrapping="Wrap"/>
             <TextBlock x:Name="telephone" Foreground="#636363" Text="telphone" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" FontSize="18" Grid.ColumnSpan="3"/>
-            <TextBlock x:Name="email" Foreground="#636363" Text="email" HorizontalAlignment="Left" Margin="65,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="18" Grid.ColumnSpan="4"/>
+            <TextBlock x:Name="email" Foreground="#636363" Text="email" HorizontalAlignment="Left" Margin="65,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.81,2.562" FontSize="18" Grid.ColumnSpan="4"/>
             <TextBlock x:Name="title" Foreground="#FF636363" HorizontalAlignment="Left" Margin="65,-35,-1,0" TextWrapping="Wrap" Text="Your Statistic" VerticalAlignment="Top" Height="42" Width="648" FontSize="24" Grid.ColumnSpan="6"/>
         </Grid>
 
@@ -169,8 +169,9 @@
                             </Grid.Effect>
                             <materialDesign:PackIcon Kind="PaymentOnDelivery" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 30">
-                            <TextBlock x:Name="pendingRevenue" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="30"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 40">
+                            <TextBlock Text="Rp" Margin="0 2" Foreground="Gray" FontSize="15" VerticalAlignment="Bottom"/>
+                            <TextBlock x:Name="pendingRevenue" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
                             <TextBlock Text="Unconfirmed Payments" FontSize="14" Foreground="Gray"/>
@@ -195,7 +196,7 @@
                             </Grid.Effect>
                             <materialDesign:PackIcon Kind="MoneyOff" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
                         </Grid>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="73,30,62,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 40">
                             <TextBlock Text="Rp" Margin="0 2" Foreground="Gray" FontSize="15" VerticalAlignment="Bottom"/>
                             <TextBlock x:Name="unpaidServices" Text="0" FontWeight="Bold" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
                         </StackPanel>

@@ -44,9 +44,9 @@ namespace TestWPPL.Sparepart
 
         private void initUIElements()
         {
-            saveButton = btnBuilder.activate(this, "backBtn")
+            backButton = btnBuilder.activate(this, "backBtn")
                             .addOnClick(this, "onBackButtonClick");
-            backButton = btnBuilder.activate(this, "saveBtn")
+            saveButton = btnBuilder.activate(this, "saveBtn")
                         .addOnClick(this, "onSaveButtonClick");
             uploadButton = btnBuilder.activate(this, "uploadBtn")
                             .addOnClick(this, "onUploadButtonClick");
@@ -130,6 +130,16 @@ namespace TestWPPL.Sparepart
         {
             var textBox = sender as IMyTextBox;
             e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
