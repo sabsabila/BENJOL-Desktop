@@ -175,5 +175,9 @@ namespace TestWPPL.Payment
 
         }
 
+        private void paymentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
