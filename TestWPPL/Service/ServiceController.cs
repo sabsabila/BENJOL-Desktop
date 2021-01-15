@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Velacro.Api;
 using Velacro.Basic;
 using TestWPPL.Model;
@@ -38,8 +34,6 @@ namespace TestWPPL.Service
         {
             if (_response.getHttpResponseMessage().Content != null)
             {
-                string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getParsedObject<Services>().services);
                 getView().callMethod("setService", _response.getParsedObject<Services>().services);
             }
         }
@@ -72,7 +66,6 @@ namespace TestWPPL.Service
                 .setEndpoint("api/service/" + _serviceId)
                 .setRequestMethod(HttpMethod.Put);
             client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setNothing);
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to edit service");
@@ -99,16 +92,7 @@ namespace TestWPPL.Service
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(status);
                 getView().callMethod("setStatus", status);
-            }
-        }
-
-        private void setNothing(HttpResponseBundle _response)
-        {
-            if (_response.getHttpResponseMessage().Content != null)
-            {
-                Console.WriteLine(_response.getHttpResponseMessage().ReasonPhrase);
             }
         }
 

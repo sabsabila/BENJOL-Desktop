@@ -10,6 +10,8 @@ namespace TestWPPL.Model
 {
     public class ModelSparepart : INotifyPropertyChanged
     {
+        public int num { get; set; }
+        public string displayPrice { get; set; }
         public int sparepart_id { get; set; }
         public int bengkel_id { get; set; }
         public string name { get; set; }

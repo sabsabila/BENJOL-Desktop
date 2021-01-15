@@ -1,44 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.Basic;
 using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
+using Velacro.UIElements.PasswordBox;
 using Velacro.UIElements.TextBox;
 
 
 namespace TestWPPL.Profile
 {
-    /// <summary>
-    /// Interaction logic for ProfilePage.xaml
-    /// </summary>
     public partial class ProfilePage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
         private BuilderButton btnBuilder;
-        private IMyButton updateButton;
-        private IMyButton uploadButton;
-        private IMyButton logoutButton;
-        private IMyTextBox nameTxtBox;
-        private IMyTextBox phoneTxtBox;
-        private IMyTextBox emailTxtBox;
-        private IMyTextBox addressTxtBox;
-        private int sparepartId;
+        private BuilderPasswordBox passBoxBuilder;
+        private IMyButton updateButton, uploadButton, logoutButton;
+        private IMyTextBox nameTxtBox, phoneTxtBox, emailTxtBox, addressTxtBox;
+        private IMyPasswordBox oldPass, newPass;
         private MyList<MyFile> uploadImage = new MyList<MyFile>();
 
         public ProfilePage()
@@ -54,6 +38,7 @@ namespace TestWPPL.Profile
         {
             txtBoxBuilder = new BuilderTextBox();
             btnBuilder = new BuilderButton();
+            passBoxBuilder = new BuilderPasswordBox();
         }
 
         private void initUIElements()
@@ -68,6 +53,8 @@ namespace TestWPPL.Profile
             phoneTxtBox = txtBoxBuilder.activate(this, "phoneTxt");
             emailTxtBox = txtBoxBuilder.activate(this, "emailTxt");
             addressTxtBox = txtBoxBuilder.activate(this, "addressTxt");
+            oldPass = passBoxBuilder.activate(this, "oldPassword");
+            newPass = passBoxBuilder.activate(this, "newPassword");
         }
 
         private void getEditedItem()
@@ -81,17 +68,32 @@ namespace TestWPPL.Profile
             String phoneNumber = "62" + phoneTxtBox.getText();
             ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneNumber, emailTxtBox.getText(), addressTxtBox.getText());
             String token = File.ReadAllText(@"userToken.txt");
-            getController().callMethod("editProfile", uploadImage, newBengkel, token);
+            String[] password = new String[2];
+            if(!newPass.getPassword().ToString().Equals(""))
+            {
+                password[0] = oldPass.getPassword();
+                password[1] = newPass.getPassword();
+            }
+            getController().callMethod("editProfile", uploadImage, password, newBengkel, token);
         }
 
         public void onUploadButtonClick()
         {
             uploadImage.Clear();
-            Console.WriteLine("ini buat upload");
             OpenFile openFile = new OpenFile();
             uploadImage.Add(openFile.openFile(false)[0]);
-            picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
-            Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
+            if (uploadImage[0] != null)
+            {
+                if (uploadImage[0].extension.Equals(".png", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpg", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpeg", StringComparison.InvariantCultureIgnoreCase))
+                    picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("File format not supported !", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    uploadImage.Clear();
+                }
+            }
         }
 
         public void onLogoutButtonClick()
@@ -101,18 +103,22 @@ namespace TestWPPL.Profile
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    getController().callMethod("requestLogout", token);
+                    string fullPath = @"userToken.txt";
+                    File.WriteAllText(fullPath, "");
+                    var mainWindow = new MainWindow();
+                    Window.GetWindow(this).Close();
+                    mainWindow.Show();
                     break;
             }
         }
-
-        
 
         public void setProfile(ModelBengkel bengkel)
         {
             this.Dispatcher.Invoke(() => {
                 nameTxtBox.setText(bengkel.name);
-                string number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
+                string number = "";
+                if (bengkel.phone_number != null)
+                    number = bengkel.phone_number.Substring(bengkel.phone_number.IndexOf('2') + 1);
                 phoneTxtBox.setText(number);
                 emailTxtBox.setText(bengkel.email);
                 addressTxtBox.setText(bengkel.address);
@@ -137,23 +143,6 @@ namespace TestWPPL.Profile
         public void setFailStatus(String _status)
         {
             MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        public void setLogoutStatus(String _status)
-        {
-            this.Dispatcher.Invoke(() => {
-                MessageBoxResult result = MessageBox.Show(_status, "Logout Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                switch (result)
-                {
-                    case MessageBoxResult.OK:
-                        string fullPath = @"userToken.txt";
-                        File.WriteAllText(fullPath, "");
-                        var mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        Window.GetWindow(this).Close();
-                        break;
-                }
-            });
         }
 
         private void phoneTxt_PreviewTextInput(object sender, TextCompositionEventArgs e)

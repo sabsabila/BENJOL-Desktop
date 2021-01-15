@@ -29,6 +29,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,11 +69,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LiveCharts.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML, Version=2.0.0.62, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ShowMeTheXAML.2.0.0\lib\net472\ShowMeTheXAML.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -106,6 +121,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutUs\AboutUsPage.xaml.cs">
+      <DependentUpon>AboutUsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ApiConstant.cs" />
     <Compile Include="Booking\BookingController.cs" />
     <Compile Include="Booking\BookingPage.xaml.cs">
@@ -120,18 +138,22 @@
     <Compile Include="Dashboard\DashboardController.cs" />
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Model\ModelBengkel.cs" />
+    <Compile Include="Model\ModelBookingCount.cs" />
     <Compile Include="Model\ModelPayment.cs" />
     <Compile Include="Model\ModelPickup.cs" />
+    <Compile Include="Model\ModelRevenueCount.cs" />
     <Compile Include="Model\ModelSparepart.cs" />
     <Compile Include="Model\ModelUser.cs" />
     <Compile Include="Model\ObjectBengkel.cs" />
+    <Compile Include="Model\ObjectBookingDetail.cs" />
+    <Compile Include="Model\ObjectPayment.cs" />
     <Compile Include="Model\ObjectSparepart.cs" />
+    <Compile Include="Payment\AddCostDialog.xaml.cs">
+      <DependentUpon>AddCostDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Payment\PaymentController.cs" />
     <Compile Include="Payment\PaymentPage.xaml.cs">
       <DependentUpon>PaymentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Payment\UpdatePaymentStatusDialog.xaml.cs">
-      <DependentUpon>UpdatePaymentStatusDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pickup\ListPickupPage.xaml.cs">
       <DependentUpon>ListPickupPage.xaml</DependentUpon>
@@ -139,9 +161,6 @@
     <Compile Include="Model\ModelService.cs" />
     <Compile Include="Pickup\PickupController.cs" />
     <Compile Include="Model\ModelBooking.cs" />
-    <Compile Include="Pickup\PickupPage.xaml.cs">
-      <DependentUpon>PickupPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Profile\ProfileController.cs" />
     <Compile Include="Profile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
@@ -171,6 +190,10 @@
     <Compile Include="Sparepart\SparepartPage.xaml.cs">
       <DependentUpon>SparepartPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AboutUs\AboutUsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Booking\BookingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,19 +225,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Payment\AddCostDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Payment\PaymentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Payment\UpdatePaymentStatusDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pickup\ListPickupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pickup\PickupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +288,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Muli.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Muli-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Muli-ExtraLight.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Muli-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Muli-SemiBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Mistral.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -326,5 +362,71 @@
   <ItemGroup>
     <Resource Include="Image\icons8-wrench-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Sylvi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\trustmedis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\salam.jpg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Sabila.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PTI - Logo NEW %28HQ%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo profilku - for light bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo profilku - for dark bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo - sinergi dimensi informatika.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo-virtuahive-300dpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo-rasyidtechnologies-300dpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo-rasyidinstitute-300dpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo-primary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo-maulidangames-landscape-300dpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Linadp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\horizontal-secondary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\hnet.com-image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Akira.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Alterra-Logo---Full-Colour-2000x2000.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+  <Import Project="..\packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets" Condition="Exists('..\packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
 </Project>

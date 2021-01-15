@@ -1,30 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TestWPPL.Booking;
 using TestWPPL.Pickup;
-using TestWPPL.Progress;
 using TestWPPL.Payment;
 using TestWPPL.Sparepart;
 using TestWPPL.Profile;
 using Velacro.UIElements.Basic;
 using TestWPPL.Service;
+using TestWPPL.AboutUs;
+
 
 namespace TestWPPL.Dashboard
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class BenjolWindow : MyWindow
     {
 
@@ -32,19 +19,16 @@ namespace TestWPPL.Dashboard
         {
 
             InitializeComponent();
-            //ini nanti ngeload dashboard kalo udah ada, page yg di load disini nanti yang pertama kali di load
             pageTitle.Text = "Dashboard";
             appFrame.Navigate(new Dashboard());
         }
 
-        //ini buat ngarahin kalo buttonnya di klik ntar frame nya ngeload page apa
-        //pake appFrame.Navigate(namaPage)
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
             appFrame.Navigate(new Dashboard());
             pageTitle.Text = "Dashboard";
             returnButtonColor();
-            dashboardButton.Background = Brushes.White;
+            dashboardButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
         }
 
         private void bookingButton_Click(object sender, RoutedEventArgs e)
@@ -52,7 +36,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new BookingPage());
             pageTitle.Text = "Booking";
             returnButtonColor();
-            bookingButton.Background = Brushes.White;
+            bookingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
         }
 
         private void sparepartButton_Click(object sender, RoutedEventArgs e)
@@ -60,7 +44,8 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new SparepartPage());
             pageTitle.Text = "Spareparts";
             returnButtonColor();
-            sparepartButton.Background = Brushes.White;
+            sparepartButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+
 
         }
 
@@ -69,7 +54,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new PaymentPage());
             pageTitle.Text = "Payment";
             returnButtonColor();
-            paymentButton.Background = Brushes.White;
+            paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
         }
 
         private void pickupButton_Click(object sender, RoutedEventArgs e)
@@ -77,7 +62,8 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new ListPickupPage());
             pageTitle.Text = "Pickups";
             returnButtonColor();
-            pickupButton.Background = Brushes.White;
+            pickupButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+
         }
 
         private void servicesButton_Click(object sender, RoutedEventArgs e)
@@ -85,7 +71,7 @@ namespace TestWPPL.Dashboard
             appFrame.Navigate(new ServicePage());
             pageTitle.Text = "Services";
             returnButtonColor();
-            servicesButton.Background = Brushes.White;
+            servicesButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
@@ -93,7 +79,15 @@ namespace TestWPPL.Dashboard
             pageTitle.Text = "Setting";
             appFrame.Navigate(new ProfilePage());
             returnButtonColor();
-            settingButton.Background = Brushes.White;
+            settingButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
+        }
+
+        private void aboutUsButton_Click(object sender, RoutedEventArgs e)
+        {
+            pageTitle.Text = "AboutUs";
+            appFrame.Navigate(new AboutUsPage());
+            returnButtonColor();
+            aboutUsButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF0F0F7"));
         }
 
         private void returnButtonColor()
@@ -105,6 +99,9 @@ namespace TestWPPL.Dashboard
             pickupButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
             servicesButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
             settingButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
+            aboutUsButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFCCA53"));
         }
+
+
     }
 }

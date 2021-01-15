@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using TestWPPL.Model;
 using Velacro.Api;
 using Velacro.Basic;
@@ -33,9 +29,8 @@ namespace TestWPPL.Profile
                 getView().callMethod("setFailStatus", "Failed to load profile");
         }
 
-        public async void editProfile(MyList<MyFile> files, ObjectBengkel bengkel, String token)
+        public async void editProfile(MyList<MyFile> files, String[] password, ObjectBengkel bengkel, String token)
         {
-            Console.WriteLine("ini pas request edit bengkel");
             var client = new ApiClient(ApiConstant.BASE_URL);
             var request = new ApiRequestBuilder();
 
@@ -45,10 +40,14 @@ namespace TestWPPL.Profile
             formContent.Add(new StringContent(bengkel.email), "email");
             formContent.Add(new StringContent(bengkel.address), "address");
             formContent.Add(new StringContent("PUT"), "_method");
+            if (password[0] != null && password[1] != null)
+            {
+                formContent.Add(new StringContent(password[0]), "oldPassword");
+                formContent.Add(new StringContent(password[1]), "newPassword");
+            }
             if (files.Count > 0)
                 formContent.Add(new StreamContent(new MemoryStream(files[0].byteArray)), "profile_picture", files[0].fullFileName);
 
-            Console.WriteLine(bengkel.name);
             var multiPartRequest = request
              .buildMultipartRequest(new MultiPartContent(formContent))
              .setEndpoint("api/bengkel")
@@ -58,22 +57,8 @@ namespace TestWPPL.Profile
             var response = await client.sendRequest(request.getApiRequestBundle());
             if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
                 getView().callMethod("setFailStatus", "Failed to edit profile");
-        }
-
-        public async void requestLogout(String token)
-        {
-            var client = new ApiClient(ApiConstant.BASE_URL);
-            var request = new ApiRequestBuilder();
-
-            var req = request
-                .buildHttpRequest()
-                .setEndpoint("api/logout")
-                .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token);
-            client.setOnSuccessRequest(setLogoutStatus);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-            if (response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Internal Server Error"))
-                getView().callMethod("setFailStatus", "Failed to log out");
+            else if(response.getHttpResponseMessage().ReasonPhrase.ToString().Equals("Unauthorized"))
+                getView().callMethod("setFailStatus", "Old password doesn't match ");
         }
 
         private void setItem(HttpResponseBundle _response)
@@ -90,7 +75,6 @@ namespace TestWPPL.Profile
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setStatus", _response.getJObject()["message"].ToString());
             }
         }
@@ -100,7 +84,6 @@ namespace TestWPPL.Profile
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                Console.WriteLine(_response.getJObject()["message"]);
                 getView().callMethod("setLogoutStatus", _response.getJObject()["message"].ToString());
             }
         }

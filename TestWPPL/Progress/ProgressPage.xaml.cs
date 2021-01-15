@@ -9,38 +9,45 @@ using TestWPPL.Booking;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace TestWPPL.Progress
 {
-    /// <summary>
-    /// Interaction logic for ProgressPage.xaml
-    /// </summary>
     public partial class ProgressPage : MyPage
     {
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
         private BuilderTextBlock txtBlockBuilder;
-        private IMyButton save_btn;
-        private IMyButton back_btn;
-        private IMyTextBox startTimeH;
-        private IMyTextBox startTimeM;
-        private IMyTextBox startTimeS;
-        private IMyTextBox endTimeH;
-        private IMyTextBox endTimeM;
-        private IMyTextBox endTimeS;
-        private IMyTextBlock nameTxtBlock;
-        private IMyTextBlock phoneNumberTxtBlock;
+        private IMyButton save_btn, back_btn;
+        private IMyTextBox startTimeH, startTimeM, startTimeS, endTimeH, endTimeM, endTimeS;
+        private IMyTextBlock nameTxtBlock, phoneNumberTxtBlock;
         private int bookingId;
+        private string startTime, endTime;
 
-        public ProgressPage(int _bookingId)
+        public ProgressPage(int _bookingId, string startTime, string endTime)
         {
             InitializeComponent();
             this.KeepAlive = true;
+            this.startTime = startTime;
+            this.endTime = endTime;
             setController(new ProgressController(this));
             initUIBuilders();
             initUIElements();
             this.bookingId = _bookingId;
             getUser();
+            setTime();
+        }
+
+        private void setTime()
+        {
+            var start = startTime.Split(':');
+            var end = endTime.Split(':');
+
+            if(!startTime.Equals("-") && !endTime.Equals("-"))
+            {
+                startTimeH.setText(start.ElementAt(0)); startTimeM.setText(start.ElementAt(1)); startTimeS.setText(start.ElementAt(2));
+                endTimeH.setText(end.ElementAt(0)); endTimeM.setText(end.ElementAt(1)); endTimeS.setText(end.ElementAt(2));
+            }
         }
 
         private void initUIElements()
@@ -67,17 +74,13 @@ namespace TestWPPL.Progress
             System.Diagnostics.Debug.WriteLine("Test uibu page");
         }
 
-       
-
         public void onSaveButtonClick()
         {
             System.Diagnostics.Debug.WriteLine("Test onsave page");
             String token = File.ReadAllText(@"userToken.txt");
             String startTime = startTimeH.getText().ToString() + ":" + startTimeM.getText().ToString() + ":" + startTimeS.getText().ToString();
             String endTime = endTimeH.getText().ToString() + ":" + endTimeM.getText().ToString() + ":" + endTimeS.getText().ToString();
-            Console.WriteLine("INI START TIME" + startTime);
             getController().callMethod("editProgress", bookingId, startTime, endTime, token);
-            Console.WriteLine(token);
         }
 
         public void onBackButtonClick()
@@ -112,7 +115,7 @@ namespace TestWPPL.Progress
         public void setUser(ModelUser user)
         {
             this.Dispatcher.Invoke(() => {
-                nameTxtBlock.setText(user.first_name + " " + user.last_name);
+                nameTxtBlock.setText(user.full_name);
                 if (user.phone_number != null)
                     phoneNumberTxtBlock.setText(user.phone_number);
                 if (user.profile_picture != null)

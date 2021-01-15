@@ -1,32 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestWPPL.Model;
 using Velacro.Basic;
 using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
-using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
 
 namespace TestWPPL.Sparepart
 {
-    /// <summary>
-    /// Interaction logic for AddSparepartPage.xaml
-    /// </summary>
     public partial class AddSparepartPage : MyPage
     {
         private BuilderTextBox txtBoxBuilder;
@@ -87,11 +73,20 @@ namespace TestWPPL.Sparepart
         public void onUploadButtonClick()
         {
             uploadImage.Clear();
-            Console.WriteLine("ini buat upload");
             OpenFile openFile = new OpenFile();
             uploadImage.Add(openFile.openFile(false)[0]);
-            picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
-            Console.WriteLine("panjangnya upload image list : " + uploadImage.Count);
+            if (uploadImage[0] != null)
+            {
+                if (uploadImage[0].extension.Equals(".png", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpg", StringComparison.InvariantCultureIgnoreCase) ||
+                    uploadImage[0].extension.Equals(".jpeg", StringComparison.InvariantCultureIgnoreCase))
+                    picture.Source = new BitmapImage(new Uri(uploadImage[0].fullPath));
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("File format not supported !", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    uploadImage.Clear();
+                }
+            }
         }
 
         public void setFailStatus(String _status)
