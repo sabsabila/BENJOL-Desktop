@@ -10,13 +10,14 @@
       FontFamily="{StaticResource Muli}"
       Title="PaymentPage">
 
+
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
         <Label Content="Invoices" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
         <ListView x:Name="paymentList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,100,20,50" VerticalAlignment="Top" Width="Auto">
             <ListView.View>
-                <GridView>
+                <GridView >
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
+                    <GridViewColumn  DisplayMemberBinding="{Binding full_name}" Header="Name" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_name}" Header="Service" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding service_cost}" Header="Cost" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding repairment_date}" Header="Service Date" Width="150"/>

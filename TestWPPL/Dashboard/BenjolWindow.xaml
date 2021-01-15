@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         FontFamily="{StaticResource Muli}"
         Title="BENJOL" WindowState="Maximized">
-    
+
     <Window.Resources>
         <ImageBrush x:Key="hover_icon" ImageSource="/Image/Hover.png" Stretch="None"/>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
@@ -74,37 +74,41 @@
             <RowDefinition Height="8*" />
         </Grid.RowDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFFCCA53" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
-        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Rectangle Fill="#FFFCCA53" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,442" Grid.RowSpan="2" />
         <Rectangle Fill="#FFFCCA53" Grid.Row ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        
-        <Button Style="{StaticResource hover_icon_style}" x:Name="dashboardButton" Grid.Row="1" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53"  Foreground="#636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}">
+
+
+        <Button Style="{StaticResource hover_icon_style}" x:Name="dashboardButton" Grid.Row="1" FontSize="14" Content="&#x9;Dashboard" HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53"  Foreground="#636363" HorizontalContentAlignment="Left" Click="dashboardButton_Click" BorderBrush="{x:Null}">
+
+        </Button>
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="bookingButton" Grid.Row ="1" FontSize="14" Content="&#x9;Booking" HorizontalAlignment="Stretch" Margin="0,62,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="bookingButton_Click"  BorderBrush="{x:Null}">
 
         </Button>
 
-        <Button  Style="{StaticResource hover_icon_style}"  x:Name="bookingButton" Grid.Row ="1" Content="&#x9;Booking" HorizontalAlignment="Stretch" Margin="0,62,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="bookingButton_Click"  BorderBrush="{x:Null}">
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="sparepartButton" Grid.Row ="1" FontSize="14" Content="&#x9;Products" HorizontalAlignment="Stretch" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}">
 
         </Button>
 
-        <Button  Style="{StaticResource hover_icon_style}"  x:Name="sparepartButton" Grid.Row ="1" Content="&#x9;Products" HorizontalAlignment="Stretch" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="sparepartButton_Click" BorderBrush="{x:Null}">
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="paymentButton" Grid.Row ="1" FontSize="14" Content="&#x9;Invoices" HorizontalAlignment="Stretch" Margin="0,142,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click ="paymentButton_Click" BorderBrush="{x:Null}">
 
         </Button>
 
-        <Button  Style="{StaticResource hover_icon_style}"  x:Name="paymentButton" Grid.Row ="1" Content="&#x9;Invoices" HorizontalAlignment="Stretch" Margin="0,142,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click ="paymentButton_Click" BorderBrush="{x:Null}">
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="pickupButton" Grid.Row ="1" FontSize="14" Content="&#x9;Pickup" HorizontalAlignment="Stretch" Margin="0,180,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}">
 
         </Button>
 
-        <Button  Style="{StaticResource hover_icon_style}"  x:Name="pickupButton" Grid.Row ="1" Content="&#x9;Pickup" HorizontalAlignment="Stretch" Margin="0,180,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="pickupButton_Click" BorderBrush="{x:Null}">
+        <Button Style="{StaticResource hover_icon_style}" x:Name="servicesButton" Grid.Row ="1" FontSize="14" Content="&#x9;Services" HorizontalAlignment="Stretch" Margin="0,220,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="servicesButton_Click" BorderBrush="{x:Null}" >
 
         </Button>
 
-        <Button Style="{StaticResource hover_icon_style}" x:Name="servicesButton" Grid.Row ="1" Content="&#x9;Services" HorizontalAlignment="Stretch" Margin="0,220,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="servicesButton_Click" BorderBrush="{x:Null}" >
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="settingButton" Grid.Row ="1" FontSize="14" Content="&#x9;Setting" HorizontalAlignment="Stretch" Margin="0,260,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}">
 
         </Button>
 
-        <Button  Style="{StaticResource hover_icon_style}"  x:Name="settingButton" Grid.Row ="1" Content="&#x9;Setting" HorizontalAlignment="Stretch" Margin="0,260,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="settingButton_Click" BorderBrush="{x:Null}">
+        <Button  Style="{StaticResource hover_icon_style}"  x:Name="aboutUsButton" Grid.Row ="1" FontSize="14" Content="&#x9;About Us" HorizontalAlignment="Stretch" Margin="0,300,0,0" VerticalAlignment="Top" Height="25" Background="#FFFCCA53" Foreground="#636363" HorizontalContentAlignment="Left" Click="aboutUsButton_Click" BorderBrush="{x:Null}">
 
         </Button>
-        <Image Grid.Row ="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="0,250,0,0" VerticalAlignment="Bottom" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
+
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Source="/image/icon_dashboard.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,72,0,0" VerticalAlignment="Top" Source="/image/icon_inbox.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,112,0,0" VerticalAlignment="Top" Source="/image/icon_products.png"/>
@@ -112,8 +116,12 @@
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top" Source="/image/icon_help-center.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Source="/image/icons8-wrench-50.png"/>
         <Image Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="20" MaxWidth="10" HorizontalAlignment="Left" Margin="28,269,0,0" VerticalAlignment="Top" Source="/image/icon_setting.png"/>
+        <materialDesign:PackIcon Kind="AccountCogOutline" Grid.Row ="1" Height="Auto" Width="Auto" MaxHeight="15" MaxWidth="15"  HorizontalAlignment="Left" Margin="28,307,0,0" Foreground="#636363" />
+        <Image Grid.Row ="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,-10" VerticalAlignment="Bottom" Source="/image/—Pngtree—car car black tires printed_3071535.png"/>
+
         <Frame x:Name="appFrame" Grid.Row ="1" Grid.Column="1" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" FontSize="20"/>
         <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Source="/image/horizontal-secondary.png"/>
         <TextBlock x:Name="pageTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Page Name" Foreground="#636363" VerticalAlignment="Center" Height="40" Width="203" FontSize="25"/>
+
     </Grid>
 </Window:MyWindow>
