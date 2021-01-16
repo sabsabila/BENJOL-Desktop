@@ -100,7 +100,7 @@ namespace TestWPPL.Booking
             MessageBoxResult result;
             if (dataObject.status.Equals("finished"))
                 result = MessageBox.Show("This booking has already been finished.", "Set Service Time", MessageBoxButton.OK, MessageBoxImage.Information);
-            else if(dataObject.status.Equals("canceled"))
+            else if (dataObject.status.Equals("canceled"))
                 result = MessageBox.Show("This booking has been canceled.", "Set Service Time", MessageBoxButton.OK, MessageBoxImage.Information);
             else
                 this.NavigationService.Navigate(new ProgressPage(dataObject.booking_id, dataObject.start_time, dataObject.end_time));
@@ -185,6 +185,5 @@ namespace TestWPPL.Booking
         {
             MessageBoxResult result = MessageBox.Show(_status, "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-        
     }
 }

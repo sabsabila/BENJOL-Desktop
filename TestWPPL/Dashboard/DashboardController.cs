@@ -41,11 +41,11 @@ namespace TestWPPL.Dashboard
                 .setEndpoint("api/booking/count")
                 .setRequestMethod(HttpMethod.Post);
             client.setAuthorizationToken(token);
-            if(_status.Equals("finished"))
+            if (_status.Equals("finished"))
                 client.setOnSuccessRequest(setBookingsDone);
-            else if(_status.Equals("upcoming"))
+            else if (_status.Equals("upcoming"))
                 client.setOnSuccessRequest(setBookingsUpcoming);
-            else if(_status.Equals("canceled"))
+            else if (_status.Equals("canceled"))
                 client.setOnSuccessRequest(setBookingsCanceled);
 
             var response = await client.sendRequest(request.getApiRequestBundle());
@@ -63,7 +63,7 @@ namespace TestWPPL.Dashboard
                 .addParameters("status", _status)
                 .setEndpoint("api/revenue/count")
                 .setRequestMethod(HttpMethod.Post);
-            client.setAuthorizationToken(token); 
+            client.setAuthorizationToken(token);
             if (_status.Equals("paid"))
                 client.setOnSuccessRequest(setRevenue);
             else if (_status.Equals("unpaid"))

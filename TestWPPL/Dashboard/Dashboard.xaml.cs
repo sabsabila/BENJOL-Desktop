@@ -8,16 +8,19 @@ using TestWPPL.Model.TestWPPL.Model;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.TextBlock;
 
-namespace TestWPPL.Dashboard {
+namespace TestWPPL.Dashboard
+{
 
-    public partial class Dashboard : MyPage{
+    public partial class Dashboard : MyPage
+    {
 
         private BuilderTextBlock txtBlockBuilder;
         private IMyTextBlock bengkelNameTxtBlock, bengkelEmailTxtBlock, bengkelTelephoneTxtBlock, bengkelAddressTxtBlock;
         private IMyTextBlock finishedTxtBlock, canceledTxtBlock, upcomingTxtBlock;
         private IMyTextBlock revenueTxtBlock, unpaidTxtBlock, pendingTxtBlock, titleTxtBlock;
 
-        public Dashboard() {
+        public Dashboard()
+        {
             InitializeComponent();
             setController(new DashboardController(this));
             initUIBuilders();
@@ -48,7 +51,8 @@ namespace TestWPPL.Dashboard {
             bengkelAddressTxtBlock = txtBlockBuilder.activate(this, "address");
             bengkelEmailTxtBlock = txtBlockBuilder.activate(this, "email");
             bengkelTelephoneTxtBlock = txtBlockBuilder.activate(this, "telephone");
-            finishedTxtBlock = txtBlockBuilder.activate(this, "bookingsDone"); 
+
+            finishedTxtBlock = txtBlockBuilder.activate(this, "bookingsDone");
             canceledTxtBlock = txtBlockBuilder.activate(this, "bookingsCanceled");
             upcomingTxtBlock = txtBlockBuilder.activate(this, "bookingsUpcoming");
             revenueTxtBlock = txtBlockBuilder.activate(this, "totalRevenue");

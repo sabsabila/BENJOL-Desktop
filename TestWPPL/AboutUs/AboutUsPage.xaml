@@ -1,17 +1,9 @@
-﻿    <Page:MyPage x:Class="TestWPPL.AboutUs.AboutUsPage" xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TestWPPL.AboutUs"
-      mc:Ignorable="d" 
-      
-      Title="AboutUsPage">
+<Page:MyPage x:Class="TestWPPL.AboutUs.AboutUsPage" xmlns:Page="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:TestWPPL.AboutUs" mc:Ignorable="d" Title="AboutUsPage">
 
     <Grid Background="#FFF0F0F7">
-        <TextBlock x:Name="title" Foreground="#FF636363" HorizontalAlignment="Center" Margin="10,4,751,0" TextWrapping="Wrap" Text="ABOUT US" VerticalAlignment="Top" Height="42" Width="648" FontSize="24"/>
+        <TextBlock x:Name="title" Foreground="#FF636363" HorizontalAlignment="Center" Margin="10,4,751,0" TextWrapping="Wrap" Text="ABOUT US" VerticalAlignment="Top" Height="42" Width="648" FontSize="24" />
 
-        <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
+        <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
 
         <Grid x:Name="firstFiveItems">
             <Grid.ColumnDefinitions>
@@ -28,70 +20,70 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0" >
+            <Grid Grid.Row="0" Grid.Column="0">
                 <Grid>
-                    <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
-                    <Border CornerRadius="5,5,5,5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="10"  >
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Border CornerRadius="5,5,5,5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="10">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="/TestWPPL;component/Image/Akira.jpg" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Akira.jpg" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
-                    <TextBlock HorizontalAlignment="Center" Margin="63,110,66,23" Text="Akira - PO" FontSize="14" Foreground="Gray"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="63,110,66,23" Text="Akira - PO" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1" Margin="-60 0 0 0">
                 <Grid>
-                    <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
-                    <TextBlock HorizontalAlignment="Center" Margin="63,110,66,23" Text="Salam" FontSize="14" Foreground="Gray"/>
-                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="10"  >
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <TextBlock HorizontalAlignment="Center" Margin="63,110,66,23" Text="Salam" FontSize="14" Foreground="Gray" />
+                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="10">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="/TestWPPL;component/Image/salam.jpg.jpeg" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/salam.jpg.jpeg" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="2" >
+            <Grid Grid.Row="0" Grid.Column="2">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="33,0,66,23" Text="Dev Team" FontWeight="SemiBold" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="33,110,66,23" Text="Sabila" FontSize="14" Foreground="Gray"/>
-                    <Border CornerRadius="5 5 5 5"  BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-30 0 0 0"  >
+                    <TextBlock HorizontalAlignment="Center" Margin="33,0,66,23" Text="Dev Team" FontWeight="SemiBold" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="33,110,66,23" Text="Sabila" FontSize="14" Foreground="Gray" />
+                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-30 0 0 0">
                         <Border.Effect>
-                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="/TestWPPL;component/Image/Sabila.jpg" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Sabila.jpg" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="3" >
+            <Grid Grid.Row="0" Grid.Column="3">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="33,110,66,23" Text="Lina" FontSize="14" Foreground="Gray"/>
-                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-30 0 0 0 "  >
+                    <TextBlock HorizontalAlignment="Center" Margin="33,110,66,23" Text="Lina" FontSize="14" Foreground="Gray" />
+                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-30 0 0 0 ">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="/TestWPPL;component/Image/Linadp.jpg" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Linadp.jpg" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="4" >
+            <Grid Grid.Row="0" Grid.Column="4">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="23,110,66,23" Text="Sylvi" FontSize="14" Foreground="Gray"/>
-                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-43 0 0 0"  >
+                    <TextBlock HorizontalAlignment="Center" Margin="23,110,66,23" Text="Sylvi" FontSize="14" Foreground="Gray" />
+                    <Border CornerRadius="5 5 5 5" BorderBrush="White" Width="60" Height="60" MaxHeight="80" Margin="-43 0 0 0">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="/TestWPPL;component/Image/Sylvi.jpg" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Sylvi.jpg" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
 
@@ -100,106 +92,106 @@
 
             <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Margin="0 0 0 0">
                 <Grid>
-                    <Border BorderBrush="White" Width="72" Height="60" MaxHeight="80" Margin="-190 -40 0 0"  >
+                    <Border BorderBrush="White" Width="72" Height="60" MaxHeight="80" Margin="-190 -40 0 0">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo - sinergi dimensi informatika.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo - sinergi dimensi informatika.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                 <Grid>
-                    <Border  BorderBrush="White" Width="100" Height="34" MaxHeight="80" Margin="-272 -40 0 0" >
+                    <Border BorderBrush="White" Width="100" Height="34" MaxHeight="80" Margin="-272 -40 0 0">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-rasyidinstitute-300dpi.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-rasyidinstitute-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="2"  Grid.ColumnSpan="2" Margin="-150 0 0 0">
+            <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="-150 0 0 0">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="33,0,66,23" FontWeight="SemiBold" Text="Supported by :" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="30,120,66,15" Text="Supervisors and Mentors :" FontWeight="SemiBold" FontSize="14" Foreground="Gray"/>
-                    <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
-                     <Border BorderBrush="White" Width="130" Height="40" MaxHeight="80" Margin="-80 -40 0 0"  >
+                    <TextBlock HorizontalAlignment="Center" Margin="33,0,66,23" FontWeight="SemiBold" Text="Supported by :" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="30,120,66,15" Text="Supervisors and Mentors :" FontWeight="SemiBold" FontSize="14" Foreground="Gray" />
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Border BorderBrush="White" Width="130" Height="40" MaxHeight="80" Margin="-80 -40 0 0">
                         <Border.Effect>
-                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\trustmedis.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/trustmedis.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="3" >
+            <Grid Grid.Row="2" Grid.Column="3">
                 <Grid>
-                    <Border  BorderBrush="White" Width="80" Height="20" MaxHeight="80" Margin="0 -30 0 0" >
+                    <Border BorderBrush="White" Width="80" Height="20" MaxHeight="80" Margin="0 -30 0 0">
                         <Border.Effect>
-                            <DropShadowEffect  Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo profilku - for light bg.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo profilku - for light bg.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="4" >
+            <Grid Grid.Row="2" Grid.Column="4">
                 <Grid>
-                    <Border BorderBrush="White" Width="120" Height="80" MaxHeight="80" Margin="0 -55 0 0"  >
+                    <Border BorderBrush="White" Width="120" Height="80" MaxHeight="80" Margin="0 -55 0 0">
                         <Border.Effect>
-                            <DropShadowEffect  Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\Alterra-Logo---Full-Colour-2000x2000.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Alterra-Logo---Full-Colour-2000x2000.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="0" >
+            <Grid Grid.Row="3" Grid.Column="0">
                 <Grid>
-                    <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
-                    <TextBlock HorizontalAlignment="Center" Margin="42,13,66,44" Text="Umi Sa'adah" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="42,33,66,44" Text="Fandi Ahmad" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="42,53,66,44" Text="Verent Flourencia Irene" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="42,73,66,44" Text="Mayshella Ainun Wakhidah" FontSize="14" Foreground="Gray"/>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <TextBlock HorizontalAlignment="Center" Margin="42,13,66,44" Text="Umi Sa'adah" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="42,33,66,44" Text="Fandi Ahmad" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="42,53,66,44" Text="Verent Flourencia Irene" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="42,73,66,44" Text="Mayshella Ainun Wakhidah" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
-            <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >
+            <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,13,66,44" Text="Desy Intan Permatasari" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,33,66,44" Text="Andika Ahmad Ramadhan" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,53,66,44" Text="Ardian Kristya Pratama" FontSize="14" Foreground="Gray"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,13,66,44" Text="Desy Intan Permatasari" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,33,66,44" Text="Andika Ahmad Ramadhan" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,53,66,44" Text="Ardian Kristya Pratama" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
-            <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" >
+            <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,13,66,44" Text="Andhik Ampuh Yunanto" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,33,66,44" Text="Achmad Zulkarnain" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,53,66,44" Text="Tegar Imansyah" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-250,73,66,44" Text="Arie Affianto" FontSize="14" Foreground="Gray"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,13,66,44" Text="Andhik Ampuh Yunanto" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,33,66,44" Text="Achmad Zulkarnain" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,53,66,44" Text="Tegar Imansyah" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-250,73,66,44" Text="Arie Affianto" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3 ">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="-200,13,66,44" Text="Maulidan Bagus Afridian Rasyid" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-200,53,66,44" Text="Angga Pradipta Kurnia Putra" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="-200,33,66,44" Text="Muhammad Alif Pradipta ADP" FontSize="14" Foreground="Gray"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="-200,13,66,44" Text="Maulidan Bagus Afridian Rasyid" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-200,53,66,44" Text="Angga Pradipta Kurnia Putra" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="-200,33,66,44" Text="Muhammad Alif Pradipta ADP" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
-            <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3"  >
+            <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3">
                 <Grid>
-                    <Border HorizontalAlignment="Center"  VerticalAlignment="Top" />
-                    <TextBlock HorizontalAlignment="Center" Margin="0,13,66,44" Text="Willy Achmat Fauzi" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,33,66,44" Text="Rafly Arief Kanza" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,53,66,44" Text="Ajie Dibyo Respati" FontSize="14" Foreground="Gray"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,73,46,44" Text="Ahmad Jarir At Thobari" FontSize="14" Foreground="Gray"/>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <TextBlock HorizontalAlignment="Center" Margin="0,13,66,44" Text="Willy Achmat Fauzi" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="0,33,66,44" Text="Rafly Arief Kanza" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="0,53,66,44" Text="Ajie Dibyo Respati" FontSize="14" Foreground="Gray" />
+                    <TextBlock HorizontalAlignment="Center" Margin="0,73,46,44" Text="Ahmad Jarir At Thobari" FontSize="14" Foreground="Gray" />
                 </Grid>
             </Grid>
 
@@ -208,59 +200,58 @@
         <Grid x:Name="fourItems" Margin="20 0 0 220 ">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="1" Grid.Column="0" Margin="0 100 0 0">
-                <Grid Grid.ColumnSpan="2">              
-                    <Border CornerRadius="0 0 0 0" Width="200" Height="45" BorderBrush="White" Margin="0 0 0 0"   >
+                <Grid Grid.ColumnSpan="2">
+                    <Border CornerRadius="0 0 0 0" Width="200" Height="45" BorderBrush="White" Margin="0 0 0 0">
                         <Border.Effect>
-                            <DropShadowEffect  Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-virtuahive-300dpi.png" 
-                                        Stretch="UniformToFill"  />
-                        </Border.Background>
-                    </Border>
-                  
-                </Grid>
-            </Grid>
-            <Grid Grid.ColumnSpan="1" Margin="-40 100 0 0" Grid.Column="1" >
-                <Grid>
-                    <Border BorderBrush="White" Width="100" Height="25"   >
-                        <Border.Effect>
-                            <DropShadowEffect  Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
-                        </Border.Effect>
-                        <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-rasyidtechnologies-300dpi.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-virtuahive-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
 
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1" Margin="110 90 0 0" Grid.ColumnSpan="2" >
+            <Grid Grid.ColumnSpan="1" Margin="-40 100 0 0" Grid.Column="1">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Center" Margin="33,90,66,23" FontWeight="SemiBold" Text="Sponsored by:" FontSize="14" Foreground="Gray"/>
-                    <Border Width="60" Height="50" BorderBrush="White" MaxHeight="80"  >
+                    <Border BorderBrush="White" Width="100" Height="25">
                         <Border.Effect>
-                            <DropShadowEffect  Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\PTI - Logo NEW (HQ).png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-rasyidtechnologies-300dpi.png" Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" Margin="110 90 0 0" Grid.ColumnSpan="2">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Center" Margin="33,90,66,23" FontWeight="SemiBold" Text="Sponsored by:" FontSize="14" Foreground="Gray" />
+                    <Border Width="60" Height="50" BorderBrush="White" MaxHeight="80">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/PTI - Logo NEW (HQ).png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="3"  Margin="-100 100 0 0">
+            <Grid Grid.Column="3" Margin="-100 100 0 0">
                 <Grid Grid.ColumnSpan="3">
-                    <Border BorderBrush="White" Width="224" Height="30" MaxHeight="80"   >
+                    <Border BorderBrush="White" Width="224" Height="30" MaxHeight="80">
                         <Border.Effect>
-                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-maulidangames-landscape-300dpi.png" Stretch="UniformToFill"  />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-maulidangames-landscape-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>

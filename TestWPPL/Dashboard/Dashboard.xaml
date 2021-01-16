@@ -179,7 +179,6 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="3">
-                    
                     <Rectangle Height="120"  Margin="20" Fill="#F6F9F1" RadiusY="10" RadiusX="10"  >
                         <Rectangle.Effect>
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>

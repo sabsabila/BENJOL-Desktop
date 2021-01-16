@@ -6,9 +6,11 @@ using TestWPPL.Model;
 
 namespace TestWPPL.Booking
 {
-    public class BookingController : MyController {
-        public BookingController(IMyView _myView) : base(_myView) { 
-            
+    public class BookingController : MyController
+    {
+        public BookingController(IMyView _myView) : base(_myView)
+        {
+
         }
 
         public async void booking(String token)
