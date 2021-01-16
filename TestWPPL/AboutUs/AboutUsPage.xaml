@@ -97,7 +97,7 @@
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo - sinergi dimensi informatika.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo - sinergi dimensi informatika.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -109,7 +109,7 @@
                             <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-rasyidinstitute-300dpi.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-rasyidinstitute-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -124,7 +124,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\trustmedis.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/trustmedis.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -136,7 +136,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo profilku - for light bg.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo profilku - for light bg.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -148,7 +148,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\Alterra-Logo---Full-Colour-2000x2000.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/Alterra-Logo---Full-Colour-2000x2000.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -212,7 +212,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-virtuahive-300dpi.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-virtuahive-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
 
@@ -225,7 +225,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-rasyidtechnologies-300dpi.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-rasyidtechnologies-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
 
@@ -239,7 +239,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\PTI - Logo NEW (HQ).png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/PTI - Logo NEW (HQ).png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
@@ -251,7 +251,7 @@
                             <DropShadowEffect Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1" />
                         </Border.Effect>
                         <Border.Background>
-                            <ImageBrush ImageSource="E:\KULIAH\SMT5\WPPL JOSS\findes\Benjol-Desktop\TestWPPL\Image\logo-maulidangames-landscape-300dpi.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="/TestWPPL;component/Image/logo-maulidangames-landscape-300dpi.png" Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                 </Grid>
