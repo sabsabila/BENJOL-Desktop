@@ -12,7 +12,7 @@
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF0F0F7">
 
         <Label Content="Pickups" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#636363" FontSize="24"/>
-        <ListView x:Name="pickupList" HorizontalAlignment="Stretch" Height="Auto" Margin="20,100,20,50" VerticalAlignment="Stretch" Width="Auto">
+        <ListView Style="{DynamicResource MaterialDesignListView}" x:Name="pickupList" HorizontalAlignment="Center" Height="Auto" Margin="20,100,20,50" VerticalAlignment="Center" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding num}" Header="#" Width="Auto"/>

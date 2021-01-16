@@ -62,6 +62,8 @@ namespace TestWPPL.Pickup
                     pickup.buttonAction = "Deliver Back";
                 else if (pickup.status.Equals("delivering"))
                     pickup.buttonAction = "Done !";
+                else if (pickup.status.Equals("canceled"))
+                    pickup.buttonAction = "Canceled";
                 pickup.num = id;
                 id++;
             }
@@ -108,12 +110,17 @@ namespace TestWPPL.Pickup
                 status = "delivering";
             else if (button.Content.Equals("Done !"))
                 status = null;
+            else if (button.Content.Equals("Canceled"))
+                status = "canceled";
+
 
             ModelPickup dataObject = button.DataContext as ModelPickup; 
             String token = File.ReadAllText(@"userToken.txt");
             MessageBoxResult result;
             if (status != null)
                 getController().callMethod("pickup", status, dataObject.booking_id, token);
+            else if(status.Equals("canceled"))
+                result = MessageBox.Show("Pickup has been canceled !", "Canceled Pickup", MessageBoxButton.OK, MessageBoxImage.Information);
             else
                 result = MessageBox.Show("Vehicle has been delivered !", "Finished Pickup", MessageBoxButton.OK, MessageBoxImage.Information);
         }

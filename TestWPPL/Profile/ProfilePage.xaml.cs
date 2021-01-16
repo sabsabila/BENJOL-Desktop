@@ -94,6 +94,8 @@ namespace TestWPPL.Profile
                     uploadImage.Clear();
                 }
             }
+            else
+                uploadImage.Clear();
         }
 
         public void onLogoutButtonClick()

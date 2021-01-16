@@ -29,7 +29,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="progressBtn" HorizontalAlignment="Center" Background="#FFFCCA53" Foreground="#636363" BorderBrush="{x:Null}" FontSize="11" Content="Start Service" Margin="0,0,5,0"  Padding="7" Height="Auto" Width="Auto" Click="progressBtn_Click"/>
                                     <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="finishBtn"  HorizontalAlignment="Center" Background="#32943c" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Finish"  Padding="7" Height="Auto" Width="Auto" Click="finishBtn_Click"/>
-                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="cancelBtn"  HorizontalAlignment="Center" Background="#c23838" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Canceled"  Padding="7" Height="Auto" Width="Auto" Click="cancelBtn_Click"/>
+                                    <Button  Style="{StaticResource MaterialDesignFlatLightBgButton }"  x:Name="cancelBtn"  HorizontalAlignment="Center" Background="#c23838" Foreground="#fafafa" BorderBrush="{x:Null}" FontSize="11" Content="Cancel"  Padding="7" Height="Auto" Width="Auto" Click="cancelBtn_Click"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
