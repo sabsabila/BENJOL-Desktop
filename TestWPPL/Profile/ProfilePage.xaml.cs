@@ -65,16 +65,21 @@ namespace TestWPPL.Profile
 
         public void onUpdateButtonClick()
         {
-            String phoneNumber = "62" + phoneTxtBox.getText();
-            ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneNumber, emailTxtBox.getText(), addressTxtBox.getText());
-            String token = File.ReadAllText(@"userToken.txt");
-            String[] password = new String[2];
-            if(!newPass.getPassword().ToString().Equals(""))
+            MessageBoxResult result;
+            if (!nameTxtBox.getText().Equals("") && !phoneTxtBox.getText().Equals("") && !emailTxtBox.getText().Equals("") && !addressTxtBox.getText().Equals(""))
             {
-                password[0] = oldPass.getPassword();
-                password[1] = newPass.getPassword();
-            }
-            getController().callMethod("editProfile", uploadImage, password, newBengkel, token);
+                String phoneNumber = "62" + phoneTxtBox.getText();
+                ObjectBengkel newBengkel = new ObjectBengkel(nameTxtBox.getText(), phoneNumber, emailTxtBox.getText(), addressTxtBox.getText());
+                String token = File.ReadAllText(@"userToken.txt");
+                String[] password = new String[2];
+                if (!newPass.getPassword().ToString().Equals(""))
+                {
+                    password[0] = oldPass.getPassword();
+                    password[1] = newPass.getPassword();
+                }
+                getController().callMethod("editProfile", uploadImage, password, newBengkel, token);
+            }else
+                result = MessageBox.Show("All field must be filled !", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void onUploadButtonClick()
